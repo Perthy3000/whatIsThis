@@ -16,5 +16,6 @@ List<test1>pokemons;
 		System.out.println("3: Perth3000, The God");
 		System.out.println("4: Exit Shop");
 	}
-
+	//add this comment
+	//for test
 }
