@@ -2,7 +2,7 @@ package test;
 
 public class pika extends test1 {
 
-	public pika(String name, String element, int maxHp, int attack, int defense, int speed) {
+	public pika(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		super(name, element, maxHp, attack, defense, speed);
 	}
 

@@ -2,14 +2,15 @@ package test;
 
 public abstract class test1 {
 	private String name;
-	private String element;
+	private Element element;
 	private int attack;
 	private int defense;
 	private int maxHp;
 	private int speed;
 	private int currentHp;
+	private Status status;
 	
-	public test1(String name, String element, int maxHp, int attack, int defense, int speed) {
+	public test1(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		this.name = name;
 		this.element = element;
 		this.maxHp = maxHp;
@@ -17,10 +18,23 @@ public abstract class test1 {
 		this.defense = defense;
 		this.speed = speed;
 		currentHp = maxHp;
+		status = Status.READY;
 	}
 	
-	abstract protected int doDamage(test1 sandbag);
+	public Status getStatus() {
+		return status;
+	}
 
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	abstract protected int doDamage(test1 sandbag);
+	//abstract protected void skill1();
+	//abstract protected void skill2();
+	//abstract protected void skill3();
+	//abstract protected void skill4();
+	
 	public String getName() {
 		return name;
 	}
@@ -29,12 +43,8 @@ public abstract class test1 {
 		this.name = name;
 	}
 
-	public String getElement() {
+	public Element getElement() {
 		return element;
-	}
-
-	public void setElement(String element) {
-		this.element = element;
 	}
 
 	public int getAttack() {
