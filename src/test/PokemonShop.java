@@ -5,15 +5,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PokemonShop {
-	List<test1>pokemons;
+//	private List<test1> pokemons;
 	private Scanner input;
 	private player player;
+	
 	public PokemonShop(player player) {
-	this.player = player;
-	prompt();
-	input = new Scanner(System.in);
-	run();
-}
+//		pokemons = new ArrayList<test1>();
+		this.player = player;
+		input = new Scanner(System.in);
+		prompt();
+		run();
+	}
+	
 	public void prompt() {
 		System.out.println("Select Pokemon :");
 		System.out.println("1: Magikarp");
@@ -21,6 +24,7 @@ public class PokemonShop {
 		System.out.println("3: Perth3000, The God");
 		System.out.println("4: Exit Shop");
 	}
+	
 	public void run() {
 		int select = input.nextInt();
 		

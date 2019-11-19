@@ -7,8 +7,9 @@ public class Pokeball {
 	private List<test1> Pokemon_List;
 	
 	public Pokeball() {
-		
+		Pokemon_List = new ArrayList<test1>();
 	}
+	
 	public void addPokemon(test1 Poken) {
 		this.Pokemon_List.add(Poken);
 	}
