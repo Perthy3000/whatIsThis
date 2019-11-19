@@ -7,7 +7,7 @@ public class player {
 	private String name;
 	private List<test1> playerpokken;
 	private int availablepokken;
-	private int maxpokken;
+	private final int maxpokken = 6;
 	private int money;
 	
 	public player(String name) {
@@ -19,8 +19,11 @@ public class player {
 	
 	public void addpoken(test1 pokken) {
 		if(playerpokken.size() < maxpokken) {
-			playerpokken.add(pokken);	
+			playerpokken.add(pokken);
+			System.out.println(pokken.getName() + " is added!");
 			availablepokken++;
+		} else {
+			System.out.println("full!");
 		}
 	}
 	

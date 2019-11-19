@@ -68,8 +68,9 @@ public abstract class test1 {
 	}
 	
 	public void setCurrentHp(int currentHp) {
-		if(currentHp < 0) {
+		if(currentHp <= 0) {
 			currentHp = 0;
+			status = Status.FAINTED;
 		}
 		this.currentHp = currentHp;
 	}
