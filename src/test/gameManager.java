@@ -22,6 +22,7 @@ public class gameManager {
 		battle();
 	}
 	
+	//select player's pokemon
 	private void select() {
 		String chosen = in.nextLine();
 		test1 pokken = null;
