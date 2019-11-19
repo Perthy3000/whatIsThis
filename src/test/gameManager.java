@@ -72,16 +72,16 @@ public class gameManager {
 				//check if player want to continue battle
 				System.out.println("Continue? y : n");
 				String continued = in.next();
-				if(continued.equals("n")) {
+				if(continued.equals("n")) {			//run from fight
 					exit = true;
 					break;
-				} else if(continued.equals("y")){
-					System.out.println("Choose your move :");
+				} else if(continued.equals("y")){			//continue fighting
+					System.out.println("Choose your move :");		//display moveset
 					for(int i = 0; i < 4; i++) {
 						System.out.println(i + ".) " + currentpokken.getskill(i).getSkillname());
 					}
 					turn++;
-					int numskill = in.nextInt(); //choose skill
+					int numskill = in.nextInt();		//choose skill
 					if(currentpokken.getSpeed() >= enemy.getSpeed()) {
 						System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy, currentpokken.getskill(numskill)));
 						if(enemy.getStatus() != Status.FAINTED) {
