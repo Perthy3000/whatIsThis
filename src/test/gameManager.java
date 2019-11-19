@@ -26,11 +26,14 @@ public class gameManager {
 		String chosen = in.nextLine();
 		test1 pokken = null;
 		switch (chosen) {
-		case "pikachu":
-			pokken = new pika("Charmander", Element.FIRE , 100, 20, 50, 200);
+		case "1":
+			pokken = new pika("Charmander", Element.FIRE , 100, 20, 50, 100);
 			break;
-		case "pikachu2":
+		case "2":
 			pokken = new pika("Charmander2", Element.FIRE , 200, 100, 0, 200);
+			break;
+		case "3":
+			pokken = new pika("Charmander3", Element.FIRE, 50, 50, 20, 300);
 			break;
 		case "finish":
 			if(player1.getpokenList().size() <= 0) {
@@ -51,46 +54,48 @@ public class gameManager {
 	}
 	
 	private void battle() {
+		int turn = 0;
 		test1 enemy = new pika("Charmander2", Element.FIRE , 200, 100, 0, 200);
-//		while (playerpoken.size() > 0 || enemy.getCurrentHp() != 0) {
-//			test1 currentpoken = playerpoken.get(0);
-//			playerpoken.remove(0);
-//			System.out.println("i choose you! " + currentpoken.getName());
-//			while(currentpoken.getCurrentHp() != 0 && enemy.getCurrentHp() != 0) {
-//				System.out.println("-" + currentpoken.getName() + " attack for " + currentpoken.doDamage(enemy));
-//				if(enemy.getCurrentHp() != 0) {
-//					System.out.println(enemy.getName() + " attack for " + enemy.doDamage(currentpoken));
-//				}
-//			}
-//			if(currentpoken.getCurrentHp() == 0) {
-//				System.out.println(currentpoken.getName() + " is dead!");
-//			} else {
-//				System.out.println("enemy is dead!");
-//			}
-//		}
 		List<test1> playerpokkenList = player1.getpokenList();
+		//choose first pokemon
+		test1 currentpokken = playerpokkenList.get(0);
+		System.out.println("i choose you! " + currentpokken.getName());
+		//battle while player is not out of pokemon and enemy is no fainted
 		while(player1.getAvailablePokken() > 0 && enemy.getCurrentHp() != 0) {
-			test1 currentpokken = null;
-			for(test1 x : playerpokkenList) {
-				if(x.getStatus() != Status.FAINTED) {
-					currentpokken = x;
+			//change pokemon if current one is fainted
+			if(currentpokken.getStatus() == Status.FAINTED) {
+				for(test1 x : playerpokkenList) {
+					if(x.getStatus() != Status.FAINTED) {
+						currentpokken = x;
+						System.out.println("i choose you! " + currentpokken.getName());
+						break;
+					}
 				}
 			}
-			if(currentpokken != null) {
-				while (currentpokken.getStatus() != Status.FAINTED && enemy.getStatus() != Status.FAINTED) {
+			//continue fighting if none is fainted
+			while (currentpokken.getStatus() != Status.FAINTED && enemy.getStatus() != Status.FAINTED) {
+				turn++;
+				if(currentpokken.getSpeed() >= enemy.getSpeed()) {
 					System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy));
 					if(enemy.getStatus() != Status.FAINTED) {
 						System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
-					}	
-				}
-				if(currentpokken.getStatus() == Status.FAINTED) {
-					System.out.println(currentpokken.getName() + " is fainted!");
-					player1.setAvailablePokken(player1.getAvailablePokken()-1);
+					}					
 				} else {
-					System.out.println(enemy.getName() + " is fainted!");
+					System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
+					if(currentpokken.getStatus() != Status.FAINTED) {
+						System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy));
+					}
 				}
 			}
+			//check for which one is fainted
+			if(currentpokken.getStatus() == Status.FAINTED) {
+				System.out.println(currentpokken.getName() + " is fainted!");
+				player1.setAvailablePokken(player1.getAvailablePokken()-1);
+			} else {
+				System.out.println(enemy.getName() + " is fainted!");
+			}
 		}
+		//check for winner
 		if(player1.getAvailablePokken() > 0) {
 			System.out.println(player1.getName() + " win!");
 		} else {
