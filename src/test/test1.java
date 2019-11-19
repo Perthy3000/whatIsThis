@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class test1 {
 	private String name;
 	private Element element;
@@ -9,6 +12,7 @@ public abstract class test1 {
 	private int speed;
 	private int currentHp;
 	private Status status;
+	protected List<skill> skillList;
 	
 	public test1(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		this.name = name;
@@ -19,6 +23,7 @@ public abstract class test1 {
 		this.speed = speed;
 		currentHp = maxHp;
 		status = Status.READY;
+		skillList = new ArrayList<skill>();
 	}
 	
 	public Status getStatus() {
@@ -29,7 +34,7 @@ public abstract class test1 {
 		this.status = status;
 	}
 
-	abstract protected int doDamage(test1 sandbag);
+	abstract protected int doDamage(test1 sandbag, skill move);
 	//abstract protected void skill1();
 	//abstract protected void skill2();
 	//abstract protected void skill3();
@@ -91,5 +96,12 @@ public abstract class test1 {
 		this.speed = speed;
 	}
 	
+	public List<skill> getSkillList() {
+		return skillList;
+	}
+	
+	public skill getskill(int num) {
+		return skillList.get(num);
+	}
 	
 }

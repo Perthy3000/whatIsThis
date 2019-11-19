@@ -10,6 +10,7 @@ public class player{
 	private final int maxpokken = 6;
 	private int money;
 	public Pokeball pokeball;
+	
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();

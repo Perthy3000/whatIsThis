@@ -64,31 +64,50 @@ public class gameManager {
 		System.out.println("i choose you! " + currentpokken.getName());
 		//battle while player is not out of pokemon and enemy is no fainted
 		while(player1.getAvailablePokken() > 0 && enemy.getCurrentHp() != 0) {
+			boolean exit = false;
 			//change pokemon if current one is fainted
 			currentpokken = choosepokken(currentpokken, playerpokkenList);
 			//continue fighting if none is fainted
 			while (currentpokken.getStatus() != Status.FAINTED && enemy.getStatus() != Status.FAINTED) {
-				turn++;
-				if(currentpokken.getSpeed() >= enemy.getSpeed()) {
-					System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy));
-					if(enemy.getStatus() != Status.FAINTED) {
-						System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
+				//check if player want to continue battle
+				System.out.println("Continue? y : n");
+				String continued = in.next();
+				if(continued.equals("n")) {
+					exit = true;
+					break;
+				} else if(continued.equals("y")){
+					System.out.println("Choose your move :");
+					for(int i = 0; i < 4; i++) {
+						System.out.println(i + ".) " + currentpokken.getskill(i).getSkillname());
 					}
-				} else {
-					System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
-					if(currentpokken.getStatus() != Status.FAINTED) {
-						System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy));
+					turn++;
+					int numskill = in.nextInt(); //choose skill
+					if(currentpokken.getSpeed() >= enemy.getSpeed()) {
+						System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy, currentpokken.getskill(numskill)));
+						if(enemy.getStatus() != Status.FAINTED) {
+							System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken, enemy.getskill(0)));
+						}
+					} else {
+						System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken, enemy.getskill(0)));
+						if(currentpokken.getStatus() != Status.FAINTED) {
+							System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy, currentpokken.getskill(numskill)));
+						}
 					}
 				}
+			}
+			if (exit) {
+				break;
 			}
 			//check for which one is fainted
 			checkfaint(currentpokken, enemy);
 		}
 		//check for winner
-		if(player1.getAvailablePokken() > 0) {
+		if(player1.getAvailablePokken() > 0 && enemy.getStatus() == Status.FAINTED) {
 			System.out.println(player1.getName() + " win!");
-		} else {
+		} else if(player1.getAvailablePokken() == 0) {
 			System.out.println("enemy win!");
+		} else {
+			System.out.println("ran away safely");
 		}
 	}
 	
