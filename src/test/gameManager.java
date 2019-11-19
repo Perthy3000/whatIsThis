@@ -16,8 +16,9 @@ public class gameManager {
 		System.out.println("Enter your name :");
 		player1 = new player(in.nextLine());
 		System.out.println("Choose your partner :");
-		System.out.println("1.) pikachu");
-		System.out.println("2.) pikachu2");
+		System.out.println("1.) Charmander");
+		System.out.println("2.) Charmander2");
+		System.out.println("2.) Charmander3");
 		select();
 		battle();
 	}
@@ -64,15 +65,7 @@ public class gameManager {
 		//battle while player is not out of pokemon and enemy is no fainted
 		while(player1.getAvailablePokken() > 0 && enemy.getCurrentHp() != 0) {
 			//change pokemon if current one is fainted
-			if(currentpokken.getStatus() == Status.FAINTED) {
-				for(test1 x : playerpokkenList) {
-					if(x.getStatus() != Status.FAINTED) {
-						currentpokken = x;
-						System.out.println("i choose you! " + currentpokken.getName());
-						break;
-					}
-				}
-			}
+			currentpokken = choosepokken(currentpokken, playerpokkenList);
 			//continue fighting if none is fainted
 			while (currentpokken.getStatus() != Status.FAINTED && enemy.getStatus() != Status.FAINTED) {
 				turn++;
@@ -80,7 +73,7 @@ public class gameManager {
 					System.out.println("-"+currentpokken.getName()+" attack for "+currentpokken.doDamage(enemy));
 					if(enemy.getStatus() != Status.FAINTED) {
 						System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
-					}					
+					}
 				} else {
 					System.out.println(enemy.getName()+" attack for "+enemy.doDamage(currentpokken));
 					if(currentpokken.getStatus() != Status.FAINTED) {
@@ -89,12 +82,7 @@ public class gameManager {
 				}
 			}
 			//check for which one is fainted
-			if(currentpokken.getStatus() == Status.FAINTED) {
-				System.out.println(currentpokken.getName() + " is fainted!");
-				player1.setAvailablePokken(player1.getAvailablePokken()-1);
-			} else {
-				System.out.println(enemy.getName() + " is fainted!");
-			}
+			checkfaint(currentpokken, enemy);
 		}
 		//check for winner
 		if(player1.getAvailablePokken() > 0) {
@@ -102,5 +90,27 @@ public class gameManager {
 		} else {
 			System.out.println("enemy win!");
 		}
+	}
+	
+	private void checkfaint(test1 currentpokken, test1 enemy) {
+		if(currentpokken.getStatus() == Status.FAINTED) {
+			System.out.println(currentpokken.getName() + " is fainted!");
+			player1.setAvailablePokken(player1.getAvailablePokken()-1);
+		} else {
+			System.out.println(enemy.getName() + " is fainted!");
+		}
+	}
+	
+	private test1 choosepokken(test1 currentpokken, List<test1> playerpokken) {
+		//change pokemon if current one is fainted
+		if(currentpokken.getStatus() == Status.FAINTED) {
+			for(test1 x : playerpokken) {
+				if(x.getStatus() != Status.FAINTED) {
+					System.out.println("i choose you! " + x.getName());
+					return x;
+				}
+			}
+		}
+		return currentpokken;
 	}
 }
