@@ -3,18 +3,19 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class player {
+public class player{
 	private String name;
 	private List<test1> playerpokken;
 	private int availablepokken;
 	private final int maxpokken = 6;
 	private int money;
-	
+	public Pokeball pokeball;
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
 		money = 0;
 		availablepokken = 0;
+		pokeball = new Pokeball();
 	}
 	
 	public void addpoken(test1 pokken) {
@@ -56,6 +57,8 @@ public class player {
 	public String getName() {
 		return name;
 	}
-	
+	public Pokeball getPokeBall() {
+		return this.pokeball;
+	}
 	
 }
