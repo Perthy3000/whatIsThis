@@ -21,7 +21,7 @@ public class PokeButton extends Button{
 	 
 	 public PokeButton(String pokemon) {
 		 this.pokemon = pokemon;
-		 this.setPadding(new Insets(40));
+		 this.setPadding(new Insets(10));
 		 setBorder(new Border(new BorderStroke(Color.BEIGE,BorderStrokeStyle.SOLID, 
 					CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 		 setStyle("");
