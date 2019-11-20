@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class PokemonShop {
 //	private List<test1> pokemons;
 	private Scanner input;
