@@ -9,14 +9,17 @@ public class player{
 	private int availablepokken;
 	private final int maxpokken = 6;
 	private int money;
-	public Pokeball pokeball;
+	private Pokeball pokeball;
 	
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
-		money = 0;
+		money = 19000;
 		availablepokken = 0;
 		pokeball = new Pokeball();
+	}
+	public void setPokeball(test1 pokemon) {
+		this.pokeball.addPokemon(pokemon);
 	}
 	
 	public void addpoken(test1 pokken) {

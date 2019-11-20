@@ -18,7 +18,7 @@ public class gameManager {
 		System.out.println("Choose your partner :");
 		System.out.println("1.) Charmander");
 		System.out.println("2.) Charmander2");
-		System.out.println("2.) Charmander3");
+		System.out.println("3.) Charmander3");
 		select();
 		battle();
 	}
