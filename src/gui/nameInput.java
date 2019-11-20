@@ -40,11 +40,13 @@ public class nameInput extends VBox {
 
 		@Override
 		public void handle(ActionEvent arg0) {
-			VBox nextScene = new VBox();
+			ChoosePokemon nextScene = new ChoosePokemon();
 			nextScene.setAlignment(Pos.CENTER);
 			String name = nameinput.getText();
 			manager.createPlayer(name);
-			nextScene.getChildren().add(new Label(name+"is created!"));
+			//Label label = new Label(name+"is created!");
+			//label.setAlignment(Pos.TOP_CENTER);
+			//nextScene.getChildren().add(label);
 			primaryStage.setScene(new Scene(nextScene, 500, 500));
 		}
 		
