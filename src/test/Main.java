@@ -3,6 +3,7 @@ package test;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -26,8 +27,11 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		PokeButton yo = new PokeButton("Magikarp");
 		PokeButton yo2 = new PokeButton("Pikachu");
+		PokeButton yo3 = new PokeButton("Charmander");
+		PokeButton yo4 = new PokeButton("Squirtle");
 		HBox root = new HBox();
-		root.getChildren().addAll(yo,yo2);
+		root.setAlignment(Pos.CENTER);
+		root.getChildren().addAll(yo,yo2,yo3,yo4);
 		Scene scene2 = new Scene(root,2000,2000);
  		primaryStage.setScene(scene2);
  		primaryStage.show();

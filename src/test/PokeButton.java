@@ -17,12 +17,14 @@ public class PokeButton extends Button{
 	 public PokeButton(String pokemon) {
 		 this.pokemon = pokemon;
 		 this.setPadding(new Insets(40));
-		 setBorder(new Border(new BorderStroke(Color.BLUE,BorderStrokeStyle.SOLID, 
+		 setBorder(new Border(new BorderStroke(Color.BEIGE,BorderStrokeStyle.SOLID, 
 					CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 		 String url="Magikarp.png";
 			switch(pokemon) {
 				case "Magikarp" : url = "yo.png"; break;
 				case "Pikachu" : url = "Pikachu.png"; break;
+				case "Charmander" : url = "charmander.png"; break;
+				case "Squirtle" : url = "squirtle.png"; break;
 			}
 			setGraphic(new ImageView(new Image(url)));
 		}
