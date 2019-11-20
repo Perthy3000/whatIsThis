@@ -14,7 +14,7 @@ public class player{
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
-		money = 0;
+		money = 20000;
 		availablepokken = 0;
 		pokeball = new Pokeball();
 	}

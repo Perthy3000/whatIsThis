@@ -16,8 +16,14 @@ public class PokemonShop {
 		prompt();
 		int x = run();
 		while(x>0) {
+			System.out.println("Wanna return to the shop? (y/n)?");
+			String s = input.next();
+			if(s.equals("y")) {
 			prompt();
-			x=run();
+			x=run();}
+			else {
+				break;
+			}
 		}
 	}
 	
