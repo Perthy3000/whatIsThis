@@ -21,26 +21,28 @@ public class PokeButton extends Button{
 	 
 	 public PokeButton(String pokemon) {
 		 this.pokemon = pokemon;
-		 this.setPadding(new Insets(40));
+		 this.setPadding(new Insets(5));
 		 setBorder(new Border(new BorderStroke(Color.BEIGE,BorderStrokeStyle.SOLID, 
 					CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 		 setStyle("");
-		 String url="Magikarp.png";
+		 setPrefSize(5, 5);
+		 String url;
 			switch(pokemon) {
 				case "Magikarp" : url = "yo.png"; break;
 				case "Pikachu" : url = "Pikachu.png"; break;
 				case "Charmander" : url = "charmander.png"; break;
 				case "Squirtle" : url = "squirtle.png"; break;
 				case "Bulbasaur" : url = "Bulbasaur.png"; break;
+				default: url = "yo.png";
 			}
-		setGraphic(new ImageView(new Image(url)));
+		setGraphic(new ImageView(new Image(ClassLoader.getSystemResource(url).toString())));
 		setAction();
 	}
 	 
 	 private void setAction() {
 		 String style, defaultstyle = "";
 		 switch (pokemon) {
-		 	case "Magicarp": style = "-fx-background-color : #00CCCC;"; break;
+		 	case "Magikarp": style = "-fx-background-color : #00CCCC;"; break;
 		 	case "Pikachu": style = "-fx-background-color : #FFCC33;"; break;
 		 	case "Charmander": style = "-fx-background-color : #FF9933;"; break;
 		 	case "Squirtle": style = "-fx-background-color : #00CCCC;"; break;

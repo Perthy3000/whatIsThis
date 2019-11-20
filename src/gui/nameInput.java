@@ -40,7 +40,7 @@ public class nameInput extends VBox {
 
 		@Override
 		public void handle(ActionEvent arg0) {
-			ChoosePokemon nextScene = new ChoosePokemon();
+			ChoosePokemon nextScene = new ChoosePokemon(primaryStage);
 			nextScene.setAlignment(Pos.CENTER);
 			String name = nameinput.getText();
 			manager.createPlayer(name);
