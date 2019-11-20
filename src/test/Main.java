@@ -1,6 +1,7 @@
 package test;
 
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -26,12 +27,92 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		// TODO Auto-generated method stub
 		PokeButton yo = new PokeButton("Magikarp");
+		yo.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo.setStyle(
+						"-fx-background-color: #00CCCC;");
+			}
+		}
+		);
+		yo.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo.setStyle(
+						"-fx-background-color: ;");
+			}
+		});
+		
 		PokeButton yo2 = new PokeButton("Pikachu");
+		yo2.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo2.setStyle(
+						"-fx-background-color: #FFCC33;");
+			}
+		}
+		);
+		yo2.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo2.setStyle(
+						"-fx-background-color: ;");
+			}
+		});
 		PokeButton yo3 = new PokeButton("Charmander");
+		yo3.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo3.setStyle(
+						"-fx-background-color: #FF9933;");
+			}
+		}
+		);
+		yo3.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo3.setStyle(
+						"-fx-background-color: ;");
+			}
+		});
 		PokeButton yo4 = new PokeButton("Squirtle");
+		yo4.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo4.setStyle(
+						"-fx-background-color: #00CCCC;");
+			}
+		}
+		);
+		yo4.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo4.setStyle(
+						"-fx-background-color: ;");
+			}
+		});
+		PokeButton yo5 = new PokeButton("Bulbasaur");
+		yo5.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo5.setStyle(
+						"-fx-background-color: #99CC33;");
+			}
+		}
+		);
+		yo5.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				yo5.setStyle(
+						"-fx-background-color: ;");
+			}
+		});
 		HBox root = new HBox();
-		root.setAlignment(Pos.CENTER);
-		root.getChildren().addAll(yo,yo2,yo3,yo4);
+		HBox root2 = new HBox();
+		root.setAlignment(Pos.TOP_CENTER);
+		//root2.setAlignment(Pos.CENTER);
+		root.getChildren().addAll(yo,yo2,yo3,yo4,yo5);
+		
 		Scene scene2 = new Scene(root,2000,2000);
  		primaryStage.setScene(scene2);
  		primaryStage.show();

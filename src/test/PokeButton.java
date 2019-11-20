@@ -25,6 +25,7 @@ public class PokeButton extends Button{
 				case "Pikachu" : url = "Pikachu.png"; break;
 				case "Charmander" : url = "charmander.png"; break;
 				case "Squirtle" : url = "squirtle.png"; break;
+				case "Bulbasaur" : url = "Bulbasaur.png"; break;
 			}
 			setGraphic(new ImageView(new Image(url)));
 		}
