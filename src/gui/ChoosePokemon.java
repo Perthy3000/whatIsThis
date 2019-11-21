@@ -24,12 +24,12 @@ import test.player;
 
 public class ChoosePokemon extends GridPane {
 	
-	private List<PokeButton> pokeButtons;
-	private Stage primaryStage;
-	private PokeButton selectedButton = null;
-	private test1 selectedPokken;
-	private Button nextButton;
-	private guigamemanager manager;
+	private List<PokeButton> pokeButtons;	//contains all PokeButton
+	private Stage primaryStage;	//current stage
+	private PokeButton selectedButton = null;	//current button that is selected
+	private test1 selectedPokken;	//current pokemon that is selected
+	private Button nextButton;	//button NEXT
+	private guigamemanager manager;	//gameManager
 	
 	public ChoosePokemon(Stage primaryStage, guigamemanager manager) {
 		this.primaryStage = primaryStage;
@@ -58,21 +58,23 @@ public class ChoosePokemon extends GridPane {
 		}
 	}
 	
+	//set action on NEXT button
 	private void setButtonAction() {
-		player player1 = manager.getPlayer();
+		player player1 = manager.getPlayer();	//call player from gameManager
 		VBox nextBox = new VBox();
 		nextBox.setAlignment(Pos.CENTER);
 		nextBox.getChildren().add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()));
-		Scene nextScene = new Scene(nextBox, 500, 500);
+		Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
 		nextButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				player1.addpoken(selectedPokken);
+				player1.addpoken(selectedPokken);	//player add selected pokemon into team
 				primaryStage.setScene(nextScene);
 			}
 		});
 	}
 	
+	//change selected pokemon depends on currently selected button
 	private void chooseStarter() {
 		String pokkenname = selectedButton.getPokkenName();
 		switch (pokkenname) {
@@ -81,19 +83,20 @@ public class ChoosePokemon extends GridPane {
 		 	case "Charmander": selectedPokken = new Charmander(); break;
 		 	case "Squirtle": selectedPokken = new Squirtle(); break;
 		 	case "Bulbasaur": selectedPokken = new Bulbasaur(); break;
-		 	default: selectedPokken = new Magikarp();
 		}
 	}
 
+	//set action on pokeButton to select current pokemon
 	private void setPokeButtonAction(PokeButton pokebutton) {
 		pokebutton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				setSelected(pokebutton);
+				setSelected(pokebutton);	//call setSelected function
 			}
 		});
 	}
 	
+	//set the current selected pokeButton
 	private void setSelected(PokeButton pokebutton) {
 		selectedButton = pokebutton;
 		selectedButton.setSelected();
@@ -102,7 +105,7 @@ public class ChoosePokemon extends GridPane {
 				button.setUnselected();
 			}
 		}
-		chooseStarter();
-		setButtonAction();
+		chooseStarter();	//call to select pokemon
+		setButtonAction();	//call setButtonAction
 	}
 }

@@ -44,10 +44,6 @@ public abstract class test1 {
 		sandbag.setCurrentHp(sandbag.getCurrentHp()-calDamage);
 		return calDamage;
 	}
-	//abstract protected void skill1();
-	//abstract protected void skill2();
-	//abstract protected void skill3();
-	//abstract protected void skill4();
 	
 	public String getName() {
 		return name;
