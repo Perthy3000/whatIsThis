@@ -40,17 +40,17 @@ public class ChoosePokemon extends GridPane {
 		setPadding(new Insets(5));
 		setHgap(5);
 		setVgap(5);
-		PokeButton yo = new PokeButton("Magikarp");
-		PokeButton yo2 = new PokeButton("Pikachu");
+	//	PokeButton yo = new PokeButton("Magikarp");
+	//	PokeButton yo2 = new PokeButton("Pikachu");
 		PokeButton yo3 = new PokeButton("Charmander");
 		PokeButton yo4 = new PokeButton("Squirtle");
 		PokeButton yo5 = new PokeButton("Bulbasaur");
-		pokeButtons.add(yo);
-		pokeButtons.add(yo2);
+		//pokeButtons.add(yo);
+	//	pokeButtons.add(yo2);
 		pokeButtons.add(yo3);
 		pokeButtons.add(yo4);
 		pokeButtons.add(yo5);
-		addRow(0, yo, yo2);
+	//	addRow(0, yo2);
 		addRow(1, yo3, yo4);
 		addRow(2, yo5, nextButton);
 		for(PokeButton all : pokeButtons) {
