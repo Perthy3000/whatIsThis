@@ -1,7 +1,9 @@
-package test;
+package pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import test.skill;
 
 public abstract class test1 {
 	private String name;
@@ -34,7 +36,14 @@ public abstract class test1 {
 		this.status = status;
 	}
 
-	abstract protected int doDamage(test1 sandbag, skill move);
+	public int doDamage(test1 sandbag, skill move) {
+		int calDamage = getAttack()-sandbag.getDefense();
+		if(calDamage <= 0) {
+			calDamage = 1;
+		}
+		sandbag.setCurrentHp(sandbag.getCurrentHp()-calDamage);
+		return calDamage;
+	}
 	//abstract protected void skill1();
 	//abstract protected void skill2();
 	//abstract protected void skill3();

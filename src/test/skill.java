@@ -1,5 +1,7 @@
 package test;
 
+import pokemon.Element;
+
 public class skill {
 	private String skillname;
 	private Element element;

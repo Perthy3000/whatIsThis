@@ -12,4 +12,8 @@ public class guigamemanager {
 	public void createPlayer(String name) {
 		player1 = new player(name);
 	}
+	
+	public player getPlayer() {
+		return player1;
+	}
 }

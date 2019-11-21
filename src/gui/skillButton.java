@@ -3,7 +3,7 @@ package gui;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import test.test1;
+import pokemon.test1;
 
 public class skillButton extends Button {
 	

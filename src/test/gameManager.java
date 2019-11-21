@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import pokemon.Charmander;
+import pokemon.Status;
+import pokemon.test1;
+
 public class gameManager {
 	private player player1;
 	private Scanner in;
@@ -29,13 +33,13 @@ public class gameManager {
 		test1 pokken = null;
 		switch (chosen) {
 		case "1":
-			pokken = new pika("Charmander", Element.FIRE , 100, 20, 50, 100);
+			pokken = new Charmander();
 			break;
 		case "2":
-			pokken = new pika("Charmander2", Element.FIRE , 200, 100, 0, 200);
+			pokken = new Charmander();
 			break;
 		case "3":
-			pokken = new pika("Charmander3", Element.FIRE, 50, 50, 20, 300);
+			pokken = new Charmander();
 			break;
 		case "finish":
 			if(player1.getpokenList().size() <= 0) {
@@ -57,7 +61,7 @@ public class gameManager {
 	
 	private void battle() {
 		int turn = 0;
-		test1 enemy = new pika("Charmander2", Element.FIRE , 200, 100, 0, 200);
+		test1 enemy = new Charmander();
 		List<test1> playerpokkenList = player1.getpokenList();
 		//choose first pokemon
 		test1 currentpokken = playerpokkenList.get(0);

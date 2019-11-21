@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import pokemon.Charmander;
+import pokemon.test1;
+
 
 public class PokemonShop {
 //	private List<test1> pokemons;
@@ -44,7 +47,7 @@ public class PokemonShop {
 		switch(select) {
 		case 1 :
 			if(player.getMoney() >= 4000) {
-				test1 Magikarp = new pika("Magikarp", Element.WATER , 200, 1, 1, 10);
+				test1 Magikarp = new Charmander();
 				this.player.setPokeball(Magikarp);
 				System.out.println("Magikarp is added!");
 				player.setMoney(player.getMoney()-4000);
@@ -56,7 +59,7 @@ public class PokemonShop {
 			break;
 		case 2 :
 			if(player.getMoney() >= 800) {
-				test1 Choi = new pika("Choi", Element.FIRE, 100, 20, 10, 100);
+				test1 Choi = new Charmander();
 				this.player.setPokeball(Choi);
 				System.out.println("Choi is added!");
 				player.setMoney(player.getMoney()-800);
@@ -68,7 +71,7 @@ public class PokemonShop {
 			break;
 		case 3 :
 			if(player.getMoney() >= 100) {
-			test1 Perth = new pika("Perth", Element.GRASS, 90, 50, 40, 200);
+			test1 Perth = new Charmander();
 			this.player.setPokeball(Perth);
 			System.out.println("Perth is added!");
 			player.setMoney(player.getMoney()-100);

@@ -3,6 +3,8 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import pokemon.test1;
+
 public class player{
 	private String name;
 	private List<test1> playerpokken;

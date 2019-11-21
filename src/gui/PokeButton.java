@@ -1,23 +1,22 @@
 package gui;
-import javafx.event.ActionEvent;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+
 public class PokeButton extends Button{
 	
 	 private String pokemon;
+	 private boolean isSelected = false;
 	 
 	 public PokeButton(String pokemon) {
 		 this.pokemon = pokemon;
@@ -53,14 +52,28 @@ public class PokeButton extends Button{
 		 setOnMouseEntered(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				setStyle(style);
+				if(!isSelected) setStyle(style);					
 			}
 		 });
 		 setOnMouseExited(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				setStyle(defaultstyle);
+				if(!isSelected) setStyle(defaultstyle);
 			}
 		});
+	 }
+	 
+	 public void setSelected() {
+		 isSelected = true;
+		 setAction();
+	 }
+	 
+	 public void setUnselected() {
+		 isSelected = false;
+		 setStyle("");
+	 }
+	 
+	 public String getPokkenName() {
+		 return pokemon;
 	 }
 }
