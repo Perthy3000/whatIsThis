@@ -8,12 +8,12 @@ import pokemon.test1;
 public class skillButton extends Button {
 	
 	private int skillnum;
-	private test1 pokkeTest1;
 	
-	public skillButton(int skillnum, test1 pokkeTest1) {
+	public skillButton(int skillnum, String skillname) {
 		setPadding(new Insets(5));
-		this.pokkeTest1 = pokkeTest1;
+		setPrefHeight(40);
+		setPrefWidth(80);
 		this.skillnum = skillnum;
-		setText(pokkeTest1.getskill(skillnum).getSkillname());
+		setText(skillname);
 	}
 }

@@ -14,12 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import pokemon.Bulbasaur;
-import pokemon.Charmander;
-import pokemon.Magikarp;
-import pokemon.Pikachu;
-import pokemon.Squirtle;
-import pokemon.test1;
+import pokemon.*;
 import test.player;
 
 public class ChoosePokemon extends GridPane {
@@ -61,9 +56,9 @@ public class ChoosePokemon extends GridPane {
 	//set action on NEXT button
 	private void setButtonAction() {
 		player player1 = manager.getPlayer();	//call player from gameManager
-		VBox nextBox = new VBox();
+		BattleScene nextBox = new BattleScene(selectedPokken, manager);
 		nextBox.setAlignment(Pos.CENTER);
-		nextBox.getChildren().add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()));
+		nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()), 0, 0, 2, 1);
 		Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
 		nextButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
