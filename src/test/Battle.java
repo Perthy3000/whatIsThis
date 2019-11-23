@@ -87,6 +87,7 @@ public class Battle {
 		if(currentPokemon.getStatus() == Status.FAINTED) {
 			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
 			currentPokemon.setCurrentHp(currentPokemon.getmaxHp());
+			currentPokemon.setStatus(Status.READY);
 		} else {
 			battleScene.getLog().addData(enemyPokemon.getName() + " is fainted!");
 		}
