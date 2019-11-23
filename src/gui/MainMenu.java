@@ -27,6 +27,7 @@ public class MainMenu extends VBox {
 		randomBattleButton.setPrefSize(100, 50);
 		this.player1 = player1;
 		setButtonAction(randomBattleButton, primaryStage);
+		setButtonAction(shopButton, primaryStage);
 		getChildren().addAll(shopButton, randomBattleButton);
 	}
 	
@@ -39,6 +40,16 @@ public class MainMenu extends VBox {
 					BattleScene rootNode = new BattleScene(player1, primaryStage);
 					Scene nextScene = new Scene(rootNode, 500, 500);
 					primaryStage.setScene(nextScene);	
+				}			
+			});
+			break;
+		case "Black Market":
+			button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					Blackmarket rootNode = new Blackmarket(player1, primaryStage);
+					Scene nextScene = new Scene(rootNode, 500, 500);
+					primaryStage.setScene(nextScene);
 				}			
 			});
 			break;

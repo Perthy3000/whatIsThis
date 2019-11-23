@@ -4,31 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import gui.Blackmarket;
+import gui.MainMenu;
+import gui.PokeButton;
+import gui.skillButton;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import pokemon.Charmander;
+import pokemon.Status;
 import pokemon.test1;
-
+ 
 
 public class PokemonShop {
 //	private List<test1> pokemons;
 	private Scanner input;
 	private player player;
-	
-	public PokemonShop(player player) {
+	private Blackmarket blackmarket;
+	private Stage primarystage;
+	private HBox show;
+	private PokeButton magikarp = new PokeButton("Magikarp");
+	private PokeButton perth = new PokeButton("Pikachu");
+	private PokeButton choi = new PokeButton("MSquirtle");
+	public PokemonShop(player player, Stage primarystage, Blackmarket blackmarket) {
 //		pokemons = new ArrayList<test1>();
 		this.player = player;
+		this.blackmarket = blackmarket;
+		this.primarystage = primarystage;
 		input = new Scanner(System.in);
 		prompt();
-		int x = run();
-		while(x>0) {
-			System.out.println("Wanna return to the shop? (y/n)?");
-			String s = input.next();
-			if(s.equals("y")) {
-			prompt();
-			x=run();}
-			else {
-				break;
-			}
-		}
+
 	}
 	
 	public void prompt() {
@@ -40,53 +48,82 @@ public class PokemonShop {
 		System.out.println("3: Perth3000, The God");
 		System.out.println("4: Exit Shop");
 		System.out.println("========================");
+		this.show = new HBox();
+		show.getChildren().addAll(magikarp,perth,choi);
+		this.blackmarket.getChildren().add(show);
+		setPokeButton(magikarp);
+		setPokeButton(perth);
+		setPokeButton(choi);
 	}
 	
-	public int run() {
-		int select = input.nextInt();
-		switch(select) {
-		case 1 :
+	public void run(String name) {
+		switch(name) {
+		case "Magikarp" :
 			if(player.getMoney() >= 4000) {
 				test1 Magikarp = new Charmander();
 				this.player.setPokeball(Magikarp);
-				System.out.println("Magikarp is added!");
+				blackmarket.getBuyLog().addData("Magikarp is added!");
+				//System.out.println("Magikarp is added!");
 				player.setMoney(player.getMoney()-4000);
 			}
 		
 			else {
-				System.out.println("Not Enough Money! Comeback next time!");
+			//System.out.println("Not Enough Money! Comeback next time!");
+				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
+				exit();
 			}
 			break;
-		case 2 :
+		case "Pikachu" :
 			if(player.getMoney() >= 800) {
 				test1 Choi = new Charmander();
 				this.player.setPokeball(Choi);
-				System.out.println("Choi is added!");
+				blackmarket.getBuyLog().addData("Choi is added!");
+			//	System.out.println("Choi is added!");
 				player.setMoney(player.getMoney()-800);
 			}
 		
 			else {
-				System.out.println("Not Enough Money! Comeback next time!");
+				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
+				exit();
 			}
 			break;
-		case 3 :
+		case "Squirtle" :
 			if(player.getMoney() >= 100) {
 			test1 Perth = new Charmander();
 			this.player.setPokeball(Perth);
-			System.out.println("Perth is added!");
+			blackmarket.getBuyLog().addData("Perth is added!");
+		//System.out.println("Perth is added!");
 			player.setMoney(player.getMoney()-100);
 			}
 			else {
-				System.out.println("Not Enough Money! Comeback next time!");
+				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
+				exit();
 			}
 			break;
-		case 4 : 
-			System.out.println("Byeeeeeeeeeeee");
-			return 0;
 		default:
-			System.out.println("Wrong Input u edok!!!");
-			return 0;
+			//System.out.println("Wrong Input u edok!!!");
+			exit();
 		}
-		return select;
+	}
+	private void setPokeButton(PokeButton button) {
+		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent arg0) {
+				run(button.getPokkenName());
+			}
+		});
+	}
+	private void exit() {
+		Button exitButton = new Button();
+		exitButton.setText("Exit");
+		exitButton.setStyle("-fx-font-size: 15");
+		exitButton.setPrefSize(70, 50);
+		blackmarket.getChildren().add(exitButton);
+		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent arg0) {
+				primarystage.setScene(new Scene(new MainMenu(primarystage, player), 500, 500));
+			}
+		});
 	}
 }
