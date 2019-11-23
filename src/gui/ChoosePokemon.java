@@ -59,6 +59,12 @@ public class ChoosePokemon extends GridPane {
 		MainMenu nextBox = new MainMenu(primaryStage, player1);
 		//BattleScene nextBox = new BattleScene(selectedPokken, manager);
 		//nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()), 0, 0, 2, 1);
+		//BattleScene nextBox = new BattleScene(selectedPokken, manager);
+		//BattleTest nextBox = new BattleTest(selectedPokken, new Bulbasaur());
+		nextBox.setAlignment(Pos.CENTER);
+		//nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()), 0, 0, 2, 1);
+		//nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()));
+		//nextBox.getChildren().add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()));
 		Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
 		nextButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
