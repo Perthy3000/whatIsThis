@@ -86,7 +86,7 @@ public class PokemonShop {
 		
 			else {
 			System.out.println("Not Enough Money! Comeback next time!");
-				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
+				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!"); 
 				exit();
 			}
 			break;
