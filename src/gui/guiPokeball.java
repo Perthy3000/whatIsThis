@@ -27,12 +27,14 @@ public class guiPokeball extends TilePane {
 	}
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);
+		// น่าจะแตกจ้ะ
 		this.index=((player.getpokenList().size())-currentdiff)-1;
 		setPokeButton(pokemon, index);
-		this.index=((player.getpokenList().size())-currentdiff);
+		//this.index=((player.getpokenList().size())-currentdiff);
 		poke.add(pokemon);
 		getChildren().add(pokemon);
 	}
+	// แตกจ้ะ
 	private void setPokeButton(PokeButton button, int index) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
