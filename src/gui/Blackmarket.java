@@ -8,10 +8,14 @@ import test.PokemonShop;
 import test.player;
 
 public class Blackmarket extends HBox {
+	
 	private PokemonShop shop;
 	private Buyinglog shoplog;
 	private guiPokeball pokelog;
+	
 	public Blackmarket(player player1, Stage primaryStage) {
+		pokelog = new guiPokeball();
+		shoplog = new Buyinglog();
 		setPadding(new Insets(5));
 		setSpacing(10);
 		shop = new PokemonShop(player1, primaryStage, this);
