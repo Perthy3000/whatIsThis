@@ -24,9 +24,10 @@ public class Battle {
 	private BattleScene battleScene;
 	private List<skillButton> skillButtonList;
 
-	public Battle(player player1, Stage primaryStage, BattleScene battle) {
-		battleScene = battle;
+	public Battle(player player1, Stage primaryStage) {
+		battleScene = new BattleScene(player1, primaryStage);
 		this.player1 = player1;
+		player1.addpoken(new Bulbasaur());
 		for(test1 x : player1.getpokenList()) {
 			if(x.getStatus() != Status.FAINTED) {
 				currentPokemon = x;
@@ -42,12 +43,13 @@ public class Battle {
 		}
 		this.enemyPokemon = new Magikarp();
 		this.primaryStage = primaryStage;
-		setSkillBar(battle);
-		battle.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
+		setSkillBar();
+		battleScene.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
+		primaryStage.setScene(new Scene(battleScene, 500, 500));
 	}
 	
-	public void setSkillBar(BattleScene battle) {
-		battle.setSkillBar(new SkillBar(skillButtonList));
+	public void setSkillBar() {
+		battleScene.setSkillBar(new SkillBar(skillButtonList));
 	}
 	
 	private void setSkillButton(skillButton button) {
@@ -75,7 +77,26 @@ public class Battle {
 				+ " for " + currentPokemon.doDamage(enemyPokemon, currentPokemon.getskill(skillNum)) + " damage");
 			}
 		}
-		if(currentPokemon.getStatus() == Status.FAINTED || enemyPokemon.getStatus() == Status.FAINTED) {
+		if(currentPokemon.getStatus() == Status.FAINTED) {
+			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
+			if(player1.getAvailablePokken() == 0) {
+				exit();				
+			} else {
+				for(test1 x : player1.getpokenList()) {
+					if(x.getStatus() != Status.FAINTED) {
+						currentPokemon = x;
+						skillButtonList.clear();
+						for(int i = 0; i < 4; i++) {
+							skillButton button = new skillButton(i, currentPokemon.getSkillList().get(i).getSkillname());
+							setSkillButton(button);
+							skillButtonList.add(button);
+						}
+						setSkillBar();
+						break;
+					}
+				}
+			}
+		} else if(enemyPokemon.getStatus() == Status.FAINTED) {
 			exit();
 		}
 	}
@@ -84,12 +105,15 @@ public class Battle {
 		for(skillButton x : skillButtonList) {
 			x.setDisable(true);
 		}
-		if(currentPokemon.getStatus() == Status.FAINTED) {
-			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
-			currentPokemon.setCurrentHp(currentPokemon.getmaxHp());
-			currentPokemon.setStatus(Status.READY);
+		if(player1.getAvailablePokken() == 0) {
+			battleScene.getLog().addData(player1.getName() + " has no pokemon left!");
 		} else {
 			battleScene.getLog().addData(enemyPokemon.getName() + " is fainted!");
+			player1.setMoney(player1.getMoney()+200);
+			battleScene.getLog().addData(player1.getName() +" get 200$!");
+		}
+		for(test1 x : player1.getpokenList()) {
+			x.fullHeal();
 		}
 		Button exitButton = new Button();
 		exitButton.setText("Exit");

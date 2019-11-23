@@ -89,9 +89,10 @@ public abstract class test1 {
 		return currentHp;
 	}
 
-//	public void setMaxHp(int maxHp) {
-//		this.maxHp = maxHp;
-//	}
+	public void fullHeal() {
+		currentHp = maxHp;
+		status = Status.READY;
+	}
 
 	public int getSpeed() {
 		return speed;

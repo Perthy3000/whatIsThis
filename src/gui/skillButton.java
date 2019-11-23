@@ -18,4 +18,8 @@ public class skillButton extends Button {
 	public int getSkillNum() {
 		return skillnum;
 	}
+	
+	public void setSkillName(String skillName) {
+		setText(skillName);
+	}
 }

@@ -22,6 +22,7 @@ public class Blackmarket extends HBox {
 		this.getChildren().add(pokelog);
 		this.getChildren().add(shoplog);
 	}
+	
 	public Buyinglog getBuyLog() {
 		return this.shoplog;
 	}

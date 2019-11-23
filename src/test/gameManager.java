@@ -118,7 +118,6 @@ public class gameManager {
 	private void checkfaint(test1 currentpokken, test1 enemy) {
 		if(currentpokken.getStatus() == Status.FAINTED) {
 			System.out.println(currentpokken.getName() + " is fainted!");
-			player1.setAvailablePokken(player1.getAvailablePokken()-1);
 		} else {
 			System.out.println(enemy.getName() + " is fainted!");
 		}

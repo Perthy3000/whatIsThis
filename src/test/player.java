@@ -3,6 +3,7 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import pokemon.Status;
 import pokemon.test1;
 
 public class player{
@@ -16,7 +17,7 @@ public class player{
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
-		money = 20000;
+		money = 0;
 		availablepokken = 0;
 		pokeball = new Pokeball();
 	}
@@ -28,21 +29,19 @@ public class player{
 		if(playerpokken.size() < maxpokken) {
 			playerpokken.add(pokken);
 			System.out.println(pokken.getName() + " is added!");
-			availablepokken++;
 		} else {
 			System.out.println("full!");
 		}
 	}
 	
 	public int getAvailablePokken() {
-		return availablepokken;
-	}
-	
-	public void setAvailablePokken(int availablepokken) {
-		if(availablepokken < 0) {
-			availablepokken = 0;
+		int availablePokemon = 0;
+		for(test1 pokken : playerpokken) {
+			if(pokken.getStatus() != Status.FAINTED) {
+				availablePokemon++;
+			}
 		}
-		this.availablepokken = availablepokken;
+		return availablePokemon;
 	}
 	
 	public List<test1> getpokenList() {

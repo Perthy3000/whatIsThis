@@ -7,9 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import test.Battle;
 import test.player;
 
 public class MainMenu extends VBox {
@@ -19,6 +21,8 @@ public class MainMenu extends VBox {
 	private player player1;
 	
 	public MainMenu(Stage primaryStage, player player1) {
+		Label nameLabel = new Label("Available pokemon : " + player1.getAvailablePokken());
+		Label moneyLabel = new Label("Money : " + player1.getMoney());
 		setAlignment(Pos.CENTER);
 		setSpacing(20);
 		shopButton = new Button("Black Market");
@@ -28,7 +32,7 @@ public class MainMenu extends VBox {
 		this.player1 = player1;
 		setButtonAction(randomBattleButton, primaryStage);
 		setButtonAction(shopButton, primaryStage);
-		getChildren().addAll(shopButton, randomBattleButton);
+		getChildren().addAll( new Label(player1.getName()), nameLabel, moneyLabel, shopButton, randomBattleButton);
 	}
 	
 	private void setButtonAction(Button button, Stage primaryStage) {
@@ -37,9 +41,10 @@ public class MainMenu extends VBox {
 			button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
-					BattleScene rootNode = new BattleScene(player1, primaryStage);
-					Scene nextScene = new Scene(rootNode, 500, 500);
-					primaryStage.setScene(nextScene);	
+					new Battle(player1, primaryStage);
+//					BattleScene rootNode = new BattleScene(player1, primaryStage);
+//					Scene nextScene = new Scene(rootNode, 500, 500);
+//					primaryStage.setScene(nextScene);	
 				}			
 			});
 			break;
