@@ -22,6 +22,7 @@ public class Blackmarket extends HBox {
 		shop = new PokemonShop(player1, primaryStage, this);
 		for(test1 i : player1.getpokenList()) {
 			this.pokelog.addData(i.getName());
+			System.out.println(i.getName());
 		}
 		this.getChildren().add(pokelog);
 		this.getChildren().add(shoplog);

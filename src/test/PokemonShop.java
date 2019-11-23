@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import pokemon.Charmander;
 import pokemon.Magikarp;
+import pokemon.Pikachu;
 import pokemon.Squirtle;
 import pokemon.Status;
 import pokemon.test1;
@@ -76,6 +77,7 @@ public class PokemonShop {
 			if(player.getMoney() >= 4000) {
 				test1 Magikarp = new Magikarp();
 				this.player.setPokeball(Magikarp);
+				this.player.addpoken(Magikarp);
 				blackmarket.getBuyLog().addData("Magikarp is added!");
 				blackmarket.getPokeLog().addData(name);
 				System.out.println("Magikarp is added!");
@@ -90,8 +92,9 @@ public class PokemonShop {
 			break;
 		case "Pikachu" :
 			if(player.getMoney() >= 800) {
-				test1 Choi = new Charmander();
+				test1 Choi = new Pikachu();
 				this.player.setPokeball(Choi);
+				this.player.addpoken(Choi);
 				blackmarket.getBuyLog().addData("Choi is added!");
 				blackmarket.getPokeLog().addData(name);
 			System.out.println("Choi is added!");
@@ -107,6 +110,7 @@ public class PokemonShop {
 			if(player.getMoney() >= 100) {
 			test1 Perth = new Squirtle();
 			this.player.setPokeball(Perth);
+			this.player.addpoken(Perth);
 			blackmarket.getBuyLog().addData("Perth is added!");
 			blackmarket.getPokeLog().addData(name);
 		System.out.println("Perth is added!");
