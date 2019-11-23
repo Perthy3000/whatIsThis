@@ -17,11 +17,15 @@ public class nameInput extends VBox {
 	private Button enterButton;
 	
 	public nameInput(Stage primaryStage, guigamemanager manager) {
+		setSpacing(10);
 		nameinput = new TextField();
 		label = new Label("Enter your name");
+		label.setStyle("-fx-font-size: 20");
 		enterButton = new Button("Enter");
+		enterButton.setPrefSize(70, 40);
 		setButtonAction(primaryStage, manager);
 		getChildren().addAll(label, nameinput, enterButton);
+		setAlignment(Pos.CENTER);
 	}
 	
 	public void setButtonAction(Stage primaryStage, guigamemanager manager) {

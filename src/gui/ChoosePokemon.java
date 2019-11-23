@@ -56,13 +56,14 @@ public class ChoosePokemon extends GridPane {
 	//set action on NEXT button
 	private void setButtonAction() {
 		player player1 = manager.getPlayer();	//call player from gameManager
-		BattleScene nextBox = new BattleScene(selectedPokken, manager);
-		nextBox.setAlignment(Pos.CENTER);
-		nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()), 0, 0, 2, 1);
+		MainMenu nextBox = new MainMenu(primaryStage, player1);
+		//BattleScene nextBox = new BattleScene(selectedPokken, manager);
+		//nextBox.add(new Label(player1.getName() + " choose " + selectedButton.getPokkenName()), 0, 0, 2, 1);
 		Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
 		nextButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+				System.out.println(player1.getName() + " choose " + selectedButton.getPokkenName());
 				player1.addpoken(selectedPokken);	//player add selected pokemon into team
 				primaryStage.setScene(nextScene);
 			}

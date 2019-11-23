@@ -37,7 +37,7 @@ public abstract class test1 {
 	}
 
 	public int doDamage(test1 sandbag, skill move) {
-		int calDamage = getAttack()-sandbag.getDefense();
+		int calDamage = getAttack()+move.getPower()-sandbag.getDefense();
 		if(calDamage <= 0) {
 			calDamage = 1;
 		}

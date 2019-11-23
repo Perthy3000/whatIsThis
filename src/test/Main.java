@@ -24,7 +24,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		HBox root = new HBox();
 		HBox root2 = new HBox();
-		guigamemanager GameManager = new guigamemanager();
+		guigamemanager GameManager = new guigamemanager(primaryStage);
 		nameInput ameInput = new nameInput(primaryStage, GameManager);
 		root.setAlignment(Pos.TOP_CENTER);
 		//root2.setAlignment(Pos.CENTER);
