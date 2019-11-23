@@ -19,12 +19,13 @@ public class Blackmarket extends HBox {
 	private guiPokeball pokelog;
 	
 	public Blackmarket(player player1, Stage primaryStage) {
-		pokelog = new guiPokeball();
+		pokelog = new guiPokeball(this,player1);
 		shoplog = new Buyinglog();
 		setPadding(new Insets(5));
 		setAlignment(Pos.CENTER);
 		setSpacing(10);
 		shop = new PokemonShop(player1, primaryStage, this);
+		int loop=0;
 		for(test1 i : player1.getpokenList()) {
 			this.pokelog.addData(i.getName());
 			System.out.println(i.getName());

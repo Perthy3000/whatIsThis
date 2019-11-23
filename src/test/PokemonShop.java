@@ -66,6 +66,7 @@ public class PokemonShop {
 		exitButton.setStyle("-fx-font-size: 15");
 		exitButton.setPrefSize(70, 50);
 		HBox exit =  new HBox();
+	//	Label moneyLabel = new Label("Money : " + player.getMoney());
 		exit.setAlignment(Pos.CENTER);
 		exit.getChildren().add(exitButton);
 		bigshow = new VBox();

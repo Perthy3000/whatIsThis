@@ -46,6 +46,10 @@ public class player{
 	public List<test1> getpokenList() {
 		return playerpokken;
 	}
+	public int removepokenList(int index) {
+		this.playerpokken.remove(index);
+		return getpokenList().size();
+	}
 	
 	public int getMoney() {
 		return money;
