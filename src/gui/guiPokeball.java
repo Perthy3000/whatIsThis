@@ -8,17 +8,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
-public class guiPokeball extends VBox {
+public class guiPokeball extends TilePane {
 	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
-//	private ListView<PokeButton> logListView;
-
 	public guiPokeball () {
-		setAlignment(Pos.CENTER);
+		setAlignment(Pos.TOP_CENTER);
 		//logListView = new ListView<PokeButton>(poke);
 		setPrefHeight(150);
-		//logListView.setPrefWidth(300);
-		//logListView.setFocusTraversable(false);
-	//	getChildren().add(logListView);
 	}
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);

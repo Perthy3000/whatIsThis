@@ -9,10 +9,14 @@ import gui.MainMenu;
 import gui.PokeButton;
 import gui.skillButton;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import pokemon.Charmander;
 import pokemon.Magikarp;
@@ -24,22 +28,22 @@ import pokemon.test1;
 
 public class PokemonShop {
 //	private List<test1> pokemons;
-	private Scanner input;
 	private player player;
 	private Blackmarket blackmarket;
 	private Stage primarystage;
 	private HBox show;
+	private VBox bigshow;
 	private PokeButton magikarp = new PokeButton("Magikarp");
 	private PokeButton perth = new PokeButton("Pikachu");
 	private PokeButton choi = new PokeButton("Squirtle");
+	Label buyingZone = new Label("Black Market");
 	public PokemonShop(player player, Stage primarystage, Blackmarket blackmarket) {
 //		pokemons = new ArrayList<test1>();
 		this.player = player;
 		this.blackmarket = blackmarket;
 		this.primarystage = primarystage;
-		input = new Scanner(System.in);
+		buyingZone.setFont(new Font(18));
 		prompt();
-
 	}
 	
 	public void prompt() {
@@ -52,8 +56,8 @@ public class PokemonShop {
 		System.out.println("4: Exit Shop");
 		System.out.println("========================");
 		this.show = new HBox();
+		show.setAlignment(Pos.TOP_CENTER);
 		show.getChildren().addAll(magikarp,perth,choi);
-		this.blackmarket.getChildren().add(show);
 		setPokeButton(magikarp);
 		setPokeButton(perth);
 		setPokeButton(choi);
@@ -61,7 +65,12 @@ public class PokemonShop {
 		exitButton.setText("Exit");
 		exitButton.setStyle("-fx-font-size: 15");
 		exitButton.setPrefSize(70, 50);
-		show.getChildren().add(exitButton);
+		HBox exit =  new HBox();
+		exit.setAlignment(Pos.CENTER);
+		exit.getChildren().add(exitButton);
+		bigshow = new VBox();
+		bigshow.getChildren().addAll(buyingZone,show,exit);
+		this.blackmarket.getChildren().add(bigshow);
 		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
@@ -72,6 +81,7 @@ public class PokemonShop {
 	}
 	
 	public void run(String name) {
+		if(player.getpokenList().size()<5) {
 		switch(name) {
 		case "Magikarp" :
 			if(player.getMoney() >= 4000) {
@@ -87,7 +97,6 @@ public class PokemonShop {
 			else {
 			System.out.println("Not Enough Money! Comeback next time!");
 				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!"); 
-				exit();
 			}
 			break;
 		case "Pikachu" :
@@ -103,7 +112,6 @@ public class PokemonShop {
 		
 			else {
 				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
-				exit();
 			}
 			break;
 		case "Squirtle" :
@@ -118,13 +126,17 @@ public class PokemonShop {
 			}
 			else {
 				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
-				exit();
 			}
 			break;
 		default:
 			System.out.println("Wrong Input u edok!!!");
-			exit();
 		}
+		}
+		else {
+			System.out.println("Full!");
+			blackmarket.getBuyLog().addData("Full!");
+		}
+		
 	}
 	private void setPokeButton(PokeButton button) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -133,7 +145,5 @@ public class PokemonShop {
 				run(button.getPokkenName());
 			}
 		});
-	}
-	private void exit() {
 	}
 }

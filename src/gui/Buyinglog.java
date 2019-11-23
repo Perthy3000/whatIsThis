@@ -6,18 +6,23 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
-public class Buyinglog extends StackPane {
+public class Buyinglog extends VBox {
 	private ObservableList<Label> logdata = FXCollections.observableArrayList();
 	private ListView<Label> logListView;
+	private StackPane stack = new StackPane();
 	public Buyinglog() {
-		setAlignment(Pos.CENTER);
+		stack.setAlignment(Pos.CENTER);
 		logListView = new ListView<Label>(logdata);
 		setPrefHeight(150);
 		logListView.setPrefWidth(300);
 		logListView.setFocusTraversable(false);
-		
-		getChildren().add(logListView);
+		Label BuyinglogZone = new Label("Activity log");
+		BuyinglogZone.setFont(new Font(18));
+		stack.getChildren().add(logListView);
+		getChildren().addAll(BuyinglogZone,stack);
 	}
 	public void addData(String log) {
 		Label nlabel = new Label(log);

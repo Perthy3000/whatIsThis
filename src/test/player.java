@@ -10,7 +10,7 @@ public class player{
 	private String name;
 	private List<test1> playerpokken;
 	private int availablepokken;
-	private final int maxpokken = 6;
+	private final int maxpokken = 5;
 	private int money;
 	private Pokeball pokeball;
 	
@@ -24,7 +24,6 @@ public class player{
 	public void setPokeball(test1 pokemon) {
 		this.pokeball.addPokemon(pokemon);
 	}
-	
 	public void addpoken(test1 pokken) {
 		if(playerpokken.size() < maxpokken) {
 			playerpokken.add(pokken);
