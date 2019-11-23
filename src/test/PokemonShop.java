@@ -15,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import pokemon.Charmander;
+import pokemon.Magikarp;
+import pokemon.Squirtle;
 import pokemon.Status;
 import pokemon.test1;
  
@@ -28,7 +30,7 @@ public class PokemonShop {
 	private HBox show;
 	private PokeButton magikarp = new PokeButton("Magikarp");
 	private PokeButton perth = new PokeButton("Pikachu");
-	private PokeButton choi = new PokeButton("MSquirtle");
+	private PokeButton choi = new PokeButton("Squirtle");
 	public PokemonShop(player player, Stage primarystage, Blackmarket blackmarket) {
 //		pokemons = new ArrayList<test1>();
 		this.player = player;
@@ -54,21 +56,34 @@ public class PokemonShop {
 		setPokeButton(magikarp);
 		setPokeButton(perth);
 		setPokeButton(choi);
+		Button exitButton = new Button();
+		exitButton.setText("Exit");
+		exitButton.setStyle("-fx-font-size: 15");
+		exitButton.setPrefSize(70, 50);
+		show.getChildren().add(exitButton);
+		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent arg0) {
+				primarystage.setScene(new Scene(new MainMenu(primarystage, player), 500, 500));
+			}
+		});
+	
 	}
 	
 	public void run(String name) {
 		switch(name) {
 		case "Magikarp" :
 			if(player.getMoney() >= 4000) {
-				test1 Magikarp = new Charmander();
+				test1 Magikarp = new Magikarp();
 				this.player.setPokeball(Magikarp);
 				blackmarket.getBuyLog().addData("Magikarp is added!");
-				//System.out.println("Magikarp is added!");
+				blackmarket.getPokeLog().addData(name);
+				System.out.println("Magikarp is added!");
 				player.setMoney(player.getMoney()-4000);
 			}
 		
 			else {
-			//System.out.println("Not Enough Money! Comeback next time!");
+			System.out.println("Not Enough Money! Comeback next time!");
 				blackmarket.getBuyLog().addData("Not Enough Money! Comeback next time!");
 				exit();
 			}
@@ -78,7 +93,8 @@ public class PokemonShop {
 				test1 Choi = new Charmander();
 				this.player.setPokeball(Choi);
 				blackmarket.getBuyLog().addData("Choi is added!");
-			//	System.out.println("Choi is added!");
+				blackmarket.getPokeLog().addData(name);
+			System.out.println("Choi is added!");
 				player.setMoney(player.getMoney()-800);
 			}
 		
@@ -89,10 +105,11 @@ public class PokemonShop {
 			break;
 		case "Squirtle" :
 			if(player.getMoney() >= 100) {
-			test1 Perth = new Charmander();
+			test1 Perth = new Squirtle();
 			this.player.setPokeball(Perth);
 			blackmarket.getBuyLog().addData("Perth is added!");
-		//System.out.println("Perth is added!");
+			blackmarket.getPokeLog().addData(name);
+		System.out.println("Perth is added!");
 			player.setMoney(player.getMoney()-100);
 			}
 			else {
@@ -101,7 +118,7 @@ public class PokemonShop {
 			}
 			break;
 		default:
-			//System.out.println("Wrong Input u edok!!!");
+			System.out.println("Wrong Input u edok!!!");
 			exit();
 		}
 	}
@@ -114,16 +131,5 @@ public class PokemonShop {
 		});
 	}
 	private void exit() {
-		Button exitButton = new Button();
-		exitButton.setText("Exit");
-		exitButton.setStyle("-fx-font-size: 15");
-		exitButton.setPrefSize(70, 50);
-		blackmarket.getChildren().add(exitButton);
-		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent arg0) {
-				primarystage.setScene(new Scene(new MainMenu(primarystage, player), 500, 500));
-			}
-		});
 	}
 }

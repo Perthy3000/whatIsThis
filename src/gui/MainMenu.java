@@ -48,7 +48,7 @@ public class MainMenu extends VBox {
 				@Override
 				public void handle(MouseEvent arg0) {
 					Blackmarket rootNode = new Blackmarket(player1, primaryStage);
-					Scene nextScene = new Scene(rootNode, 500, 500);
+					Scene nextScene = new Scene(rootNode, 1200, 500);
 					primaryStage.setScene(nextScene);
 				}			
 			});
