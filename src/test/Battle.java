@@ -27,7 +27,6 @@ public class Battle {
 	public Battle(player player1, Stage primaryStage) {
 		battleScene = new BattleScene(player1, primaryStage);
 		this.player1 = player1;
-		player1.addpoken(new Bulbasaur());
 		for(test1 x : player1.getpokenList()) {
 			if(x.getStatus() != Status.FAINTED) {
 				currentPokemon = x;
@@ -45,6 +44,7 @@ public class Battle {
 		this.primaryStage = primaryStage;
 		setSkillBar();
 		battleScene.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
+		battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
 		primaryStage.setScene(new Scene(battleScene, 500, 500));
 	}
 	
@@ -92,6 +92,7 @@ public class Battle {
 							skillButtonList.add(button);
 						}
 						setSkillBar();
+						battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
 						break;
 					}
 				}

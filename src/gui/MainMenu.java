@@ -42,9 +42,6 @@ public class MainMenu extends VBox {
 				@Override
 				public void handle(MouseEvent arg0) {
 					new Battle(player1, primaryStage);
-//					BattleScene rootNode = new BattleScene(player1, primaryStage);
-//					Scene nextScene = new Scene(rootNode, 500, 500);
-//					primaryStage.setScene(nextScene);	
 				}			
 			});
 			break;
