@@ -20,6 +20,7 @@ public class guiPokeball extends TilePane {
 	private player player;
 	public guiPokeball (Blackmarket blackmarket,player player) {
 		setAlignment(Pos.TOP_CENTER);
+		setPrefWidth(300);
 		//logListView = new ListView<PokeButton>(poke);
 		this.blackmarket = blackmarket;
 		setPrefHeight(150);
@@ -27,7 +28,6 @@ public class guiPokeball extends TilePane {
 	}
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);
-		// 
 		index = (player.getpokenList().size())-1;
 		setPokeButton(pokemon, index);
 		System.out.println(index);
@@ -49,15 +49,13 @@ public class guiPokeball extends TilePane {
 			}
 		});
 	}
+	
 	private void removePokeButton(int index) {
 		poke.remove(index);
-		for(int i = 0; i < poke.size(); i++) {
+		for(int i = index; i < poke.size(); i++) {
 			setPokeButton(poke.get(i), i);
 		}
 		getChildren().remove(index);
-		for(int i = 0; i < getChildren().size(); i++) {
-			//
-		}
 	}
 	
 }
