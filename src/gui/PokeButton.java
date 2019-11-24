@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 public class PokeButton extends Button{
 	
 	 private String pokemon;
+	 private int cost;
 	 private boolean isSelected = false;
 	 
 	 public PokeButton(String pokemon) {
@@ -28,12 +29,12 @@ public class PokeButton extends Button{
 		 setPrefSize(5, 5);
 		 String url;
 			switch(pokemon) {
-				case "Magikarp" : url = "yo.png"; break;
-				case "Pikachu" : url = "Pikachu.png"; break;
-				case "Charmander" : url = "charmander.png"; break;
-				case "Squirtle" : url = "squirtle.png"; break;
-				case "Bulbasaur" : url = "Bulbasaur.png"; break;
-				default: url = "yo.png";
+				case "Magikarp" : url = "yo.png"; cost = 4000; break;
+				case "Pikachu" : url = "Pikachu.png"; cost = 800; break;
+				case "Charmander" : url = "charmander.png"; cost = 100; break;
+				case "Squirtle" : url = "squirtle.png"; cost = 100; break;
+				case "Bulbasaur" : url = "Bulbasaur.png"; cost = 100; break;
+				default: url = "yo.png"; cost = 100;
 			}
 		setGraphic(new ImageView(new Image(ClassLoader.getSystemResource(url).toString())));
 		setAction();
@@ -75,5 +76,9 @@ public class PokeButton extends Button{
 	 
 	 public String getPokkenName() {
 		 return pokemon;
+	 }
+	 
+	 public int getCost() {
+		 return cost;
 	 }
 }

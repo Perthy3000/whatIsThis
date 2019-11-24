@@ -27,14 +27,15 @@ public class guiPokeball extends TilePane {
 	}
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);
-		// น่าจะแตกจ้ะ
-		this.index=((player.getpokenList().size())-currentdiff)-1;
+		// 
+		index = (player.getpokenList().size())-1;
 		setPokeButton(pokemon, index);
+		System.out.println(index);
 		//this.index=((player.getpokenList().size())-currentdiff);
 		poke.add(pokemon);
 		getChildren().add(pokemon);
 	}
-	// แตกจ้ะ
+	// 
 	private void setPokeButton(PokeButton button, int index) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -42,15 +43,21 @@ public class guiPokeball extends TilePane {
 				System.out.println(index);
 				currentdiff = (player.getpokenList().size() - player.removepokenList(index));
 				removePokeButton(index);
-				blackmarket.getBuyLog().addData(button.getPokkenName()+" was sold by 100$"); 
-				player.setMoney(player.getMoney()+100);
+				blackmarket.getBuyLog().addData(button.getPokkenName()+" was sold for " + button.getCost() + "$"); 
+				player.setMoney(player.getMoney()+button.getCost());
 				
 			}
 		});
 	}
 	private void removePokeButton(int index) {
 		poke.remove(index);
+		for(int i = 0; i < poke.size(); i++) {
+			setPokeButton(poke.get(i), i);
+		}
 		getChildren().remove(index);
+		for(int i = 0; i < getChildren().size(); i++) {
+			//
+		}
 	}
 	
 }

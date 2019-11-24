@@ -82,7 +82,7 @@ public class PokemonShop {
 	}
 	
 	public void run(String name) {
-		if(player.getpokenList().size()<5) {
+		if(player.getpokenList().size() < 6) {
 		switch(name) {
 		case "Magikarp" :
 			if(player.getMoney() >= 4000) {

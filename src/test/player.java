@@ -10,14 +10,14 @@ public class player{
 	private String name;
 	private List<test1> playerpokken;
 	private int availablepokken;
-	private final int maxpokken = 5;
+	private final int maxpokken = 6;
 	private int money;
 	private Pokeball pokeball;
 	
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
-		money = 0;
+		money = 5000;
 		availablepokken = 0;
 		pokeball = new Pokeball();
 	}
@@ -47,7 +47,7 @@ public class player{
 		return playerpokken;
 	}
 	public int removepokenList(int index) {
-		this.playerpokken.remove(index);
+		playerpokken.remove(index);
 		return getpokenList().size();
 	}
 	
