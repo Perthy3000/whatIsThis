@@ -52,7 +52,7 @@ public class guiPokeball extends TilePane {
 	
 	private void removePokeButton(int index) {
 		poke.remove(index);
-		for(int i = index; i < poke.size(); i++) {
+		for(int i = 0; i < poke.size(); i++) {
 			setPokeButton(poke.get(i), i);
 		}
 		getChildren().remove(index);
