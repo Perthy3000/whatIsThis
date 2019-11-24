@@ -2,6 +2,7 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import gui.BattleScene;
 import gui.MainMenu;
@@ -40,12 +41,26 @@ public class Battle {
 			setSkillButton(button);
 			skillButtonList.add(button);
 		}
-		this.enemyPokemon = new Magikarp();
+		//enemyPokemon = new Magikarp();
+		randomEnemy();
 		this.primaryStage = primaryStage;
 		setSkillBar();
 		battleScene.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
 		battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
 		primaryStage.setScene(new Scene(battleScene, 500, 500));
+	}
+	
+	private void randomEnemy() {
+		Random randomizer = new Random();
+		int randomEnemy = randomizer.nextInt(5);
+		switch (randomEnemy) {
+			case 0: enemyPokemon = new Magikarp(); break;
+			case 1: enemyPokemon = new Charmander(); break;
+			case 2: enemyPokemon = new Bulbasaur(); break;
+			case 3: enemyPokemon = new Squirtle(); break;
+			case 4: enemyPokemon = new Pikachu(); break;
+			default: enemyPokemon = new Magikarp();
+		}
 	}
 	
 	public void setSkillBar() {
