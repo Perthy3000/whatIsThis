@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import test.player;
 
 public class guiPokeball extends TilePane {
-	private int index =1;
+	private int index;
 	private int diff;
 	private int currentdiff;
 	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
@@ -28,7 +28,7 @@ public class guiPokeball extends TilePane {
 	}
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);
-		index = (player.getpokenList().size())-1;
+		index = poke.size();
 		setPokeButton(pokemon, index);
 		System.out.println(index);
 		//this.index=((player.getpokenList().size())-currentdiff);
