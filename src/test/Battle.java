@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import gui.BattleGraphics;
 import gui.BattleScene;
 import gui.MainMenu;
 import gui.SkillBar;
@@ -23,6 +24,7 @@ public class Battle {
 	private test1 enemyPokemon;
 	private Stage primaryStage;
 	private BattleScene battleScene;
+	private BattleGraphics graphics;
 	private List<skillButton> skillButtonList;
 
 	public Battle(player player1, Stage primaryStage) {
@@ -48,6 +50,9 @@ public class Battle {
 		battleScene.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
 		battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
 		primaryStage.setScene(new Scene(battleScene, 500, 500));
+		graphics = battleScene.getBattleGraphic();
+		graphics.drawPartner(currentPokemon);
+		graphics.drawEnemyPokemon(enemyPokemon);
 	}
 	
 	private void randomEnemy() {
@@ -108,6 +113,9 @@ public class Battle {
 						}
 						setSkillBar();
 						battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
+						graphics.resetCanvas();
+						graphics.drawPartner(currentPokemon);
+						graphics.drawEnemyPokemon(enemyPokemon);
 						break;
 					}
 				}

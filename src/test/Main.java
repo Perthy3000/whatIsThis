@@ -3,6 +3,7 @@ package test;
 import gui.guigamemanager;
 import gui.nameInput;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
@@ -18,7 +19,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		HBox root = new HBox();
-		HBox root2 = new HBox();
 		guigamemanager GameManager = new guigamemanager(primaryStage);
 		nameInput ameInput = new nameInput(primaryStage, GameManager);
 		root.setAlignment(Pos.TOP_CENTER);
@@ -30,4 +30,5 @@ public class Main extends Application {
  		primaryStage.setScene(scene2);
  		primaryStage.show();
 	}
+	
 }

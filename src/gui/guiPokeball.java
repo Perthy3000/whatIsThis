@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -13,14 +14,14 @@ import test.player;
 
 public class guiPokeball extends TilePane {
 	private int index;
-	private int diff;
-	private int currentdiff;
+//	private int diff;
+//	private int currentdiff;
 	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
 	private Blackmarket blackmarket;
 	private player player;
 	public guiPokeball (Blackmarket blackmarket,player player) {
-		setAlignment(Pos.TOP_CENTER);
-		setPrefWidth(300);
+		setPrefColumns(3);
+		setPrefWidth(250);
 		//logListView = new ListView<PokeButton>(poke);
 		this.blackmarket = blackmarket;
 		setPrefHeight(150);
@@ -41,7 +42,7 @@ public class guiPokeball extends TilePane {
 			@Override
 			public void handle(MouseEvent arg0) {
 				System.out.println(index);
-				currentdiff = (player.getpokenList().size() - player.removepokenList(index));
+//				currentdiff = (player.getpokenList().size() - player.removepokenList(index));
 				removePokeButton(index);
 				blackmarket.getBuyLog().addData(button.getPokkenName()+" was sold for " + button.getCost() + "$"); 
 				player.setMoney(player.getMoney()+button.getCost());
