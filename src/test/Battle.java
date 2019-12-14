@@ -26,6 +26,7 @@ public class Battle {
 	private BattleScene battleScene;
 	private BattleGraphics graphics;
 	private List<skillButton> skillButtonList;
+	private Random randomizer = new Random();
 
 	public Battle(player player1, Stage primaryStage) {
 		battleScene = new BattleScene(player1, primaryStage);
@@ -56,7 +57,6 @@ public class Battle {
 	}
 	
 	private void randomEnemy() {
-		Random randomizer = new Random();
 		int randomEnemy = randomizer.nextInt(5);
 		switch (randomEnemy) {
 			case 0: enemyPokemon = new Magikarp(); break;
@@ -80,21 +80,21 @@ public class Battle {
 			}
 		});
 	}
+	private void doAttack(test1 pokemon, test1 pokemon2, int skillNum) {
+		battleScene.getLog().addData(pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
+				+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum)) + " damage");
+	}
 	
 	public void attack(int skillNum) {
 		if(currentPokemon.getSpeed() >= enemyPokemon.getSpeed()) {
-			battleScene.getLog().addData(currentPokemon.getName() + " use " + currentPokemon.getskill(skillNum).getSkillname()
-			+ " for " + currentPokemon.doDamage(enemyPokemon, currentPokemon.getskill(skillNum)) + " damage");
+			doAttack(currentPokemon, enemyPokemon, skillNum);
 			if(enemyPokemon.getStatus() != Status.FAINTED) {
-				battleScene.getLog().addData(enemyPokemon.getName() + " attack " + currentPokemon.getName()
-				+ " for " + enemyPokemon.doDamage(currentPokemon, enemyPokemon.getskill(skillNum)) + " damage");
+				doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3));
 			}
 		} else {
-			battleScene.getLog().addData(enemyPokemon.getName() + " attack " + currentPokemon.getName()
-			+ " for " + enemyPokemon.doDamage(currentPokemon, enemyPokemon.getskill(skillNum)) + " damage");
+			doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3));
 			if(currentPokemon.getStatus() != Status.FAINTED) {
-				battleScene.getLog().addData(currentPokemon.getName() + " use " + currentPokemon.getskill(skillNum).getSkillname()
-				+ " for " + currentPokemon.doDamage(enemyPokemon, currentPokemon.getskill(skillNum)) + " damage");
+				doAttack(currentPokemon, enemyPokemon, skillNum);
 			}
 		}
 		if(currentPokemon.getStatus() == Status.FAINTED) {
