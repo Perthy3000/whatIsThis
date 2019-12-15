@@ -1,5 +1,8 @@
 package pokemon;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import test.skill;
 
 public class Bulbasaur extends test1{
@@ -9,6 +12,6 @@ public class Bulbasaur extends test1{
 		skillList.add(new skill("Grass Shot", Element.GRASS, 2));
 		skillList.add(new skill("Grass Shower", Element.GRASS, 3));
 		skillList.add(new skill("Grassingo", Element.GRASS, 5));
-		skillList.add(new skill("Grass Burst", Element.GRASS, 4));
-	}
+		skillList.add(new skill("Grass Burst", Element.GRASS, 4));       
+    	   }
 }

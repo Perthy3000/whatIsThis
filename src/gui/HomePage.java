@@ -1,11 +1,8 @@
 package gui;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,7 +12,6 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
@@ -65,9 +61,10 @@ public class HomePage extends StackPane {
 		 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
-					nameInput nextScene = new nameInput(primaryStage, manager);
+				//	nameInput nextScene = new nameInput());
+					CreateCharScene nextScene = new CreateCharScene(primaryStage, manager);
 					nextScene.setAlignment(Pos.CENTER);
-					primaryStage.setScene(new Scene(nextScene, 500, 500));
+					primaryStage.setScene(new Scene(nextScene, 500, 800));
 				}			
 			});
 	 }
