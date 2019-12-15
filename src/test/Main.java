@@ -1,5 +1,6 @@
 package test;
 
+import gui.HomePage;
 import gui.guigamemanager;
 import gui.nameInput;
 import javafx.application.Application;
@@ -20,13 +21,15 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		HBox root = new HBox();
 		guigamemanager GameManager = new guigamemanager(primaryStage);
-		nameInput ameInput = new nameInput(primaryStage, GameManager);
+		//nameInput ameInput = new nameInput(primaryStage, GameManager);
+		HomePage yo = new HomePage(primaryStage,GameManager);
 		root.setAlignment(Pos.TOP_CENTER);
 		//root2.setAlignment(Pos.CENTER);
 //		root.getChildren().addAll(yo,yo2,yo3,yo4,yo5);
-		root.getChildren().add(ameInput);
+		//root.getChildren().add(ameInput);
+		root.getChildren().add(yo);
 		
-		Scene scene2 = new Scene(root,500,500);
+		Scene scene2 = new Scene(root,500,800);
  		primaryStage.setScene(scene2);
  		primaryStage.show();
 	}

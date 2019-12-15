@@ -15,7 +15,7 @@ public class nameInput extends VBox {
 	private TextField nameinput;
 	private Label label;
 	private Button enterButton;
-	
+
 	public nameInput(Stage primaryStage, guigamemanager manager) {
 		setSpacing(10);
 		nameinput = new TextField();
