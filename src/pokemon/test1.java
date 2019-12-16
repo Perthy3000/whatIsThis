@@ -3,15 +3,13 @@ package pokemon;
 import java.util.ArrayList;
 import java.util.List;
 
+import gui.BattleScene;
 import test.skill;
 
 public abstract class test1 {
 	private String name;
 	private Element element;
-	private int attack;
-	private int defense;
-	private int maxHp;
-	private int speed;
+	private int attack ,defense, maxHp, speed;
 	private int currentHp;
 	private Status status;
 	protected List<skill> skillList;
@@ -36,8 +34,16 @@ public abstract class test1 {
 		this.status = status;
 	}
 
-	public int doDamage(test1 sandbag, skill move) {
-		int calDamage = getAttack()+move.getPower()-sandbag.getDefense();
+	public int doDamage(test1 sandbag, skill move, BattleScene battleScene) {
+		float multiplier = 1;
+		if(sandbag.getElement() == move.getEffectiveElement()) {
+			multiplier *= 2;
+		} else if(sandbag.getElement() == move.getNEffectiveElement()) {
+			multiplier /= 2;
+		}
+		int calDamage = (int) (((getAttack()+move.getPower())*multiplier)-sandbag.getDefense());
+		System.out.println(move.getPower());
+		System.out.println((move.getPower()+getAttack())*multiplier);
 		if(calDamage <= 0) {
 			calDamage = 1;
 		}

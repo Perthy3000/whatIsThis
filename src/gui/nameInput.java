@@ -5,9 +5,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 public class nameInput extends VBox {
@@ -17,7 +23,9 @@ public class nameInput extends VBox {
 	private Button enterButton;
 	
 	public nameInput(Stage primaryStage, guigamemanager manager) {
-		setSpacing(10);
+		setPadding(new Insets(10));
+		setSpacing(30);
+		setAlignment(Pos.CENTER);
 		nameinput = new TextField();
 		label = new Label("Enter your name");
 		label.setStyle("-fx-font-size: 20");
@@ -25,11 +33,24 @@ public class nameInput extends VBox {
 		enterButton.setPrefSize(70, 40);
 		setButtonAction(primaryStage, manager);
 		getChildren().addAll(label, nameinput, enterButton);
-		setAlignment(Pos.CENTER);
 	}
 	
 	public void setButtonAction(Stage primaryStage, guigamemanager manager) {
 		enterButton.setOnAction(new ActionEventHandler(primaryStage, manager));
+//		enterButton.setOnMousePressed(new EventHandler<MouseEvent>() {
+//
+//			@Override
+//			public void handle(MouseEvent arg0) {
+//				enterButton.setPrefSize(70, 30);
+//			}
+//		});
+//		enterButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+//
+//			@Override
+//			public void handle(MouseEvent arg0) {
+//				enterButton.setPrefSize(70, 40);
+//			}
+//		});
 	}
 	
 	private class ActionEventHandler implements EventHandler<ActionEvent> {
@@ -48,9 +69,6 @@ public class nameInput extends VBox {
 			nextScene.setAlignment(Pos.CENTER);
 			String name = nameinput.getText();
 			manager.createPlayer(name);
-			//Label label = new Label(name+"is created!");
-			//label.setAlignment(Pos.TOP_CENTER);
-			//nextScene.getChildren().add(label);
 			primaryStage.setScene(new Scene(nextScene, 500, 500));
 		}
 		
