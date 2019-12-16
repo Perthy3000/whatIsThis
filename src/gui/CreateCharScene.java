@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pokemon.Bulbasaur;
@@ -45,7 +46,7 @@ public class CreateCharScene extends StackPane {
 		nextButton.setBorder(new Border(new BorderStroke(Color.TRANSPARENT,BorderStrokeStyle.NONE, 
 				CornerRadii.EMPTY, BorderWidths.EMPTY)));
 		nextButton.setStyle("-fx-background-color: transparent;");
-		buttonImage = new Image(ClassLoader.getSystemResource("blank.png").toString(), 320, 100, false, false);
+		buttonImage = new Image(ClassLoader.getSystemResource("nextButtonaf.png").toString(), 320, 100, false, false);
 		nextButton.setGraphic(new ImageView(buttonImage));
 		setButtonAction(nextButton);
 		backgroundImage = new Image(ClassLoader.getSystemResource("createcharbg.png").toString(), 500, 800, false, false);

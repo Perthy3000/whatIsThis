@@ -8,6 +8,7 @@ import gui.BattleGraphics;
 import gui.BattleScene;
 import gui.HitAnimation;
 import gui.MainMenu;
+import gui.MainMenuScene;
 import gui.SkillBar;
 import gui.skillButton;
 import javafx.animation.AnimationTimer;
@@ -181,7 +182,7 @@ public class Battle {
 		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				primaryStage.setScene(new Scene(new MainMenu(primaryStage, player1), 500, 500));
+				primaryStage.setScene(new Scene(new MainMenuScene(primaryStage, player1), 500, 800));
 			}
 		});
 	}

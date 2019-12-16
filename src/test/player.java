@@ -13,7 +13,7 @@ public class player{
 	private final int maxpokken = 6;
 	private int money;
 	private Pokeball pokeball;
-	
+	private String gender;
 	public player(String name) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
@@ -67,6 +67,12 @@ public class player{
 	}
 	public Pokeball getPokeBall() {
 		return this.pokeball;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getGender() {
+		return this.gender;
 	}
 	
 }

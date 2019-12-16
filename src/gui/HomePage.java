@@ -61,11 +61,11 @@ public class HomePage extends StackPane {
 		 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
-				//	nameInput nextScene = new nameInput());
-//					manager.createPlayer("ASH");
 					CreateCharScene nextScene = new CreateCharScene(primaryStage, manager);
 					nextScene.setAlignment(Pos.CENTER);
+					primaryStage.setTitle("Create Character");
 					primaryStage.setScene(new Scene(nextScene, 500, 800));
+					
 				}			
 			});
 	 }

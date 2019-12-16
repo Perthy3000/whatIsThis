@@ -46,10 +46,13 @@ public class CreateChar extends VBox {
 				manager.createPlayer(nameInput.getText());
 				player player1 = manager.getPlayer();	//call player from gameManager
 				player1.addpoken(ChoosePokemon.getPokemon());
-				MainMenu nextBox = new MainMenu(primaryStage, player1);
+				player1.setGender(getNameInput().getSelectedGender());
+			//	MainMenu nextBox = new MainMenu(primaryStage, player1);
+				MainMenuScene nextBox = new MainMenuScene(primaryStage, player1);
 				nextBox.setAlignment(Pos.CENTER);
-				Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
+				Scene nextScene = new Scene(nextBox, 500, 800);	//create next scene
 				System.out.println(player1.getName() + " choose " + player1.getpokenList().get(0).getName());
+				primaryStage.setTitle("Main Menu");
 				primaryStage.setScene(nextScene);
 			}
 		});
