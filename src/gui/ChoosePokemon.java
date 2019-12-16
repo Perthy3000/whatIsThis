@@ -26,7 +26,7 @@ public class ChoosePokemon extends GridPane {
 	private Button nextButton;	//button NEXT
 	private guigamemanager manager;	//gameManager
 	private Label label;
-	public ChoosePokemon() {
+	public ChoosePokemon(CreateCharScene ccs) {
 		//this.primaryStage = primaryStage;
 		pokeButtons = new ArrayList<PokeButton>();
 		//this.manager = manager;
@@ -44,12 +44,13 @@ public class ChoosePokemon extends GridPane {
 		pokeButtons.add(yo3);
 		pokeButtons.add(yo4);
 		pokeButtons.add(yo5);
+		selectedPokken = new Charmander();
 		addRow(1,label);
 		addRow(1, yo3, yo4,yo5);
 	//	addRow(2,nextButton);
 		//addRow(1,label);
 		for(PokeButton all : pokeButtons) {
-			setPokeButtonAction(all);
+			setPokeButtonAction(all, ccs);
 		}
 	}
 	
@@ -82,17 +83,17 @@ public class ChoosePokemon extends GridPane {
 	}
 
 	//set action on pokeButton to select current pokemon
-	private void setPokeButtonAction(PokeButton pokebutton) {
+	private void setPokeButtonAction(PokeButton pokebutton, CreateCharScene ccs) {
 		pokebutton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				setSelected(pokebutton);	//call setSelected function
+				setSelected(pokebutton, ccs);	//call setSelected function
 			}
 		});
 	}
 	
 	//set the current selected pokeButton
-	private void setSelected(PokeButton pokebutton) {
+	private void setSelected(PokeButton pokebutton, CreateCharScene ccs) {
 		selectedButton = pokebutton;
 		selectedButton.setSelected();
 		for(PokeButton button : pokeButtons) {
@@ -101,6 +102,7 @@ public class ChoosePokemon extends GridPane {
 			}
 		}
 		chooseStarter();	//call to select pokemon
+		ccs.updateChar(selectedPokken);
 		//add(selectedPokken.getPieChart(),0,8);
 		//setButtonAction();	//call setButtonAction
 		

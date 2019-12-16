@@ -10,18 +10,20 @@ public class CreateChar extends VBox {
 	private nameInput nameInput;
 	private ChoosePokemon ChoosePokemon;
 	private ImageView you;
-	public CreateChar(Stage primaryStage, guigamemanager manager) {
+	public CreateChar(Stage primaryStage, guigamemanager manager, CreateCharScene ccs) {
 			nameInput = new nameInput();
-			String name = nameInput.getText();
+//			String name = nameInput.getText();
+			String name = "ASH";
 			manager.createPlayer(name);
-			ChoosePokemon = new ChoosePokemon();
+			ChoosePokemon = new ChoosePokemon(ccs);
 			you = new ImageView(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false));
 		//	setAlignment(Pos.CENTER);
 			setAlignment(Pos.TOP_CENTER);
 			getChildren().addAll(you,nameInput,ChoosePokemon);
 		}
-public ChoosePokemon getChoosePokemon() {
-	return this.ChoosePokemon;
+	
+	public ChoosePokemon getChoosePokemon() {
+		return this.ChoosePokemon;
 }
 	
 }
