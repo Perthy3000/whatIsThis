@@ -49,7 +49,7 @@ public class CreateChar extends VBox {
 				MainMenu nextBox = new MainMenu(primaryStage, player1);
 				nextBox.setAlignment(Pos.CENTER);
 				Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
-				System.out.println(player1.getName() + " choose " + player1.getpokenList().get(0));
+				System.out.println(player1.getName() + " choose " + player1.getpokenList().get(0).getName());
 				primaryStage.setScene(nextScene);
 			}
 		});

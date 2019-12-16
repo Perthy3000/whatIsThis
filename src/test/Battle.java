@@ -29,6 +29,7 @@ public class Battle {
 	private BattleGraphics graphics;
 	private List<skillButton> skillButtonList;
 	private Random randomizer = new Random();
+	private int turn = 0;
 
 	public Battle(player player1, Stage primaryStage) {
 		battleScene = new BattleScene(player1, primaryStage);
@@ -82,27 +83,45 @@ public class Battle {
 			}
 		});
 	}
+	
 	private void doAttack(test1 pokemon, test1 pokemon2, int skillNum, int skillNum2) {
 		//String
-		battleScene.getLog().addData("-" + pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
-				+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum), battleScene) + " damage");
-		if(pokemon.equals(currentPokemon)) {
-			new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 220, 20).start();
-		} else {
-			new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 50, 100).start();
-		}
-		if(pokemon2.getStatus() != Status.FAINTED) {
-			battleScene.getLog().addData(pokemon2.getName() + " use " + pokemon2.getskill(skillNum2).getSkillname()
-					+ " for " + pokemon2.doDamage(pokemon, pokemon2.getskill(skillNum2), battleScene) + " damage");
-		}
+		battleScene.getLog().getListView().setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				if(pokemon2.getStatus() != Status.FAINTED && turn == 1) {
+					battleScene.getLog().addData(pokemon2.getName() + " use " + pokemon2.getskill(skillNum2).getSkillname()
+							+ " for " + pokemon2.doDamage(pokemon, pokemon2.getskill(skillNum2), battleScene) + " damage");
+					if(pokemon2.equals(currentPokemon)) {
+						new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 220, 20).start();
+					} else {
+						new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 50, 100).start();
+					}
+					turn++;
+				}
+				else if(turn == 0) {
+					battleScene.getLog().addData("-" + pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
+							+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum), battleScene) + " damage");
+					if(pokemon.equals(currentPokemon)) {
+						new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 220, 20).start();
+					} else {
+						new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 50, 100).start();
+					}
+					checkFaint();
+					turn++;					
+				}
+				if(turn == 2) {
+					battleScene.getLog().getListView().setOnMouseClicked(null);
+					battleScene.enableSkillBar();
+					turn = 0;
+					checkFaint();
+				}
+			}
+		});
 	}
 	
-	public void attack(int skillNum) {
-		if(currentPokemon.getSpeed() >= enemyPokemon.getSpeed()) {
-			doAttack(currentPokemon, enemyPokemon, skillNum, randomizer.nextInt(3));
-		} else {
-			doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3), skillNum);
-		}
+	public void checkFaint() {
 		if(currentPokemon.getStatus() == Status.FAINTED) {
 			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
 			if(player1.getAvailablePokken() == 0) {
@@ -130,10 +149,18 @@ public class Battle {
 		}
 	}
 	
-	private void exit() {
-		for(skillButton x : skillButtonList) {
-			x.setDisable(true);
+	public void attack(int skillNum) {
+		battleScene.disableSkillBar();
+		if(currentPokemon.getSpeed() >= enemyPokemon.getSpeed()) {
+			doAttack(currentPokemon, enemyPokemon, skillNum, randomizer.nextInt(3));
+		} else {
+			doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3), skillNum);
 		}
+	}
+	
+	private void exit() {
+		battleScene.getLog().getListView().setOnMouseClicked(null);
+		battleScene.disableSkillBar();
 		if(player1.getAvailablePokken() == 0) {
 			battleScene.getBattleGraphic().clearPartner();
 			battleScene.getLog().addData(player1.getName() + " has no pokemon left!");
