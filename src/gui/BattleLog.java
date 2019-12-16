@@ -27,4 +27,8 @@ public class BattleLog extends StackPane {
 		logdata.add(nlabel);
 		logListView.scrollTo(nlabel);
 	}
+	
+	public ListView<Label> getListView() {
+		return logListView;
+	}
 }

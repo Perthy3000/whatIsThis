@@ -31,6 +31,10 @@ public class BattleScene extends VBox {
 		return background;
 	}
 	
+	public SkillBar getSkillBar() {
+		return skillBar;
+	}
+	
 	public BattleLog getLog() {
 		return log;
 	}
@@ -44,5 +48,17 @@ public class BattleScene extends VBox {
 		getChildren().remove(this.skillBar);
 		this.skillBar = skillBar;
 		getChildren().add(pos, skillBar);
+	}
+	
+	public void disableSkillBar() {
+		for(skillButton button : skillBar.getSkillButtons()) {
+			button.setDisable(true);
+		}
+	}
+	
+	public void enableSkillBar() {
+		for(skillButton button : skillBar.getSkillButtons()) {
+			button.setDisable(false);
+		}
 	}
 }
