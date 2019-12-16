@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.BattleScene;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import test.skill;
 
 public abstract class test1 {
@@ -13,7 +16,7 @@ public abstract class test1 {
 	private int currentHp;
 	private Status status;
 	protected List<skill> skillList;
-	
+	private PieChart pieChart;
 	public test1(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		this.name = name;
 		this.element = element;
@@ -24,8 +27,33 @@ public abstract class test1 {
 		currentHp = maxHp;
 		status = Status.READY;
 		skillList = new ArrayList<skill>();
+		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+   	         new PieChart.Data("HP", this.maxHp), 
+   	         new PieChart.Data("Attack", this.attack), 
+   	         new PieChart.Data("Defense",this.defense), 
+   	         new PieChart.Data("Speed", this.speed)); 
+   	       
+   	      //Creating a Pie chart 
+   	      pieChart = new PieChart(pieChartData); 
+   	              
+   	      //Setting the title of the Pie chart 
+   	      pieChart.setTitle(""); 
+   	       
+   	      //setting the direction to arrange the data 
+   	      pieChart.setClockwise(true); 
+   	       
+   	      //Setting the length of the label line 
+   	      pieChart.setLabelLineLength(50); 
+
+   	      //Setting the labels of the pie chart visible  
+   	      pieChart.setLabelsVisible(true); 
+   	       
+   	      //Setting the start angle of the pie chart  
+   	      pieChart.setStartAngle(180);
 	}
-	
+	public PieChart getPieChart() {
+		return this.pieChart;
+		}
 	public Status getStatus() {
 		return status;
 	}

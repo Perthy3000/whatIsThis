@@ -25,29 +25,29 @@ public class ChoosePokemon extends GridPane {
 	private test1 selectedPokken;	//current pokemon that is selected
 	private Button nextButton;	//button NEXT
 	private guigamemanager manager;	//gameManager
-	
-	public ChoosePokemon(Stage primaryStage, guigamemanager manager) {
-		this.primaryStage = primaryStage;
+	private Label label;
+	public ChoosePokemon() {
+		//this.primaryStage = primaryStage;
 		pokeButtons = new ArrayList<PokeButton>();
-		this.manager = manager;
+		//this.manager = manager;
 		nextButton = new Button("next");
 		nextButton.setPrefSize(70, 70);
 		setPadding(new Insets(5));
 		setHgap(5);
 		setVgap(5);
-	//	PokeButton yo = new PokeButton("Magikarp");
-	//	PokeButton yo2 = new PokeButton("Pikachu");
+		label = new Label("Pokemon: ");
+		label.setStyle("-fx-font-size: 25");
+		label.setStyle("-fx-font-size: 25");
 		PokeButton yo3 = new PokeButton("Charmander");
 		PokeButton yo4 = new PokeButton("Squirtle");
 		PokeButton yo5 = new PokeButton("Bulbasaur");
-		//pokeButtons.add(yo);
-	//	pokeButtons.add(yo2);
 		pokeButtons.add(yo3);
 		pokeButtons.add(yo4);
 		pokeButtons.add(yo5);
-	//	addRow(0, yo2);
-		addRow(1, yo3, yo4);
-		addRow(2, yo5, nextButton);
+		addRow(1,label);
+		addRow(1, yo3, yo4,yo5);
+	//	addRow(2,nextButton);
+		//addRow(1,label);
 		for(PokeButton all : pokeButtons) {
 			setPokeButtonAction(all);
 		}
@@ -101,6 +101,11 @@ public class ChoosePokemon extends GridPane {
 			}
 		}
 		chooseStarter();	//call to select pokemon
-		setButtonAction();	//call setButtonAction
+		//add(selectedPokken.getPieChart(),0,8);
+		//setButtonAction();	//call setButtonAction
+		
+	}
+	public test1 getselectedPokken() {
+		return this.selectedPokken;
 	}
 }

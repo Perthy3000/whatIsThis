@@ -1,5 +1,8 @@
 package pokemon;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import test.skill;
 
 public class Squirtle extends test1 {
@@ -10,6 +13,7 @@ public class Squirtle extends test1 {
 		skillList.add(new skill("Water Shower", Element.WATER, 3));
 		skillList.add(new skill("Wateringo", Element.WATER, 5));
 		skillList.add(new skill("Water Burst", Element.WATER, 4));
-	}
+		
+   	   }
 	
 }
