@@ -36,8 +36,7 @@ public class ChoosePokemon extends GridPane {
 		setHgap(5);
 		setVgap(5);
 		label = new Label("Pokemon: ");
-		label.setStyle("-fx-font-size: 25");
-		label.setStyle("-fx-font-size: 25");
+		label.setStyle("-fx-font-size: 20");
 		PokeButton yo3 = new PokeButton("Charmander");
 		PokeButton yo4 = new PokeButton("Squirtle");
 		PokeButton yo5 = new PokeButton("Bulbasaur");
@@ -47,7 +46,7 @@ public class ChoosePokemon extends GridPane {
 		selectedPokken = new Charmander();
 		addRow(1,label);
 		addRow(1, yo3, yo4,yo5);
-		addRow(2,nextButton);
+		//addRow(2,nextButton);
 		//addRow(1,label);
 		for(PokeButton all : pokeButtons) {
 			setPokeButtonAction(all, ccs);
@@ -86,7 +85,7 @@ public class ChoosePokemon extends GridPane {
 			}
 		}
 		chooseStarter();	//call to select pokemon
-		ccs.updateChar(selectedPokken);
+		ccs.updatePoke(selectedPokken);
 		//add(selectedPokken.getPieChart(),0,8);
 		//setButtonAction();	//call setButtonAction
 		
