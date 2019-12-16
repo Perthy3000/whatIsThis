@@ -42,7 +42,7 @@ public class CreateCharScene extends StackPane {
 		PokeImage = new ImageView(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false));
 		getChildren().add(canvas);
 		gc.drawImage(backgroundImage, 0, 0);
-		gc.drawImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false), 245, 45);
+		//gc.drawImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 400, 185.6, false, false), 245, 100);
 		createChar = new CreateChar(primaryStage,manager, this);
 	 	PokeImage.setImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false));
 		setAlignment(createChar, Pos.CENTER);
