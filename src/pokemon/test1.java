@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.BattleScene;
+import gui.HitAnimation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;

@@ -86,7 +86,11 @@ public class Battle {
 		//String
 		battleScene.getLog().addData("-" + pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
 				+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum), battleScene) + " damage");
-		new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext()).start();
+		if(pokemon.equals(currentPokemon)) {
+			new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 220, 20).start();
+		} else {
+			new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 50, 100).start();
+		}
 		if(pokemon2.getStatus() != Status.FAINTED) {
 			battleScene.getLog().addData(pokemon2.getName() + " use " + pokemon2.getskill(skillNum2).getSkillname()
 					+ " for " + pokemon2.doDamage(pokemon, pokemon2.getskill(skillNum2), battleScene) + " damage");

@@ -8,9 +8,9 @@ import pokemon.test1;
 
 public class BattleGraphics extends StackPane {
 	
-	private Canvas canvas;
-	private Canvas canvas2;
-	private Canvas canvas3;
+	private Canvas backgroundLayer;
+	private Canvas characterLayer;
+	private Canvas vfxLayer;
 	private GraphicsContext gc;
 	private GraphicsContext gc2;
 	private GraphicsContext gc3;
@@ -20,14 +20,14 @@ public class BattleGraphics extends StackPane {
 	
 	public BattleGraphics() {
 		try {
-			canvas = new Canvas(400,200);
-			canvas2 = new Canvas(400, 200);
-			canvas3 = new Canvas(400, 200);
-			gc = canvas.getGraphicsContext2D();
-			gc2 = canvas2.getGraphicsContext2D();
-			gc3 = canvas3.getGraphicsContext2D();
+			backgroundLayer = new Canvas(400,200);
+			characterLayer = new Canvas(400, 200);
+			vfxLayer = new Canvas(400, 200);
+			gc = backgroundLayer.getGraphicsContext2D();
+			gc2 = characterLayer.getGraphicsContext2D();
+			gc3 = vfxLayer.getGraphicsContext2D();
 			backgroundImage = new Image(ClassLoader.getSystemResource("background-scene.png").toString(), 400, 200, false, false);
-			getChildren().addAll(canvas, canvas2, canvas3);
+			getChildren().addAll(backgroundLayer, characterLayer, vfxLayer);
 			gc.drawImage(backgroundImage, 0, 0);
 		} catch (Exception e) {
 			System.out.println("cannot find image");
@@ -67,9 +67,9 @@ public class BattleGraphics extends StackPane {
 	}
 	
 	public void resetCanvas() {
-		canvas = new Canvas();
+		backgroundLayer = new Canvas();
 		backgroundImage = new Image(ClassLoader.getSystemResource("background-scene.png").toString(), 400, 200, false, false);
-		getChildren().add(canvas);
+		getChildren().add(backgroundLayer);
 		gc.drawImage(backgroundImage, 0, 0);
 	}
 	
