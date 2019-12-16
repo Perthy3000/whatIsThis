@@ -45,7 +45,7 @@ public class CreateCharScene extends StackPane {
 		nextButton.setBorder(new Border(new BorderStroke(Color.TRANSPARENT,BorderStrokeStyle.NONE, 
 				CornerRadii.EMPTY, BorderWidths.EMPTY)));
 		nextButton.setStyle("-fx-background-color: transparent;");
-		buttonImage = new Image(ClassLoader.getSystemResource("bfpressed.png").toString(), 320, 100, false, false);
+		buttonImage = new Image(ClassLoader.getSystemResource("blank.png").toString(), 320, 100, false, false);
 		nextButton.setGraphic(new ImageView(buttonImage));
 		setButtonAction(nextButton);
 		backgroundImage = new Image(ClassLoader.getSystemResource("createcharbg.png").toString(), 500, 800, false, false);
@@ -92,8 +92,8 @@ public class CreateCharScene extends StackPane {
 	}
 	public void updateChar(String gender) {
 		switch(createChar.getNameInput().getSelectedGender()) {
-		case "Female" : createChar.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false));
-		case "Male" : createChar.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false));
+		case "Female" : createChar.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false)); break;
+		case "Male" : createChar.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false)); break;
 		default:
 		}
 	}
