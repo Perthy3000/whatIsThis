@@ -27,7 +27,7 @@ public class nameInput extends GridPane {
 //		setPadding(new Insets(10));
 //		setSpacing(30);
 //		setAlignment(Pos.CENTER);
-/*
+
 	public nameInput() {
 		setPadding(new Insets(5));
 		setHgap(5);
@@ -37,57 +37,13 @@ public class nameInput extends GridPane {
 		label.setStyle("-fx-font-size: 25");
 		enterButton = new Button("Enter");
 		enterButton.setPrefSize(70, 40);
-		setButtonAction(primaryStage, manager);
-		getChildren().addAll(label, nameinput, enterButton);
+//		setButtonAction(primaryStage, manager);
+//		getChildren().addAll(label, nameinput);
 	//	setButtonAction(primaryStage, manager);
 		addRow(1,label, nameinput);
 	//setAlignment(Pos.CENTER_LEFT);
 	}
-*//*
-	public void setButtonAction(Stage primaryStage, guigamemanager manager) {
-		enterButton.setOnAction(new ActionEventHandler(primaryStage, manager));
-		enterButton.setOnMousePressed(new EventHandler<MouseEvent>() {
 
-			@Override
-			public void handle(MouseEvent arg0) {
-				enterButton.setPrefSize(70, 30);
-			}
-		});
-		enterButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent arg0) {
-				enterButton.setPrefSize(70, 40);
-			}
-		});
-	}
-
-	private class ActionEventHandler implements EventHandler<ActionEvent> {
-		
-		guigamemanager manager;
-		Stage primaryStage;
-		
-		public ActionEventHandler(Stage primaryStage, guigamemanager manager) {
-			this.primaryStage = primaryStage;
-			this.manager = manager;
-			this.primaryStage.setTitle("Create your character");
-		}
-
-		@Override
-		public void handle(ActionEvent arg0) {
-			ChoosePokemon nextScene = new ChoosePokemon();
-			nextScene.setAlignment(Pos.CENTER);
-			String name = nameinput.getText();
-			manager.createPlayer(name);
-			primaryStage.setScene(new Scene(nextScene, 500, 500));
-			//Label label = new Label(name+"is created!");
-			//label.setAlignment(Pos.TOP_CENTER);
-			//nextScene.getChildren().add(label);
-			primaryStage.setScene(new Scene(nextScene, 500, 800));
-		}
-		
-	}
-	*/
 	public String getText() {
 		return nameinput.getText().trim();
 	}

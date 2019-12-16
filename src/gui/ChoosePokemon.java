@@ -48,27 +48,10 @@ public class ChoosePokemon extends GridPane {
 		addRow(1,label);
 		addRow(1, yo3, yo4,yo5);
 		addRow(2,nextButton);
-		setButtonAction();
 		//addRow(1,label);
 		for(PokeButton all : pokeButtons) {
 			setPokeButtonAction(all, ccs);
 		}
-	}
-	
-	//set action on NEXT button
-	private void setButtonAction() {
-		player player1 = manager.getPlayer();	//call player from gameManager
-		nextButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				player1.addpoken(selectedPokken);	//player add selected pokemon into team
-				MainMenu nextBox = new MainMenu(primaryStage, player1);
-				nextBox.setAlignment(Pos.CENTER);
-				Scene nextScene = new Scene(nextBox, 500, 500);	//create next scene
-				System.out.println(player1.getName() + " choose " + selectedButton.getPokkenName());
-				primaryStage.setScene(nextScene);
-			}
-		});
 	}
 	
 	//change selected pokemon depends on currently selected button
@@ -108,7 +91,16 @@ public class ChoosePokemon extends GridPane {
 		//setButtonAction();	//call setButtonAction
 		
 	}
+	
 	public test1 getselectedPokken() {
 		return this.selectedPokken;
+	}
+	
+	public Button getNextButton() {
+		return nextButton;
+	}
+	
+	public test1 getPokemon() {
+		return selectedPokken;
 	}
 }

@@ -34,28 +34,32 @@ public class CreateCharScene extends StackPane {
 	private guigamemanager manager;
 	private Stage primaryStage;
 	private CreateChar createChar;
+	
 	public CreateCharScene(Stage primaryStage,guigamemanager manager) {
-		
 		canvas = new Canvas(500,800);
 		gc = canvas.getGraphicsContext2D();
 		backgroundImage = new Image(ClassLoader.getSystemResource("createcharbg.png").toString(), 500, 800, false, false);
 		PokeImage = new ImageView(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false));
 		getChildren().add(canvas);
 		gc.drawImage(backgroundImage, 0, 0);
-		//gc.drawImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 400, 185.6, false, false), 245, 100);
+//		gc.drawImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 400, 185.6, false, false), 245, 100);
 		createChar = new CreateChar(primaryStage,manager, this);
 	 	PokeImage.setImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false));
 		setAlignment(createChar, Pos.CENTER);
-		getChildren().add(createChar);
-		setAlignment(PokeImage, Pos.CENTER);
+		getChildren().addAll(createChar);
+//		setAlignment(PokeImage, Pos.CENTER);
 		getChildren().add(PokeImage);
 	}
 	
 	public void updateChar(test1 pokemon) {
 		switch(createChar.getChoosePokemon().getselectedPokken().getName()) {
 	 	case "Charmander":PokeImage.setImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false));  break;
-	 	case "Squirtle": PokeImage.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 280, 185.6, false, false)); break;
-	 	case "Bulbasaur":PokeImage.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 280, 185.6, false, false)); break;
+	 	case "Squirtle": 
+	 		createChar.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false));
+	 		PokeImage.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 280, 185.6, false, false)); break;
+	 	case "Bulbasaur":
+	 		createChar.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false));
+	 		PokeImage.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 280, 185.6, false, false)); break;
 		default: 
 		}
 	}
