@@ -35,6 +35,7 @@ public class CreateCharScene extends StackPane {
 	private Stage primaryStage;
 	private CreateChar createChar;
 	public CreateCharScene(Stage primaryStage,guigamemanager manager) {
+		
 		canvas = new Canvas(500,800);
 		gc = canvas.getGraphicsContext2D();
 		backgroundImage = new Image(ClassLoader.getSystemResource("createcharbg.png").toString(), 500, 800, false, false);
@@ -48,7 +49,6 @@ public class CreateCharScene extends StackPane {
 		getChildren().add(createChar);
 		setAlignment(PokeImage, Pos.CENTER);
 		getChildren().add(PokeImage);
-		
 	}
 	
 	public void updateChar(test1 pokemon) {

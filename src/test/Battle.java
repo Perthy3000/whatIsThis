@@ -6,9 +6,11 @@ import java.util.Random;
 
 import gui.BattleGraphics;
 import gui.BattleScene;
+import gui.HitAnimation;
 import gui.MainMenu;
 import gui.SkillBar;
 import gui.skillButton;
+import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -80,22 +82,22 @@ public class Battle {
 			}
 		});
 	}
-	private void doAttack(test1 pokemon, test1 pokemon2, int skillNum) {
-		battleScene.getLog().addData(pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
-				+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum)) + " damage");
+	private void doAttack(test1 pokemon, test1 pokemon2, int skillNum, int skillNum2) {
+		//String
+		battleScene.getLog().addData("-" + pokemon.getName() + " use " + pokemon.getskill(skillNum).getSkillname()
+				+ " for " + pokemon.doDamage(pokemon2, pokemon.getskill(skillNum), battleScene) + " damage");
+		new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext()).start();
+		if(pokemon2.getStatus() != Status.FAINTED) {
+			battleScene.getLog().addData(pokemon2.getName() + " use " + pokemon2.getskill(skillNum2).getSkillname()
+					+ " for " + pokemon2.doDamage(pokemon, pokemon2.getskill(skillNum2), battleScene) + " damage");
+		}
 	}
 	
 	public void attack(int skillNum) {
 		if(currentPokemon.getSpeed() >= enemyPokemon.getSpeed()) {
-			doAttack(currentPokemon, enemyPokemon, skillNum);
-			if(enemyPokemon.getStatus() != Status.FAINTED) {
-				doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3));
-			}
+			doAttack(currentPokemon, enemyPokemon, skillNum, randomizer.nextInt(3));
 		} else {
-			doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3));
-			if(currentPokemon.getStatus() != Status.FAINTED) {
-				doAttack(currentPokemon, enemyPokemon, skillNum);
-			}
+			doAttack(enemyPokemon, currentPokemon, randomizer.nextInt(3), skillNum);
 		}
 		if(currentPokemon.getStatus() == Status.FAINTED) {
 			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
@@ -113,7 +115,6 @@ public class Battle {
 						}
 						setSkillBar();
 						battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
-						graphics.resetCanvas();
 						graphics.drawPartner(currentPokemon);
 						graphics.drawEnemyPokemon(enemyPokemon);
 						break;
@@ -130,8 +131,10 @@ public class Battle {
 			x.setDisable(true);
 		}
 		if(player1.getAvailablePokken() == 0) {
+			battleScene.getBattleGraphic().clearPartner();
 			battleScene.getLog().addData(player1.getName() + " has no pokemon left!");
 		} else {
+			battleScene.getBattleGraphic().clearEnemyPokemon();
 			battleScene.getLog().addData(enemyPokemon.getName() + " is fainted!");
 			player1.setMoney(player1.getMoney()+200);
 			battleScene.getLog().addData(player1.getName() +" get 200$!");

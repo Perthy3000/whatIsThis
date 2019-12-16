@@ -28,7 +28,7 @@ public class Main extends Application {
 //		root.getChildren().addAll(yo,yo2,yo3,yo4,yo5);
 		//root.getChildren().add(ameInput);
 		root.getChildren().add(yo);
-		 primaryStage.setTitle("Home");
+		primaryStage.setTitle("Home");
 		Scene scene2 = new Scene(root,500,800);
  		primaryStage.setScene(scene2);
  		primaryStage.setResizable(false);

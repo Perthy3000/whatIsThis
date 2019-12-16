@@ -26,10 +26,10 @@ public class ChoosePokemon extends GridPane {
 	private Button nextButton;	//button NEXT
 	private guigamemanager manager;	//gameManager
 	private Label label;
-	public ChoosePokemon(CreateCharScene ccs) {
-		//this.primaryStage = primaryStage;
+	public ChoosePokemon(CreateCharScene ccs, guigamemanager manager, Stage primaryStage) {
+		this.primaryStage = primaryStage;
 		pokeButtons = new ArrayList<PokeButton>();
-		//this.manager = manager;
+		this.manager = manager;
 		nextButton = new Button("next");
 		nextButton.setPrefSize(70, 70);
 		setPadding(new Insets(5));
@@ -47,7 +47,8 @@ public class ChoosePokemon extends GridPane {
 		selectedPokken = new Charmander();
 		addRow(1,label);
 		addRow(1, yo3, yo4,yo5);
-	//	addRow(2,nextButton);
+		addRow(2,nextButton);
+		setButtonAction();
 		//addRow(1,label);
 		for(PokeButton all : pokeButtons) {
 			setPokeButtonAction(all, ccs);

@@ -15,7 +15,7 @@ public class CreateChar extends VBox {
 //			String name = nameInput.getText();
 			String name = "ASH";
 			manager.createPlayer(name);
-			ChoosePokemon = new ChoosePokemon(ccs);
+			ChoosePokemon = new ChoosePokemon(ccs, manager, primaryStage);
 			you = new ImageView(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false));
 		//	setAlignment(Pos.CENTER);
 			setAlignment(Pos.TOP_CENTER);

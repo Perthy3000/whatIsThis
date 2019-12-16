@@ -9,7 +9,11 @@ import pokemon.test1;
 public class BattleGraphics extends StackPane {
 	
 	private Canvas canvas;
+	private Canvas canvas2;
+	private Canvas canvas3;
 	private GraphicsContext gc;
+	private GraphicsContext gc2;
+	private GraphicsContext gc3;
 	private Image backgroundImage;
 	private Image partnerImage;
 	private Image enemyImage;
@@ -17,9 +21,13 @@ public class BattleGraphics extends StackPane {
 	public BattleGraphics() {
 		try {
 			canvas = new Canvas(400,200);
+			canvas2 = new Canvas(400, 200);
+			canvas3 = new Canvas(400, 200);
 			gc = canvas.getGraphicsContext2D();
+			gc2 = canvas2.getGraphicsContext2D();
+			gc3 = canvas3.getGraphicsContext2D();
 			backgroundImage = new Image(ClassLoader.getSystemResource("background-scene.png").toString(), 400, 200, false, false);
-			getChildren().add(canvas);
+			getChildren().addAll(canvas, canvas2, canvas3);
 			gc.drawImage(backgroundImage, 0, 0);
 		} catch (Exception e) {
 			System.out.println("cannot find image");
@@ -27,13 +35,22 @@ public class BattleGraphics extends StackPane {
 	}
 	
 	public void drawPartner(test1 currentPokemon) {
+		clearPartner();
 		partnerImage = new Image(ClassLoader.getSystemResource(getUrl(currentPokemon)).toString(), 100, 0, true, true);
-		gc.drawImage(partnerImage, 70, 130);
+		gc2.drawImage(partnerImage, 70, 130);
+	}
+	
+	public void clearPartner() {
+		gc2.clearRect(70, 130, 100, 200);
+	}
+	
+	public void clearEnemyPokemon() {
+		gc2.clearRect(245, 45, 80, 80);
 	}
 	
 	public void drawEnemyPokemon(test1 enemyPokemon) {
 		enemyImage = new Image(ClassLoader.getSystemResource(getUrl(enemyPokemon)).toString(), 80, 0, true, true);
-		gc.drawImage(enemyImage, 245, 45);
+		gc2.drawImage(enemyImage, 245, 45);
 	}
 	
 	private String getUrl(test1 pokemon) {
@@ -54,5 +71,9 @@ public class BattleGraphics extends StackPane {
 		backgroundImage = new Image(ClassLoader.getSystemResource("background-scene.png").toString(), 400, 200, false, false);
 		getChildren().add(canvas);
 		gc.drawImage(backgroundImage, 0, 0);
+	}
+	
+	public GraphicsContext getGraphicsContext() {
+		return gc3;
 	}
 }
