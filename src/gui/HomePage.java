@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
@@ -32,7 +33,6 @@ public class HomePage extends StackPane {
 		canvas = new Canvas(500,800);
 		gc = canvas.getGraphicsContext2D();
 		startButton = new Button();
-		startButton.setPadding(new Insets(5));
 		startButton.setPadding(new Insets(10));
 		startButton.setBorder(new Border(new BorderStroke(Color.TRANSPARENT,BorderStrokeStyle.NONE, 
 					CornerRadii.EMPTY, BorderWidths.EMPTY)));
