@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import test.player;
+import test.Player;
 
 public class CreateChar extends VBox {
 	private nameInput nameInput;
@@ -43,10 +43,10 @@ public class CreateChar extends VBox {
 		ccs.getNextButton().setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				manager.createPlayer(nameInput.getText());
-				player player1 = manager.getPlayer();	//call player from gameManager
+				manager.createPlayer(nameInput.getText(), getNameInput().getSelectedGender());
+				Player player1 = manager.getPlayer();	//call player from gameManager
 				player1.addpoken(ChoosePokemon.getPokemon());
-				player1.setGender(getNameInput().getSelectedGender());
+//				player1.setGender(getNameInput().getSelectedGender());
 			//	MainMenu nextBox = new MainMenu(primaryStage, player1);
 				MainMenuScene nextBox = new MainMenuScene(primaryStage, player1);
 				nextBox.setAlignment(Pos.CENTER);

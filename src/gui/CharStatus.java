@@ -5,15 +5,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import test.player;
+import test.Player;
 
 public class CharStatus extends GridPane {
-	private player player1;
+	private Player player1;
 	private ImageView image;
 	private Label currentPokeLabel;
 	private Label moneyLabel ;
 	private Label nameLabel;
-	public CharStatus(player player1) {
+	public CharStatus(Player player1) {
 		System.out.println("ddddd");
 		currentPokeLabel = new Label("Available pokemon : " + player1.getAvailablePokken());
 		moneyLabel = new Label("Money : " + player1.getMoney());

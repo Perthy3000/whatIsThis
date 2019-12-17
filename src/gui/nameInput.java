@@ -65,12 +65,13 @@ public class nameInput extends GridPane {
 		}
 	}
 
-	private void chooseGender() {
+	private void chooseGender(CreateCharScene ccs) {
 		String Genderr = selectedButton.getGender();
 		switch (Genderr) {
 		 	case "Female": selectedGender= "Female"; break;
 		 	case "Male": selectedGender = "Male"; break;
 		}
+		ccs.updateChar(Genderr);
 	}
 	private void setButtonAction(GenderButton button, CreateCharScene ccs) {
 		button.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -89,10 +90,7 @@ public class nameInput extends GridPane {
 				buttonn.setUnselected();
 			}
 		}
-		chooseGender();	
-		ccs.updateChar(selectedGender);
-		
-		
+		chooseGender(ccs);
 	}
 	public String getSelectedGender() {
 		return this.selectedGender;

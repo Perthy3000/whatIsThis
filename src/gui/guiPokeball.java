@@ -10,7 +10,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-import test.player;
+import test.Player;
 
 public class guiPokeball extends TilePane {
 	private int index;
@@ -18,8 +18,8 @@ public class guiPokeball extends TilePane {
 //	private int currentdiff;
 	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
 	private Blackmarket blackmarket;
-	private player player;
-	public guiPokeball (Blackmarket blackmarket,player player) {
+	private Player player;
+	public guiPokeball (Blackmarket blackmarket,Player player) {
 		setPrefColumns(3);
 		setPrefWidth(250);
 		//logListView = new ListView<PokeButton>(poke);

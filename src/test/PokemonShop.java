@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import gui.Blackmarket;
 import gui.MainMenu;
+import gui.MainMenuScene;
 import gui.PokeButton;
 import gui.skillButton;
 import javafx.event.EventHandler;
@@ -28,7 +29,7 @@ import pokemon.test1;
 
 public class PokemonShop {
 //	private List<test1> pokemons;
-	private player player;
+	private Player player;
 	private Blackmarket blackmarket;
 	private Stage primarystage;
 	private HBox show;
@@ -37,7 +38,7 @@ public class PokemonShop {
 	private PokeButton perth = new PokeButton("Pikachu");
 	private PokeButton choi = new PokeButton("Squirtle");
 	Label buyingZone = new Label("Black Market");
-	public PokemonShop(player player, Stage primarystage, Blackmarket blackmarket) {
+	public PokemonShop(Player player, Stage primarystage, Blackmarket blackmarket) {
 //		pokemons = new ArrayList<test1>();
 		this.player = player;
 		this.blackmarket = blackmarket;
@@ -70,14 +71,14 @@ public class PokemonShop {
 		exit.setAlignment(Pos.CENTER);
 		exit.getChildren().add(exitButton);
 		bigshow = new VBox();
-		bigshow.getChildren().addAll(buyingZone,show,exit);
 		this.blackmarket.getChildren().add(bigshow);
 		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				primarystage.setScene(new Scene(new MainMenu(primarystage, player), 500, 500));
+				primarystage.setScene(new Scene(new MainMenuScene(primarystage, player), 500, 800));
 			}
 		});
+		bigshow.getChildren().addAll(buyingZone,show,exit);
 	
 	}
 	

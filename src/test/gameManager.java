@@ -9,7 +9,7 @@ import pokemon.Status;
 import pokemon.test1;
 
 public class gameManager {
-	private player player1;
+	private Player player1;
 	private Scanner in;
 	
 	public gameManager() {
@@ -18,7 +18,6 @@ public class gameManager {
 	
 	public void run() {
 		System.out.println("Enter your name :");
-		player1 = new player("ASH");
 		System.out.println("Choose your partner :");
 		System.out.println("1.) Charmander");
 		System.out.println("2.) Charmander2");

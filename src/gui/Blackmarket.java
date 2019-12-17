@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import pokemon.test1;
 import test.Pokeball;
 import test.PokemonShop;
-import test.player;
+import test.Player;
 
 public class Blackmarket extends HBox {
 	
@@ -18,7 +18,7 @@ public class Blackmarket extends HBox {
 	private Buyinglog shoplog;
 	private guiPokeball pokelog;
 	
-	public Blackmarket(player player1, Stage primaryStage) {
+	public Blackmarket(Player player1, Stage primaryStage) {
 		pokelog = new guiPokeball(this,player1);
 		shoplog = new Buyinglog();
 		setPadding(new Insets(5));

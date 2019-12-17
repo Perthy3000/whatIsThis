@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import test.player;
+import test.Player;
 
 public class BattleScene extends VBox {
 
@@ -16,7 +16,7 @@ public class BattleScene extends VBox {
 	private BattleLog log;
 	private SkillBar skillBar;
 	
-	public BattleScene(player player1, Stage primaryStage) {
+	public BattleScene(Player player1, Stage primaryStage) {
 		setSpacing(10);
 		setPadding(new Insets(5));
 		log = new BattleLog();

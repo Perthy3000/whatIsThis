@@ -21,18 +21,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import test.Battle;
-import test.player;
+import test.Player;
 
 public class MainMenu extends VBox {
 	
 	private Button shopButton;
 	private Button randomBattleButton;
 	private Button PokeballButton;
-	private player player1;
+	private Player player1;
 
-	public MainMenu(Stage primaryStage, player player1) {
-		/*Label nameLabel = new Label("Available pokemon : " + player1.getAvailablePokken());
-		Label moneyLabel = new Label("Money : " + player1.getMoney());*/
+	public MainMenu(Stage primaryStage, Player player1) {
 		setAlignment(Pos.CENTER);
 		setSpacing(20);
 		shopButton = new Button();
@@ -86,7 +84,14 @@ public class MainMenu extends VBox {
 			});
 		}
 		else {
-			
+			button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					Pokeball pokeball = new Pokeball(player1, primaryStage);
+					Scene nextScene = new Scene(pokeball, 500, 500);
+					primaryStage.setScene(nextScene);
+				}
+			});
 		}
 		
 	}

@@ -5,22 +5,22 @@ import pokemon.Magikarp;
 import pokemon.Status;
 import pokemon.test1;
 import test.Battle;
-import test.player;
+import test.Player;
 
 public class guigamemanager {
 	
-	private player player1;
+	private Player player1;
 	private Stage primaryStage;
 	
 	public guigamemanager(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
 	
-	public void createPlayer(String name) {
-		player1 = new player(name);
+	public void createPlayer(String name, String gender) {
+		player1 = new Player(name, gender);
 	}
 	
-	public player getPlayer() {
+	public Player getPlayer() {
 		return player1;
 	}
 	

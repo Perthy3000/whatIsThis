@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import test.player;
+import test.Player;
 
 public class MainMenuScene extends StackPane {
 	private Image backgroundImage;
@@ -16,10 +16,10 @@ public class MainMenuScene extends StackPane {
 	private GraphicsContext gc;
 	private Stage primaryStage;
 	private guigamemanager manager;
-	private player player1;
+	private Player player1;
 	private MainMenu mainmenu;
 	private CharStatus charstatus;
-	public MainMenuScene(Stage primaryStage, player player1) {
+	public MainMenuScene(Stage primaryStage, Player player1) {
 		this.primaryStage = primaryStage;
 		this.manager = manager;
 		GridPane grid = new GridPane();

@@ -6,7 +6,7 @@ import java.util.List;
 import pokemon.Status;
 import pokemon.test1;
 
-public class player{
+public class Player{
 	private String name;
 	private List<test1> playerpokken;
 	private int availablepokken;
@@ -14,12 +14,13 @@ public class player{
 	private int money;
 	private Pokeball pokeball;
 	private String gender;
-	public player(String name) {
+	public Player(String name, String gender) {
 		this.name = name;
 		playerpokken = new ArrayList<test1>();
 		money = 5000;
 		availablepokken = 0;
 		pokeball = new Pokeball();
+		this.gender = gender;
 	}
 	public void setPokeball(test1 pokemon) {
 		this.pokeball.addPokemon(pokemon);

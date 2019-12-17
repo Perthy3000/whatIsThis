@@ -5,19 +5,22 @@ import java.util.List;
 
 import gui.BattleScene;
 import gui.HitAnimation;
+import gui.LevelUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
 public abstract class test1 {
+	
 	private String name;
 	private Element element;
-	private int attack ,defense, maxHp, speed;
+	private int attack ,defense, maxHp, speed, exp, level, maxExp;
 	private int currentHp;
 	private Status status;
 	protected List<skill> skillList;
 	private PieChart pieChart;
+	
 	public test1(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		this.name = name;
 		this.element = element;
@@ -25,6 +28,9 @@ public abstract class test1 {
 		this.attack = attack;
 		this.defense = defense;
 		this.speed = speed;
+		exp = 0;
+		level = 1;
+		maxExp = 10;
 		currentHp = maxHp;
 		status = Status.READY;
 		skillList = new ArrayList<skill>();
@@ -52,9 +58,11 @@ public abstract class test1 {
    	      //Setting the start angle of the pie chart  
    	      pieChart.setStartAngle(180);
 	}
+	
 	public PieChart getPieChart() {
 		return this.pieChart;
-		}
+	}
+	
 	public Status getStatus() {
 		return status;
 	}
@@ -145,4 +153,37 @@ public abstract class test1 {
 		return skillList.get(num);
 	}
 	
+	public int getLevel() {
+		return level;
+	}
+
+	public int getExp() {
+		return exp;
+	}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+	public void addExp(int exp) {
+		this.exp += exp;
+		if(this.exp >= maxExp) {
+			level++;
+			this.exp -= maxExp;
+			maxExp *= 2;
+			levelUp();
+		}
+	}
+	
+	private void levelUp() {
+		maxHp += 3;
+		defense += 2;
+		attack += 2;
+		speed += 1;
+		fullHeal();
+	}
+	
+	public int getMaxExp() {
+		return maxExp;
+	}
 }

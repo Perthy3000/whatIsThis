@@ -15,7 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import pokemon.*;
-import test.player;
+import test.Player;
 
 public class ChoosePokemon extends GridPane {
 	

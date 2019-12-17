@@ -22,7 +22,7 @@ import pokemon.*;
 
 public class Battle {
 	
-	private player player1;
+	private Player player1;
 	private test1 currentPokemon;
 	private test1 enemyPokemon;
 	private Stage primaryStage;
@@ -32,7 +32,7 @@ public class Battle {
 	private Random randomizer = new Random();
 	private int turn = 0;
 
-	public Battle(player player1, Stage primaryStage) {
+	public Battle(Player player1, Stage primaryStage) {
 		battleScene = new BattleScene(player1, primaryStage);
 		this.player1 = player1;
 		for(test1 x : player1.getpokenList()) {
