@@ -3,6 +3,7 @@ package gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.NameException;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,6 +42,7 @@ public class nameInput extends GridPane {
 	private GenderButton femaleButton;
 	private GenderButton selectedButton = null;
 	private String selectedGender;
+	
 	public nameInput(CreateCharScene ccs) {
 		Buttons = new ArrayList<GenderButton>();
 		setPadding(new Insets(5));
@@ -92,11 +94,14 @@ public class nameInput extends GridPane {
 		}
 		chooseGender(ccs);
 	}
+	
 	public String getSelectedGender() {
 		return this.selectedGender;
 	}
-public String getText() {
-	return nameinput.getText().trim();
-}
+	
+	public String getText() throws NameException {
+		if(nameinput.getText().trim().isBlank()) throw new NameException("Invalid name!");
+		return nameinput.getText().trim();
+	}
 	 
 }

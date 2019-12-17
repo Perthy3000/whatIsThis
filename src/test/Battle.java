@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import Exception.NoPokemonException;
+import exception.NoPokemonException;
 import gui.BattleGraphics;
 import gui.BattleScene;
 import gui.HitAnimation;

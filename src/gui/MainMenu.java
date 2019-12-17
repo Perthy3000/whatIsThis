@@ -1,6 +1,6 @@
 package gui;
 
-import Exception.NoPokemonException;
+import exception.NoPokemonException;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

@@ -1,5 +1,6 @@
 package gui;
 
+import exception.NameException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -43,7 +44,14 @@ public class CreateChar extends VBox {
 		ccs.getNextButton().setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				manager.createPlayer(nameInput.getText(), getNameInput().getSelectedGender());
+				String name;
+				try {
+					name = nameInput.getText();
+				} catch (NameException e) {
+					e.showAlertBox();
+					return;
+				}
+				manager.createPlayer(name, getNameInput().getSelectedGender());
 				Player player1 = manager.getPlayer();	//call player from gameManager
 				player1.addpoken(ChoosePokemon.getPokemon());
 //				player1.setGender(getNameInput().getSelectedGender());
@@ -51,7 +59,7 @@ public class CreateChar extends VBox {
 				MainMenuScene nextBox = new MainMenuScene(primaryStage, player1);
 				nextBox.setAlignment(Pos.CENTER);
 				Scene nextScene = new Scene(nextBox, 500, 800);	//create next scene
-				System.out.println(player1.getName() + " choose " + player1.getpokenList().get(0).getName());
+				System.out.println(player1.getName() + " choose " + ChoosePokemon.getPokemon().getName());
 				primaryStage.setTitle("Main Menu");
 				primaryStage.setScene(nextScene);
 			}
