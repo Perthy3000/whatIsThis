@@ -4,6 +4,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
+import pokemon.Bulbasaur;
+import pokemon.Charmander;
+import pokemon.Magikarp;
+import pokemon.Pikachu;
+import pokemon.Squirtle;
 import pokemon.test1;
 
 public class BattleGraphics extends StackPane {
@@ -54,15 +59,12 @@ public class BattleGraphics extends StackPane {
 	}
 	
 	private String getUrl(test1 pokemon) {
-		String url;
-		switch(pokemon.getName()) {
-			case "Magikarp" : url = "yo.png"; break;
-			case "Pikachu" : url = "Pikachu.png"; break;
-			case "Charmander" : url = "charmander.png"; break;
-			case "Squirtle" : url = "squirtle.png"; break;
-			case "Bulbasaur" : url = "Bulbasaur.png"; break;
-			default: url = "yo.png";
-		}
+		String url = "charmander.png";
+		if(pokemon instanceof Charmander) url = "charmander.png";
+		else if(pokemon instanceof Bulbasaur) url = "Bulbasaur.png";
+		else if(pokemon instanceof Squirtle) url = "squirtle.png";
+		else if(pokemon instanceof Pikachu) url = "Pikachu.png";
+		else if(pokemon instanceof Magikarp) url = "yo.png";
 		return url;
 	}
 	
