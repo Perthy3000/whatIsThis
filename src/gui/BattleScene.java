@@ -31,6 +31,7 @@ public class BattleScene extends VBox {
 		log = new BattleLog();
 		skillBar = new SkillBar(new ArrayList<skillButton>());
 		background = new BattleGraphics();
+		primaryStage.setTitle("Battle");
 /*		BackgroundImage backgroundImage = new BackgroundImage(new Image(ClassLoader.getSystemResource("battle_background.jpg").toString(),
 				500, 600, false, false), 
 				BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

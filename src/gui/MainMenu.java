@@ -76,6 +76,7 @@ public class MainMenu extends VBox {
 					}						
 				}			
 			});
+			primaryStage.setTitle("Main Menu");
 		}
 	
 		else if(button == shopButton) {
@@ -84,6 +85,7 @@ public class MainMenu extends VBox {
 				public void handle(MouseEvent arg0) {
 					Blackmarket rootNode = new Blackmarket(player1, primaryStage);
 					Scene nextScene = new Scene(rootNode, 870, 470);
+					primaryStage.setTitle("Black Market");
 					primaryStage.setScene(nextScene);
 				}			
 			});
@@ -93,7 +95,8 @@ public class MainMenu extends VBox {
 				@Override
 				public void handle(MouseEvent arg0) {
 					Pokeball pokeball = new Pokeball(player1, primaryStage);
-					Scene nextScene = new Scene(pokeball, 500, 500);
+					Scene nextScene = new Scene(pokeball, 500, 800);
+					primaryStage.setTitle("Poke Balls");
 					primaryStage.setScene(nextScene);
 				}
 			});

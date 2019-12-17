@@ -97,4 +97,7 @@ public class PokeButton extends Button{
 	 public int getCost() {
 		 return cost;
 	 }
+	 public test1 getPokemon() {
+		 return this.pokemon;
+	 }
 }

@@ -186,6 +186,7 @@ public class Battle {
 			@Override
 			public void handle(MouseEvent arg0) {
 				primaryStage.setScene(new Scene(new MainMenuScene(primaryStage, player1), 500, 800));
+				primaryStage.setTitle("Main Menu");
 			}
 		});
 	}

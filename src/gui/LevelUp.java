@@ -29,8 +29,7 @@ public class LevelUp extends HBox {
 		exitButton.setPrefSize(50, 30);
 		vBox.getChildren().addAll(imageView, exitButton);
 		//set exit button
-		exitButton.setOnAction(new EventHandler<ActionEvent>() {
-			
+		exitButton.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent arg0) {
 				MainMenuScene nextMainMenuScene = new MainMenuScene(primaryStage, player);
