@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import gui.Blackmarket;
 import gui.InfoArea;
 import gui.LevelUp;
 import gui.Pokeball;
@@ -26,8 +27,8 @@ public class testis extends Application {
 		player.addpoken(new Bulbasaur());
 		player.addpoken(new Squirtle());
 		player.addpoken(new Pikachu());
-		LevelUp levelUp = new LevelUp(primaryStage, player.getpokenList().get(0), player);
-		Scene scene = new Scene(levelUp, 800, 500);
+		Blackmarket blackmarket = new Blackmarket(player, primaryStage);
+		Scene scene = new Scene(blackmarket, 870, 470);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

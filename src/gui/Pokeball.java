@@ -27,7 +27,7 @@ public class Pokeball extends TilePane {
 		pokeButtonList = new ArrayList<PokeButton>();
 		int index = 0;
 		for(test1 pokemon : player.getpokenList()) {
-			PokeButton pokeButton = new PokeButton(pokemon.getName());
+			PokeButton pokeButton = new PokeButton(pokemon);
 			setPokeButton(pokeButton, primaryStage, player, index);
 			pokeButtonList.add(pokeButton);
 			getChildren().add(pokeButton);

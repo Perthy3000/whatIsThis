@@ -10,6 +10,9 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import pokemon.Bulbasaur;
+import pokemon.Charmander;
+import pokemon.test1;
 import test.Player;
 
 public class guiPokeball extends TilePane {
@@ -22,6 +25,8 @@ public class guiPokeball extends TilePane {
 	
 	public guiPokeball (Blackmarket blackmarket,Player player) {
 		setPrefColumns(3);
+		setHgap(10);
+		setVgap(10);
 		setPrefWidth(250);
 		//logListView = new ListView<PokeButton>(poke);
 		this.blackmarket = blackmarket;
@@ -29,14 +34,14 @@ public class guiPokeball extends TilePane {
 		this.player = player;
 	}
 	
-	public void addData(String name) {
-		PokeButton pokemon = new PokeButton(name);
+	public void addData(test1 pokemon) {
+		PokeButton pokemonButton = new PokeButton(pokemon);
 		index = poke.size();
-		setPokeButton(pokemon, index);
+		setPokeButton(pokemonButton, index);
 		System.out.println(index);
 		//this.index=((player.getpokenList().size())-currentdiff);
-		poke.add(pokemon);
-		getChildren().add(pokemon);
+		poke.add(pokemonButton);
+		getChildren().add(pokemonButton);
 	}
 	
 	private void setPokeButton(PokeButton button, int index) {

@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -37,18 +39,15 @@ public class PokemonShop {
 	private TilePane show;
 	private VBox bigshow;
 	private List<PokeButton> pokeButtons;
-	private PokeButton magikarp = new PokeButton("Magikarp");
-	private PokeButton perth = new PokeButton("Pikachu");
-	private PokeButton choi = new PokeButton("Squirtle");
 	Label buyingZone = new Label("Black Market");
 	
 	public PokemonShop(Player player, Stage primarystage, Blackmarket blackmarket) {
 		pokeButtons = new ArrayList<PokeButton>();
-		pokeButtons.add(new PokeButton("Charmander"));
-		pokeButtons.add(new PokeButton("Squirtle"));
-		pokeButtons.add(new PokeButton("Bulbasaur"));
-		pokeButtons.add(new PokeButton("Pikachu"));
-		pokeButtons.add(new PokeButton("Magikarp"));
+		pokeButtons.add(new PokeButton(new Charmander()));
+		pokeButtons.add(new PokeButton(new Squirtle()));
+		pokeButtons.add(new PokeButton(new Bulbasaur()));
+		pokeButtons.add(new PokeButton(new Pikachu()));
+		pokeButtons.add(new PokeButton(new Magikarp()));
 		this.player = player;
 		this.blackmarket = blackmarket;
 		this.primarystage = primarystage;
@@ -79,9 +78,11 @@ public class PokemonShop {
 		exitButton.setPrefSize(70, 50);
 		HBox exit =  new HBox();
 	//	Label moneyLabel = new Label("Money : " + player.getMoney());
-		exit.setAlignment(Pos.CENTER);
+		exit.setAlignment(Pos.BOTTOM_LEFT);
 		exit.getChildren().add(exitButton);
+		exit.setPrefHeight(230);
 		bigshow = new VBox();
+		bigshow.setSpacing(10);
 		this.blackmarket.getChildren().add(bigshow);
 		exitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -90,7 +91,6 @@ public class PokemonShop {
 			}
 		});
 		bigshow.getChildren().addAll(buyingZone,show,exit);
-	
 	}
 	
 	public void run(String name) {
@@ -102,7 +102,7 @@ public class PokemonShop {
 					this.player.setPokeball(Magikarp);
 					this.player.addpoken(Magikarp);
 					blackmarket.getBuyLog().addData("Magikarp is added!");
-					blackmarket.getPokeLog().addData(name);
+					blackmarket.getPokeLog().addData(Magikarp);
 					System.out.println("Magikarp is added!");
 					player.setMoney(player.getMoney()-4000);
 				}
@@ -118,7 +118,7 @@ public class PokemonShop {
 					this.player.setPokeball(Choi);
 					this.player.addpoken(Choi);
 					blackmarket.getBuyLog().addData("Choi is added!");
-					blackmarket.getPokeLog().addData(name);
+					blackmarket.getPokeLog().addData(Choi);
 				System.out.println("Choi is added!");
 					player.setMoney(player.getMoney()-800);
 				}
@@ -133,7 +133,7 @@ public class PokemonShop {
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
-				blackmarket.getPokeLog().addData(name);
+				blackmarket.getPokeLog().addData(Perth);
 			System.out.println("Perth is added!");
 				player.setMoney(player.getMoney()-100);
 				}
@@ -147,7 +147,7 @@ public class PokemonShop {
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
-				blackmarket.getPokeLog().addData(name);
+				blackmarket.getPokeLog().addData(Perth);
 			System.out.println("Perth is added!");
 				player.setMoney(player.getMoney()-100);
 				}
@@ -161,7 +161,7 @@ public class PokemonShop {
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
-				blackmarket.getPokeLog().addData(name);
+				blackmarket.getPokeLog().addData(Perth);
 			System.out.println("Perth is added!");
 				player.setMoney(player.getMoney()-100);
 				}

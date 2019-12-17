@@ -37,9 +37,9 @@ public class ChoosePokemon extends GridPane {
 		setVgap(5);
 		label = new Label("Pokemon: ");
 		label.setStyle("-fx-font-size: 20");
-		PokeButton yo3 = new PokeButton("Charmander");
-		PokeButton yo4 = new PokeButton("Squirtle");
-		PokeButton yo5 = new PokeButton("Bulbasaur");
+		PokeButton yo3 = new PokeButton(new Charmander());
+		PokeButton yo4 = new PokeButton(new Squirtle());
+		PokeButton yo5 = new PokeButton(new Bulbasaur());
 		pokeButtons.add(yo3);
 		pokeButtons.add(yo4);
 		pokeButtons.add(yo5);

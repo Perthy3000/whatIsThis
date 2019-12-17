@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import pokemon.Magikarp;
 
 public class Catalog extends GridPane {
 	private ObservableList<PokeButton> PokeButtonList = FXCollections.observableArrayList();
@@ -15,7 +16,7 @@ public class Catalog extends GridPane {
 		this.setAlignment(Pos.CENTER);
 		this.setVgap(10);
 		this.setHgap(10);
-		final PokeButton koiking= new PokeButton("Magikarp");
+		final PokeButton koiking= new PokeButton(new Magikarp());
 		PokeButtonList.add(koiking);
 	}
 }

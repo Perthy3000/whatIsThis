@@ -14,6 +14,7 @@ public class Buyinglog extends VBox {
 	private ListView<Label> logListView;
 	private StackPane stack = new StackPane();
 	public Buyinglog() {
+		setSpacing(10);
 		stack.setAlignment(Pos.CENTER_LEFT);
 		logListView = new ListView<Label>(logdata);
 		setPrefHeight(150);
