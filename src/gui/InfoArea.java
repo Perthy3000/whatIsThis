@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -84,11 +85,13 @@ public class InfoArea extends VBox {
 	}
 	
 	private void setFeedingButton(StatArea statArea) {
-		HBox feedBox = new HBox();
+		VBox feedBox = new VBox();
 		feedBox.setSpacing(10);
+		feedBox.setAlignment(Pos.CENTER_LEFT);
 		int exp = 10;
 		for(int i = 0; i < 3; i++) {
-			FeedButton feedButton = new FeedButton(exp+i*5);
+			final int x=i+1;
+			FeedButton feedButton = new FeedButton(exp+i*5,x);
 			feedButton.setOnAction(new EventHandler<ActionEvent>() {
 				//when press will add exp and reduce money
 				@Override
@@ -102,6 +105,18 @@ public class InfoArea extends VBox {
 					} else {
 						//add exception
 					}
+				}
+			});
+			feedButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					feedButton.setGrapaf(x);
+				}
+			 });
+			feedButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					feedButton.setGrapbf(x);
 				}
 			});
 			feedingButton.add(feedButton);

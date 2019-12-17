@@ -94,8 +94,9 @@ public class LevelUp extends HBox {
 			}
 		});
 		getChildren().addAll(infoArea, vBox, statArea);
+		
 		setPadding(new Insets(20));
-		setSpacing(30);
+		setSpacing(0);
 	}
 	
 	//find pokemon image
