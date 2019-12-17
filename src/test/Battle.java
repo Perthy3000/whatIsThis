@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Exception.NoPokemonException;
 import gui.BattleGraphics;
 import gui.BattleScene;
 import gui.HitAnimation;
@@ -32,7 +33,7 @@ public class Battle {
 	private Random randomizer = new Random();
 	private int turn = 0;
 
-	public Battle(Player player1, Stage primaryStage) {
+	public Battle(Player player1, Stage primaryStage) throws NoPokemonException {
 		battleScene = new BattleScene(player1, primaryStage);
 		this.player1 = player1;
 		for(test1 x : player1.getpokenList()) {
@@ -41,6 +42,7 @@ public class Battle {
 				break;
 			}
 		}
+		if(currentPokemon == null) throw new NoPokemonException("No pokemon!");
 		List<skill> skillList = currentPokemon.getSkillList();
 		skillButtonList = new ArrayList<skillButton>();
 		for(int i = 0; i < 4; i++) {

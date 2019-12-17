@@ -19,6 +19,7 @@ public class guiPokeball extends TilePane {
 	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
 	private Blackmarket blackmarket;
 	private Player player;
+	
 	public guiPokeball (Blackmarket blackmarket,Player player) {
 		setPrefColumns(3);
 		setPrefWidth(250);
@@ -27,6 +28,7 @@ public class guiPokeball extends TilePane {
 		setPrefHeight(150);
 		this.player = player;
 	}
+	
 	public void addData(String name) {
 		PokeButton pokemon = new PokeButton(name);
 		index = poke.size();
@@ -36,7 +38,7 @@ public class guiPokeball extends TilePane {
 		poke.add(pokemon);
 		getChildren().add(pokemon);
 	}
-	// 
+	
 	private void setPokeButton(PokeButton button, int index) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -46,7 +48,7 @@ public class guiPokeball extends TilePane {
 				removePokeButton(index);
 				blackmarket.getBuyLog().addData(button.getPokkenName()+" was sold for " + button.getCost() + "$"); 
 				player.setMoney(player.getMoney()+button.getCost());
-				
+				player.getpokenList().remove(index);
 			}
 		});
 	}

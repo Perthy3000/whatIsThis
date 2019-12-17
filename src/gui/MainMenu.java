@@ -1,5 +1,6 @@
 package gui;
 
+import Exception.NoPokemonException;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -68,7 +69,11 @@ public class MainMenu extends VBox {
 			button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
 				public void handle(MouseEvent arg0) {
-					new Battle(player1, primaryStage);
+					try {
+						new Battle(player1, primaryStage);
+					} catch (NoPokemonException e) {
+						e.showAlertBox();
+					}						
 				}			
 			});
 		}
