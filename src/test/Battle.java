@@ -111,8 +111,8 @@ public class Battle {
 					} else {
 						new HitAnimation(battleScene.getBattleGraphic().getGraphicsContext(), 50, 100).start();
 					}
-					checkFaint();
 					turn++;					
+					checkFaint();
 				}
 				if(turn == 2) {
 					battleScene.getLog().getListView().setOnMouseClicked(null);
@@ -126,6 +126,7 @@ public class Battle {
 	
 	public void checkFaint() {
 		if(currentPokemon.getStatus() == Status.FAINTED) {
+			turn = 0;
 			battleScene.getLog().addData(currentPokemon.getName() + " is fainted!");
 			if(player1.getAvailablePokken() == 0) {
 				exit();				

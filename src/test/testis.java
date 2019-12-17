@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import gui.Blackmarket;
 import gui.InfoArea;
@@ -17,6 +18,9 @@ import pokemon.*;
 public class testis extends Application {
 
 	public static void main(String[] args) {
+		for(String xString : Font.getFamilies()) {
+			System.out.println(xString);
+		}
 		launch();
 	}
 

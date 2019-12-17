@@ -100,7 +100,8 @@ public class nameInput extends GridPane {
 	}
 	
 	public String getText() throws NameException {
-		if(nameinput.getText().trim().isBlank()) throw new NameException("Invalid name!");
+		if(nameinput.getText().trim().isBlank() || nameinput.getText().trim().length() > 9) 
+			throw new NameException("Invalid name!");
 		return nameinput.getText().trim();
 	}
 	 
