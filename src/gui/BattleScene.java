@@ -3,6 +3,15 @@ package gui;
 import java.util.ArrayList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,11 +26,16 @@ public class BattleScene extends VBox {
 	private SkillBar skillBar;
 	
 	public BattleScene(Player player1, Stage primaryStage) {
-		setSpacing(10);
-		setPadding(new Insets(5));
+		setSpacing(20);
+		setPadding(new Insets(10));
 		log = new BattleLog();
 		skillBar = new SkillBar(new ArrayList<skillButton>());
 		background = new BattleGraphics();
+/*		BackgroundImage backgroundImage = new BackgroundImage(new Image(ClassLoader.getSystemResource("battle_background.jpg").toString(),
+				500, 600, false, false), 
+				BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		setBackground(new Background(backgroundImage)); */
+		setStyle("-fx-background-color: gray");
 		getChildren().add(background);
 		getChildren().add(skillBar);
 		getChildren().add(log);

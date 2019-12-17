@@ -56,7 +56,7 @@ public class Battle {
 		setSkillBar();
 		battleScene.getLog().addData("Wild " + enemyPokemon.getName() + " appear!");
 		battleScene.getLog().addData(player1.getName() + " sent out " + currentPokemon.getName() + "!");
-		primaryStage.setScene(new Scene(battleScene, 500, 500));
+		primaryStage.setScene(new Scene(battleScene, 500, 600));
 		graphics = battleScene.getBattleGraphic();
 		graphics.drawPartner(currentPokemon);
 		graphics.drawEnemyPokemon(enemyPokemon);

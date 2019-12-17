@@ -13,6 +13,7 @@ import pokemon.test1;
 
 public class BattleGraphics extends StackPane {
 	
+	private Canvas backgroundBorder;
 	private Canvas backgroundLayer;
 	private Canvas characterLayer;
 	private Canvas vfxLayer;
@@ -34,9 +35,16 @@ public class BattleGraphics extends StackPane {
 			backgroundImage = new Image(ClassLoader.getSystemResource("background-scene.png").toString(), 400, 200, false, false);
 			getChildren().addAll(backgroundLayer, characterLayer, vfxLayer);
 			gc.drawImage(backgroundImage, 0, 0);
+			setStyle("-fx-padding: 15;" + 
+                    "-fx-background-insets: 5;" + 
+                    "-fx-background-image: url(file:pokemon/border4.png);" +
+                    "-fx-background-size: 460 230;" +
+                    "-fx-background-position: top center;" +
+                    "-fx-background-repeat: no-repeat;");
 		} catch (Exception e) {
 			System.out.println("cannot find image");
 		}
+		
 	}
 	
 	public void drawPartner(test1 currentPokemon) {

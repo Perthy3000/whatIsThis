@@ -16,6 +16,13 @@ public class SkillBar extends HBox {
 		for(skillButton Skill : skillButtonList) {
 			getChildren().add(Skill);
 		}
+		setStyle("-fx-padding: 15;" + 
+                "-fx-background-width: 3;" +
+                "-fx-background-insets: 5;" + 
+                "-fx-background-image: url(file:pokemon/border5.png);" +
+                "-fx-background-size: 460 72;" +
+                "-fx-background-position: top center;" +
+                "-fx-background-repeat: no-repeat;");
 	}
 
 	public List<skillButton> getSkillButtons() {

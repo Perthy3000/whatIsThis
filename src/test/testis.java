@@ -27,9 +27,7 @@ public class testis extends Application {
 		player.addpoken(new Bulbasaur());
 		player.addpoken(new Squirtle());
 		player.addpoken(new Pikachu());
-		Blackmarket blackmarket = new Blackmarket(player, primaryStage);
-		Scene scene = new Scene(blackmarket, 870, 470);
-		primaryStage.setScene(scene);
+		new Battle(player, primaryStage);
 		primaryStage.show();
 	}
 
