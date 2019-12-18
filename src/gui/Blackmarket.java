@@ -7,7 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Pokeball;
 import test.PokemonShop;
 import test.Player;
@@ -26,7 +26,7 @@ public class Blackmarket extends HBox {
 		setSpacing(10);
 		shop = new PokemonShop(player1, primaryStage, this);
 		int loop=0;
-		for(test1 i : player1.getpokenList()) {
+		for(Pokemon i : player1.getpokenList()) {
 			this.pokelog.addData(i);
 			System.out.println(i.getName());
 		}

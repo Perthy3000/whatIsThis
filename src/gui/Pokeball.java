@@ -39,12 +39,12 @@ import pokemon.Charmander;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Player;
 
 public class Pokeball extends TilePane {
 
-	private List<PokeButton> pokeButtonList;
+	private List<PokemonButton> pokeButtonList;
 	private Image backgroundImage;
 	private Canvas canvas;
 	private Button backButton;
@@ -65,10 +65,10 @@ public class Pokeball extends TilePane {
 		setPrefColumns(3);
 		setPrefRows(3);
 		setMaxSize(400, 300);
-		pokeButtonList = new ArrayList<PokeButton>();
+		pokeButtonList = new ArrayList<PokemonButton>();
 		int index = 0;
-		for(test1 pokemon : player.getpokenList()) {
-			PokeButton pokeButton = new PokeButton(pokemon);
+		for(Pokemon pokemon : player.getpokenList()) {
+			PokemonButton pokeButton = new PokemonButton(pokemon);
 			setPokeButton(pokeButton, primaryStage, player, index);
 			Label nameLabel = new Label();
 			Text name = new Text();
@@ -102,7 +102,7 @@ public class Pokeball extends TilePane {
 	}
 	
 	//setup pokebutton action to next scene
-	private void setPokeButton(PokeButton pokeButton, Stage primaryStage, Player player, int index) {
+	private void setPokeButton(PokemonButton pokeButton, Stage primaryStage, Player player, int index) {
 		pokeButton.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override

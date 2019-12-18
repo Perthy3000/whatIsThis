@@ -7,14 +7,14 @@ import pokemon.Bulbasaur;
 import pokemon.Charmander;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.test1;
+import pokemon.Pokemon;
 
 public class StatArea extends VBox {
 	
-	private test1 pokemon;
+	private Pokemon pokemon;
 	private Label atkLabel, defLabel, maxHpLabel, spdLabel;
 
-	public StatArea(test1 pokemon) {
+	public StatArea(Pokemon pokemon) {
 		this.pokemon = pokemon;
 		setPadding(new Insets(10));
 		setSpacing(20);

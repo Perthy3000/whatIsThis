@@ -12,14 +12,14 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Player;
 
 public class guiPokeball extends TilePane {
 	private int index;
 //	private int diff;
 //	private int currentdiff;
-	private ObservableList<PokeButton> poke = FXCollections.observableArrayList();
+	private ObservableList<PokemonButton> poke = FXCollections.observableArrayList();
 	private Blackmarket blackmarket;
 	private Player player;
 	
@@ -34,8 +34,8 @@ public class guiPokeball extends TilePane {
 		this.player = player;
 	}
 	
-	public void addData(test1 pokemon) {
-		PokeButton pokemonButton = new PokeButton(pokemon);
+	public void addData(Pokemon pokemon) {
+		PokemonButton pokemonButton = new PokemonButton(pokemon);
 		index = poke.size();
 		setPokeButton(pokemonButton, index);
 		System.out.println(index);
@@ -44,7 +44,7 @@ public class guiPokeball extends TilePane {
 		getChildren().add(pokemonButton);
 	}
 	
-	private void setPokeButton(PokeButton button, int index) {
+	private void setPokeButton(PokemonButton button, int index) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {

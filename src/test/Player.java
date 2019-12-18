@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pokemon.Status;
-import pokemon.test1;
+import pokemon.Pokemon;
 
 public class Player{
 	private String name;
-	private List<test1> playerpokken;
+	private List<Pokemon> playerpokken;
 	private int availablepokken;
 	private final int maxpokken = 6;
 	private int money;
@@ -16,16 +16,16 @@ public class Player{
 	private String gender;
 	public Player(String name, String gender) {
 		this.name = name;
-		playerpokken = new ArrayList<test1>();
+		playerpokken = new ArrayList<Pokemon>();
 		money = 5000;
 		availablepokken = 0;
 		pokeball = new Pokeball();
 		this.gender = gender;
 	}
-	public void setPokeball(test1 pokemon) {
+	public void setPokeball(Pokemon pokemon) {
 		this.pokeball.addPokemon(pokemon);
 	}
-	public void addpoken(test1 pokken) {
+	public void addpoken(Pokemon pokken) {
 		if(playerpokken.size() < maxpokken) {
 			playerpokken.add(pokken);
 			System.out.println(pokken.getName() + " is added!");
@@ -36,7 +36,7 @@ public class Player{
 	
 	public int getAvailablePokken() {
 		int availablePokemon = 0;
-		for(test1 pokken : playerpokken) {
+		for(Pokemon pokken : playerpokken) {
 			if(pokken.getStatus() != Status.FAINTED) {
 				availablePokemon++;
 			}
@@ -44,7 +44,7 @@ public class Player{
 		return availablePokemon;
 	}
 	
-	public List<test1> getpokenList() {
+	public List<Pokemon> getpokenList() {
 		return playerpokken;
 	}
 	public int removepokenList(int index) {

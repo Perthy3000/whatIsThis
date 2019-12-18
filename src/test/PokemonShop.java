@@ -7,7 +7,7 @@ import java.util.Scanner;
 import gui.Blackmarket;
 import gui.MainMenu;
 import gui.MainMenuScene;
-import gui.PokeButton;
+import gui.PokemonButton;
 import gui.skillButton;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -28,7 +28,7 @@ import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
 import pokemon.Status;
-import pokemon.test1;
+import pokemon.Pokemon;
  
 
 public class PokemonShop {
@@ -38,16 +38,16 @@ public class PokemonShop {
 	private Stage primarystage;
 	private TilePane show;
 	private VBox bigshow;
-	private List<PokeButton> pokeButtons;
+	private List<PokemonButton> pokeButtons;
 	Label buyingZone = new Label("Black Market");
 	
 	public PokemonShop(Player player, Stage primarystage, Blackmarket blackmarket) {
-		pokeButtons = new ArrayList<PokeButton>();
-		pokeButtons.add(new PokeButton(new Charmander()));
-		pokeButtons.add(new PokeButton(new Squirtle()));
-		pokeButtons.add(new PokeButton(new Bulbasaur()));
-		pokeButtons.add(new PokeButton(new Pikachu()));
-		pokeButtons.add(new PokeButton(new Magikarp()));
+		pokeButtons = new ArrayList<PokemonButton>();
+		pokeButtons.add(new PokemonButton(new Charmander()));
+		pokeButtons.add(new PokemonButton(new Squirtle()));
+		pokeButtons.add(new PokemonButton(new Bulbasaur()));
+		pokeButtons.add(new PokemonButton(new Pikachu()));
+		pokeButtons.add(new PokemonButton(new Magikarp()));
 		this.player = player;
 		this.blackmarket = blackmarket;
 		this.primarystage = primarystage;
@@ -67,7 +67,7 @@ public class PokemonShop {
 		this.show = new TilePane();
 		show.setAlignment(Pos.CENTER_LEFT);
 		show.setPrefColumns(3);
-		for(PokeButton pokeButton : pokeButtons) {
+		for(PokemonButton pokeButton : pokeButtons) {
 			show.getChildren().add(pokeButton);
 			setPokeButton(pokeButton);
 		}
@@ -98,7 +98,7 @@ public class PokemonShop {
 			switch(name) {
 			case "Magikarp" :
 				if(player.getMoney() >= 4000) {
-					test1 Magikarp = new Magikarp();
+					Pokemon Magikarp = new Magikarp();
 					this.player.setPokeball(Magikarp);
 					this.player.addpoken(Magikarp);
 					blackmarket.getBuyLog().addData("Magikarp is added!");
@@ -114,7 +114,7 @@ public class PokemonShop {
 				break;
 			case "Pikachu" :
 				if(player.getMoney() >= 800) {
-					test1 Choi = new Pikachu();
+					Pokemon Choi = new Pikachu();
 					this.player.setPokeball(Choi);
 					this.player.addpoken(Choi);
 					blackmarket.getBuyLog().addData("Choi is added!");
@@ -129,7 +129,7 @@ public class PokemonShop {
 				break;
 			case "Squirtle" :
 				if(player.getMoney() >= 100) {
-				test1 Perth = new Squirtle();
+				Pokemon Perth = new Squirtle();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
@@ -143,7 +143,7 @@ public class PokemonShop {
 				break;
 			case "Charmander" :
 				if(player.getMoney() >= 100) {
-				test1 Perth = new Charmander();
+				Pokemon Perth = new Charmander();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
@@ -157,7 +157,7 @@ public class PokemonShop {
 				break;
 			case "Bulbasaur" :
 				if(player.getMoney() >= 100) {
-				test1 Perth = new Bulbasaur();
+				Pokemon Perth = new Bulbasaur();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
@@ -179,7 +179,7 @@ public class PokemonShop {
 		}
 		
 	}
-	private void setPokeButton(PokeButton button) {
+	private void setPokeButton(PokemonButton button) {
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {

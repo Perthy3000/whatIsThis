@@ -3,7 +3,7 @@ package gui;
 import javafx.stage.Stage;
 import pokemon.Magikarp;
 import pokemon.Status;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Battle;
 import test.Player;
 

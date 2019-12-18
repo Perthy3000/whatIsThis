@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import pokemon.Charmander;
 import pokemon.Status;
-import pokemon.test1;
+import pokemon.Pokemon;
 
 public class gameManager {
 	private Player player1;
@@ -29,7 +29,7 @@ public class gameManager {
 	//select player's pokemon
 	private void select() {
 		String chosen = in.nextLine();
-		test1 pokken = null;
+		Pokemon pokken = null;
 		switch (chosen) {
 		case "1":
 			pokken = new Charmander();
@@ -114,7 +114,7 @@ public class gameManager {
 //		}
 //	}
 	
-	private void checkfaint(test1 currentpokken, test1 enemy) {
+	private void checkfaint(Pokemon currentpokken, Pokemon enemy) {
 		if(currentpokken.getStatus() == Status.FAINTED) {
 			System.out.println(currentpokken.getName() + " is fainted!");
 		} else {
@@ -122,10 +122,10 @@ public class gameManager {
 		}
 	}
 	
-	private test1 choosepokken(test1 currentpokken, List<test1> playerpokken) {
+	private Pokemon choosepokken(Pokemon currentpokken, List<Pokemon> playerpokken) {
 		//change pokemon if current one is fainted
 		if(currentpokken.getStatus() == Status.FAINTED) {
-			for(test1 x : playerpokken) {
+			for(Pokemon x : playerpokken) {
 				if(x.getStatus() != Status.FAINTED) {
 					System.out.println("i choose you! " + x.getName());
 					return x;

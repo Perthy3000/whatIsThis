@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Magikarp extends test1 {
+public class Magikarp extends Pokemon {
 
 	public Magikarp() {
 		super("Magikarp", Element.WATER, 200, 1, 1, 50);

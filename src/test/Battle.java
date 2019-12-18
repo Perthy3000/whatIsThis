@@ -24,8 +24,8 @@ import pokemon.*;
 public class Battle {
 	
 	private Player player1;
-	private test1 currentPokemon;
-	private test1 enemyPokemon;
+	private Pokemon currentPokemon;
+	private Pokemon enemyPokemon;
 	private Stage primaryStage;
 	private BattleScene battleScene;
 	private BattleGraphics graphics;
@@ -36,7 +36,7 @@ public class Battle {
 	public Battle(Player player1, Stage primaryStage) throws NoPokemonException {
 		battleScene = new BattleScene(player1, primaryStage);
 		this.player1 = player1;
-		for(test1 x : player1.getpokenList()) {
+		for(Pokemon x : player1.getpokenList()) {
 			if(x.getStatus() != Status.FAINTED) {
 				currentPokemon = x;
 				break;
@@ -86,7 +86,7 @@ public class Battle {
 		});
 	}
 	
-	private void doAttack(test1 pokemon, test1 pokemon2, int skillNum, int skillNum2) {
+	private void doAttack(Pokemon pokemon, Pokemon pokemon2, int skillNum, int skillNum2) {
 		//String
 		battleScene.getLog().getListView().setOnMouseClicked(new EventHandler<MouseEvent>() {
 
@@ -130,7 +130,7 @@ public class Battle {
 			if(player1.getAvailablePokken() == 0) {
 				exit();				
 			} else {
-				for(test1 x : player1.getpokenList()) {
+				for(Pokemon x : player1.getpokenList()) {
 					if(x.getStatus() != Status.FAINTED) {
 						currentPokemon = x;
 						skillButtonList.clear();
@@ -173,7 +173,7 @@ public class Battle {
 			player1.setMoney(player1.getMoney()+200);
 			battleScene.getLog().addData(player1.getName() +" get 200$!");
 		}
-		for(test1 x : player1.getpokenList()) {
+		for(Pokemon x : player1.getpokenList()) {
 			x.fullHeal();
 		}
 		Button exitButton = new Button();

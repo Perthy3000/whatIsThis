@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Bulbasaur extends test1{
+public class Bulbasaur extends Pokemon{
 
 	public Bulbasaur() {
 		super("Bulbasaur", Element.GRASS, 50, 5, 3, 5);

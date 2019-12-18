@@ -25,7 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pokemon.*;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Player;
 
 public class LevelUp extends HBox {
@@ -36,7 +36,7 @@ public class LevelUp extends HBox {
 	private Button exitButton;
 	private Label nameLabel ;
 	private Stage primaryStage;
-	public LevelUp(Stage primaryStage, test1 pokemon, Player player) {
+	public LevelUp(Stage primaryStage, Pokemon pokemon, Player player) {
 		this.primaryStage = primaryStage;
 		statArea = new StatArea(pokemon);
 		infoArea = new InfoArea(pokemon, player, statArea,this);
@@ -100,7 +100,7 @@ public class LevelUp extends HBox {
 	}
 	
 	//find pokemon image
-	private String findImage(test1 pokemon) {
+	private String findImage(Pokemon pokemon) {
 		String url;
 		if(pokemon instanceof Charmander) url = "tenor.gif";
 		else if(pokemon instanceof Bulbasaur) url = "Bulbasaurg.gif";

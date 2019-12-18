@@ -22,12 +22,12 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import pokemon.test1;
+import pokemon.Pokemon;
 import test.Player;
 
 public class InfoArea extends VBox {
 
-	private test1 pokemon;
+	private Pokemon pokemon;
 	private Player player;
 	private TextField nameField;
 	private List<FeedButton> feedingButton;
@@ -36,7 +36,7 @@ public class InfoArea extends VBox {
 	private LevelUp levelUp;
 	private Image buttonImage;
 	private Button exitButton;
-	public InfoArea(test1 pokemon, Player player, StatArea statArea,LevelUp levelUp) {
+	public InfoArea(Pokemon pokemon, Player player, StatArea statArea,LevelUp levelUp) {
 		this.pokemon = pokemon;
 		this.player = player;
 		this.levelUp = levelUp;

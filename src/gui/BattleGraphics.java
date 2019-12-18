@@ -9,7 +9,7 @@ import pokemon.Charmander;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.test1;
+import pokemon.Pokemon;
 
 public class BattleGraphics extends StackPane {
 	
@@ -47,7 +47,7 @@ public class BattleGraphics extends StackPane {
 		
 	}
 	
-	public void drawPartner(test1 currentPokemon) {
+	public void drawPartner(Pokemon currentPokemon) {
 		clearPartner();
 		partnerImage = new Image(ClassLoader.getSystemResource(getUrl(currentPokemon)).toString(), 100, 0, true, true);
 		gc2.drawImage(partnerImage, 70, 130);
@@ -61,12 +61,12 @@ public class BattleGraphics extends StackPane {
 		gc2.clearRect(245, 45, 80, 80);
 	}
 	
-	public void drawEnemyPokemon(test1 enemyPokemon) {
+	public void drawEnemyPokemon(Pokemon enemyPokemon) {
 		enemyImage = new Image(ClassLoader.getSystemResource(getUrl(enemyPokemon)).toString(), 80, 0, true, true);
 		gc2.drawImage(enemyImage, 245, 45);
 	}
 	
-	private String getUrl(test1 pokemon) {
+	private String getUrl(Pokemon pokemon) {
 		String url = "charmander.png";
 		if(pokemon instanceof Charmander) url = "charmander.png";
 		else if(pokemon instanceof Bulbasaur) url = "Bulbasaur.png";
