@@ -38,7 +38,7 @@ public class Blackmarket extends VBox {
 		shoplog = new Buyinglog();
 		setPadding(new Insets(10));
 		setAlignment(Pos.TOP_CENTER);
-		setSpacing(10);
+		setSpacing(20);
 		shop = new PokemonShop(player1, primaryStage, this);
 		int loop=0;
 		for(test1 i : player1.getpokenList()) {
@@ -48,8 +48,9 @@ public class Blackmarket extends VBox {
 		this.getChildren().add(shoplog);
 		VBox pokeball = new VBox();
 		pokeball.setSpacing(10);
-		Label PokeballZone = new Label("PokeBall");
+		Label PokeballZone = new Label("Poke Balls");
 		PokeballZone.setFont(new Font(18));
+		PokeballZone.setStyle("-fx-text-fill: white");
 		pokeball.getChildren().addAll(PokeballZone,pokelog);
 		
 		this.getChildren().add(pokeball);

@@ -17,11 +17,12 @@ public class Buyinglog extends VBox {
 		setSpacing(10);
 		stack.setAlignment(Pos.CENTER_LEFT);
 		logListView = new ListView<Label>(logdata);
-		setPrefHeight(150);
-		logListView.setPrefWidth(300);
+		setPrefHeight(300);
+		logListView.setPrefWidth(400);
 		logListView.setFocusTraversable(false);
 		Label BuyinglogZone = new Label("Activity log");
 		BuyinglogZone.setFont(new Font(18));
+		BuyinglogZone.setStyle("-fx-text-fill: white");
 		stack.getChildren().add(logListView);
 		getChildren().addAll(BuyinglogZone,stack);
 	}
