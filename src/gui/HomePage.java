@@ -1,4 +1,5 @@
 package gui;
+
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -12,13 +13,18 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.io.File;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 public class HomePage extends StackPane {
+	
 	private Image backgroundImage;
 	private Button startButton;
 	private Image buttonImage;
@@ -26,6 +32,7 @@ public class HomePage extends StackPane {
 	private GraphicsContext gc;
 	private guigamemanager manager;
 	private Stage primaryStage;
+	
 	public HomePage(Stage primaryStage,guigamemanager manager) {
 		this.primaryStage =primaryStage;
 		this.manager = manager;
