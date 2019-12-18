@@ -36,6 +36,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
+import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
@@ -131,6 +132,9 @@ public class Pokeball extends TilePane {
 		 }
 		 else if(pokeButton.getPokemon()instanceof Magikarp) {
 			 url="pokeMagikarp.png";
+		 }
+		 else if(pokeButton.getPokemon() instanceof Gyarados) {
+			 url = "pokeGyarados.png";
 		 }
 		 else {
 			 url = "yo.png";

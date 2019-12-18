@@ -14,6 +14,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
+import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
@@ -51,6 +52,9 @@ public class PokeButton extends Button{
 		 else if(pokemon instanceof Pikachu) {
 			 url = "Pikachu.png"; cost = 800;
 		 }
+		 else if(pokemon instanceof Gyarados) {
+			 url = "Gyarados.png"; cost = 10000;
+		 }
 		 else {
 			 url = "yo.png"; cost = 4000;
 		 }
@@ -64,6 +68,7 @@ public class PokeButton extends Button{
 		 else if(pokemon instanceof Squirtle) style = "-fx-background-color : #00CCCC";
 		 else if(pokemon instanceof Pikachu) style = "-fx-background-color : #FFCC33";
 		 else if(pokemon instanceof Magikarp) style = "-fx-background-color : #00CCCC";
+		 else if(pokemon instanceof Gyarados)style = "-fx-background-color : #00CCCC";
 		 else style = defaultstyle;
 		 
 		 setOnMouseEntered(new EventHandler<MouseEvent>() {
