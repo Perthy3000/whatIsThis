@@ -49,10 +49,10 @@ public class guiPokeball extends TilePane {
 			@Override
 			public void handle(MouseEvent arg0) {
 				System.out.println(index);
-//				currentdiff = (player.getpokenList().size() - player.removepokenList(index));
 				removePokeButton(index);
 				blackmarket.getBuyLog().addData(button.getPokkenName()+" was sold for " + button.getCost() + "$"); 
 				player.setMoney(player.getMoney()+button.getCost());
+				blackmarket.getShop().setMoneyLabel(player.getMoney());
 				player.getpokenList().remove(index);
 			}
 		});
