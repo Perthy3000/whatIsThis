@@ -68,7 +68,6 @@ public class HomePage extends StackPane {
 				public void handle(MouseEvent arg0) {
 					CreateCharScene nextScene = new CreateCharScene(primaryStage, manager);
 					nextScene.setAlignment(Pos.CENTER);
-					primaryStage.setTitle("Create Character");
 					primaryStage.setScene(new Scene(nextScene, 500, 800));
 					
 				}			

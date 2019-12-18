@@ -79,11 +79,8 @@ public abstract class test1 {
 			multiplier /= 2;
 		}
 		int calDamage = (int) (((getAttack()+move.getPower())*multiplier)-sandbag.getDefense());
-		System.out.println(move.getPower());
-		System.out.println((move.getPower()+getAttack())*multiplier);
-		if(calDamage <= 0) {
-			calDamage = 1;
-		}
+		if(calDamage <= 0) calDamage = 1;
+		if(calDamage > sandbag.getCurrentHp()) calDamage = sandbag.getCurrentHp();
 		sandbag.setCurrentHp(sandbag.getCurrentHp()-calDamage);
 		return calDamage;
 	}

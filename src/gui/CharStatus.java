@@ -23,7 +23,7 @@ public class CharStatus extends GridPane {
 				+ "-fx-font-family:'Georgia';-fx-border-color: white;-fx-padding: 5 5 5 5;");
 		nameLabel.setStyle("-fx-text-fill: red;-fx-background-color: transparent; -fx-font-size: 60;"
 				+ "-fx-font-family:'Georgia';-fx-font-style: oblique; -fx-font-weight: bold ;"
-				+ "-fx-padding: 1 1 2 2;-fx-text-stroke: black;-fx-stroke-width:5;");
+				+ "-fx-padding: 1 1 2 2;");
 		image = new ImageView(new Image(ClassLoader.getSystemResource("blank.png").toString(), 100, 100, false, false));
 		switch(player1.getGender()) {
 		case "Female" : image.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false)); break;
