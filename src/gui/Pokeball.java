@@ -108,8 +108,9 @@ public class Pokeball extends TilePane {
 			@Override
 			public void handle(ActionEvent arg0) {
 				LevelUp nextScene = new LevelUp(primaryStage, player.getpokenList().get(index), player);
-				Scene next = new Scene(nextScene, 800, 500);
+				Scene next = new Scene(nextScene, 900, 500);
 				primaryStage.setScene(next);
+				primaryStage.setTitle("Manage Pokemon");
 				primaryStage.show();
 			}
 		});

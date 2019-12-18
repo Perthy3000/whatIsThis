@@ -5,12 +5,23 @@ import java.util.List;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import pokemon.test1;
 import test.Player;
 
@@ -22,28 +33,65 @@ public class InfoArea extends VBox {
 	private List<FeedButton> feedingButton;
 	private Label expLabel;
 	private Label moneyLabel;
-	
-	public InfoArea(test1 pokemon, Player player, StatArea statArea) {
+	private LevelUp levelUp;
+	private Image buttonImage;
+	private Button exitButton;
+	public InfoArea(test1 pokemon, Player player, StatArea statArea,LevelUp levelUp) {
 		this.pokemon = pokemon;
 		this.player = player;
-		Label nameLabel = new Label("Change pokemon name");
+		this.levelUp = levelUp;
+		Label nameLabel = new Label("");
 		getChildren().add(nameLabel);
 		setNameField();
-		expLabel = new Label(pokemon.getExp()+"/"+pokemon.getMaxExp());
-		moneyLabel = new Label(Integer.toString(player.getMoney()));
+		expLabel = new Label("           "+pokemon.getExp()+"/"+pokemon.getMaxExp());
+		moneyLabel = new Label("                     "+Integer.toString(player.getMoney()));
+		expLabel.setStyle("-fx-text-fill: white;-fx-font-size: 20;");
+		moneyLabel.setStyle("-fx-text-fill: white;-fx-font-size: 20;");
 		feedingButton = new ArrayList<FeedButton>();
 		getChildren().addAll(moneyLabel, expLabel);
 		setFeedingButton(statArea);	//set all feeding button
 		setPadding(new Insets(10));
 		setSpacing(20);
+		exitButton = new Button();
+		exitButton.setBorder(new Border(new BorderStroke(Color.TRANSPARENT,BorderStrokeStyle.NONE, 
+				CornerRadii.EMPTY, BorderWidths.EMPTY)));
+		exitButton.setStyle("-fx-background-color: transparent;");
+		buttonImage = new Image(ClassLoader.getSystemResource("exitbf.png").toString(), 70, 42, false, false);
+		exitButton.setGraphic(new ImageView(buttonImage));
+		//set exit button
+				exitButton.setOnAction(new EventHandler<ActionEvent>() {	
+					@Override
+					public void handle(ActionEvent arg0) {
+						MainMenuScene nextMainMenuScene = new MainMenuScene(levelUp.getPrimaryStage(), player);
+						Scene nextScene = new Scene(nextMainMenuScene, 500, 800);
+						levelUp.setPrimaryStage(nextScene);
+					}
+					
+				});
+				exitButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent arg0) {
+						exitButton.setGraphic(new ImageView(new Image(ClassLoader.getSystemResource("exitaf.png").toString(), 70, 42, false, false)));
+					}
+				 });
+				exitButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent arg0) {
+						exitButton.setGraphic(new ImageView(new Image(ClassLoader.getSystemResource("exitbf.png").toString(), 70, 42, false, false)));
+					}
+				});
+
+				getChildren().add(exitButton);
 	}
 	
 	private void setFeedingButton(StatArea statArea) {
-		HBox feedBox = new HBox();
+		VBox feedBox = new VBox();
 		feedBox.setSpacing(10);
+		feedBox.setAlignment(Pos.CENTER_LEFT);
 		int exp = 10;
 		for(int i = 0; i < 3; i++) {
-			FeedButton feedButton = new FeedButton(exp+i*5);
+			final int x=i+1;
+			FeedButton feedButton = new FeedButton(exp+i*5,x);
 			feedButton.setOnAction(new EventHandler<ActionEvent>() {
 				//when press will add exp and reduce money
 				@Override
@@ -51,12 +99,24 @@ public class InfoArea extends VBox {
 					if(player.getMoney() >= feedButton.getCost()) {
 						pokemon.addExp(feedButton.getExp());
 						player.setMoney(player.getMoney()-feedButton.getCost());
-						expLabel.setText(pokemon.getExp()+"/"+pokemon.getMaxExp());
-						moneyLabel.setText(Integer.toString(player.getMoney()));
+						expLabel.setText("           "+pokemon.getExp()+"/"+pokemon.getMaxExp());
+						moneyLabel.setText("                     "+Integer.toString(player.getMoney()));
 						statArea.update();
 					} else {
 						//add exception
 					}
+				}
+			});
+			feedButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					feedButton.setGrapaf(x);
+				}
+			 });
+			feedButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					feedButton.setGrapbf(x);
 				}
 			});
 			feedingButton.add(feedButton);
@@ -70,16 +130,20 @@ public class InfoArea extends VBox {
 		HBox nameBox = new HBox();
 		nameField = new TextField();
 		Button changeButton = new Button("Confirm");
+		nameBox.setSpacing(5);
 		//when pressing confirm will change pokemon name
 		changeButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) {
 				pokemon.setName(nameField.getText());
+				levelUp.setNameLabel(nameField.getText());
+				
 			}
 		});
 		
 		nameBox.getChildren().addAll(nameField, changeButton);
 		getChildren().add(nameBox);
 	}
+	
 }
