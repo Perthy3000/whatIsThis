@@ -108,7 +108,7 @@ public class InfoArea extends VBox {
 						expLabel.setText("           "+pokemon.getExp()+"/"+pokemon.getMaxExp());
 						moneyLabel.setText("                     "+Integer.toString(player.getMoney()));
 						//check for gyarados
-						if(pokemon instanceof Magikarp && pokemon.getLevel() > 2) {
+						if(pokemon instanceof Magikarp && pokemon.getLevel() > 5) {
 							if(!pokemon.getName().equals("Magikarp")) {
 								player.getpokenList().set(index, new Gyarados(pokemon.getName()));
 							} else {

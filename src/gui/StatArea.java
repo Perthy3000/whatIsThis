@@ -50,6 +50,10 @@ public class StatArea extends VBox {
 		defLabel.setText("                                           "+Integer.toString(pokemon.getDefense()));
 		maxHpLabel.setText("                                           "+Integer.toString(pokemon.getmaxHp()));
 		spdLabel.setText("                                           "+Integer.toString(pokemon.getSpeed()));}
+		else if(pokemon instanceof Gyarados) {atkLabel.setText("                          "+Integer.toString(pokemon.getAttack()));
+		defLabel.setText("                          "+Integer.toString(pokemon.getDefense()));
+		maxHpLabel.setText("                          "+Integer.toString(pokemon.getmaxHp()));
+		spdLabel.setText("                          "+Integer.toString(pokemon.getSpeed()));}
 	}
 	//update stat whenever press feed button
 	public void update() {
@@ -70,5 +74,9 @@ public class StatArea extends VBox {
 		defLabel.setText("                                           "+Integer.toString(pokemon.getDefense()));
 		maxHpLabel.setText("                                           "+Integer.toString(pokemon.getmaxHp()));
 		spdLabel.setText("                                           "+Integer.toString(pokemon.getSpeed()));}
+		else if(pokemon instanceof Gyarados) {atkLabel.setText("                          "+Integer.toString(pokemon.getAttack()));
+		defLabel.setText("                          "+Integer.toString(pokemon.getDefense()));
+		maxHpLabel.setText("                          "+Integer.toString(pokemon.getmaxHp()));
+		spdLabel.setText("                          "+Integer.toString(pokemon.getSpeed()));}
 	}
 }
