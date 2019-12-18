@@ -40,7 +40,7 @@ import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.Pokemon;
+import pokemon.test1;
 import test.Player;
 
 public class Pokeball extends TilePane {
@@ -68,7 +68,7 @@ public class Pokeball extends TilePane {
 		setMaxSize(400, 300);
 		pokeButtonList = new ArrayList<PokemonButton>();
 		int index = 0;
-		for(Pokemon pokemon : player.getpokenList()) {
+		for(test1 pokemon : player.getpokenList()) {
 			PokemonButton pokeButton = new PokemonButton(pokemon);
 			setPokeButton(pokeButton, primaryStage, player, index);
 			Label nameLabel = new Label();
@@ -108,7 +108,7 @@ public class Pokeball extends TilePane {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				LevelUp nextScene = new LevelUp(primaryStage, player.getpokenList().get(index), player);
+				LevelUp nextScene = new LevelUp(primaryStage, index, player);
 				Scene next = new Scene(nextScene, 900, 500);
 				primaryStage.setScene(next);
 				primaryStage.setTitle("Manage Pokemon");

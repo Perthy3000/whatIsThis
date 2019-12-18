@@ -18,15 +18,15 @@ import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.Pokemon;
+import pokemon.test1;
 
 public class PokemonButton extends Button{
 	
-	 private Pokemon pokemon;
+	 private test1 pokemon;
 	 private int cost;
 	 private boolean isSelected = false;
 	 
-	 public PokemonButton(Pokemon pokemon) {
+	 public PokemonButton(test1 pokemon) {
 		this.pokemon = pokemon;
 		this.setPadding(new Insets(10));
 		setBorder(new Border(new BorderStroke(Color.BEIGE,BorderStrokeStyle.SOLID, 
@@ -102,7 +102,7 @@ public class PokemonButton extends Button{
 	 public int getCost() {
 		 return cost;
 	 }
-	 public Pokemon getPokemon() {
+	 public test1 getPokemon() {
 		 return this.pokemon;
 	 }
 }

@@ -22,12 +22,15 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import pokemon.Pokemon;
+import pokemon.Charmander;
+import pokemon.Gyarados;
+import pokemon.Magikarp;
+import pokemon.test1;
 import test.Player;
 
 public class InfoArea extends VBox {
 
-	private Pokemon pokemon;
+	private test1 pokemon;
 	private Player player;
 	private TextField nameField;
 	private List<FeedButton> feedingButton;
@@ -36,8 +39,11 @@ public class InfoArea extends VBox {
 	private LevelUp levelUp;
 	private Image buttonImage;
 	private Button exitButton;
-	public InfoArea(Pokemon pokemon, Player player, StatArea statArea,LevelUp levelUp) {
-		this.pokemon = pokemon;
+	private int index;
+	
+	public InfoArea(int index, Player player, StatArea statArea,LevelUp levelUp) {
+		pokemon = player.getpokenList().get(index);
+		this.index = index;
 		this.player = player;
 		this.levelUp = levelUp;
 		Label nameLabel = new Label("");
@@ -101,6 +107,17 @@ public class InfoArea extends VBox {
 						player.setMoney(player.getMoney()-feedButton.getCost());
 						expLabel.setText("           "+pokemon.getExp()+"/"+pokemon.getMaxExp());
 						moneyLabel.setText("                     "+Integer.toString(player.getMoney()));
+						//check for gyarados
+						if(pokemon instanceof Magikarp && pokemon.getLevel() > 2) {
+							if(!pokemon.getName().equals("Magikarp")) {
+								player.getpokenList().set(index, new Gyarados(pokemon.getName()));
+							} else {
+								player.getpokenList().set(index, new Gyarados());
+							}
+							pokemon = player.getpokenList().get(index);
+							levelUp.setPokemonImage(pokemon);
+							levelUp.setNameLabel(pokemon.getName());
+						}
 						statArea.update();
 					} else {
 						//add exception
@@ -138,7 +155,6 @@ public class InfoArea extends VBox {
 			public void handle(ActionEvent arg0) {
 				pokemon.setName(nameField.getText());
 				levelUp.setNameLabel(nameField.getText());
-				
 			}
 		});
 		

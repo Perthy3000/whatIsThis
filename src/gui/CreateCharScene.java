@@ -22,7 +22,7 @@ import pokemon.Charmander;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.Pokemon;
+import pokemon.test1;
 import exception.CreateCharException;
 import exception.NoPokemonException;
 import javafx.event.EventHandler;
@@ -69,8 +69,8 @@ public class CreateCharScene extends StackPane {
 		
 	}
 	
-	public void updatePoke(Pokemon pokemon) {
-		Pokemon chosenPokemon;
+	public void updatePoke(test1 pokemon) {
+		test1 chosenPokemon;
 		try {
 			chosenPokemon = createChar.getChoosePokemon().getselectedPokken();
 		} catch (CreateCharException e) {

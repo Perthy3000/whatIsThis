@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Charmander extends Pokemon {
+public class Charmander extends test1 {
 	
 	public Charmander() {
 		super("Charmander", Element.FIRE, 40, 6, 2, 6);

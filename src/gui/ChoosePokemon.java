@@ -24,7 +24,7 @@ public class ChoosePokemon extends GridPane {
 	private List<PokemonButton> pokeButtons;	//contains all PokeButton
 	private Stage primaryStage;	//current stage
 	private PokemonButton selectedButton = null;	//current button that is selected
-	private Pokemon selectedPokken;	//current pokemon that is selected
+	private test1 selectedPokken;	//current pokemon that is selected
 	private Button nextButton;	//button NEXT
 	private guigamemanager manager;	//gameManager
 	private Label label;
@@ -92,7 +92,7 @@ public class ChoosePokemon extends GridPane {
 		
 	}
 	
-	public Pokemon getselectedPokken() throws CreateCharException {
+	public test1 getselectedPokken() throws CreateCharException {
 		if(selectedPokken == null) throw new CreateCharException("Choose your pokemon!");
 		return selectedPokken;
 	}

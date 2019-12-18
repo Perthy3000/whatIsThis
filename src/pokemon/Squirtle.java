@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Squirtle extends Pokemon {
+public class Squirtle extends test1 {
 	
 	public Squirtle() {
 		super("Squirtle", Element.WATER, 50, 5, 3, 5);

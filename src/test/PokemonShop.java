@@ -28,7 +28,7 @@ import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
 import pokemon.Status;
-import pokemon.Pokemon;
+import pokemon.test1;
  
 
 public class PokemonShop {
@@ -98,7 +98,7 @@ public class PokemonShop {
 			switch(name) {
 			case "Magikarp" :
 				if(player.getMoney() >= 4000) {
-					Pokemon Magikarp = new Magikarp();
+					test1 Magikarp = new Magikarp();
 					this.player.setPokeball(Magikarp);
 					this.player.addpoken(Magikarp);
 					blackmarket.getBuyLog().addData("Magikarp is added!");
@@ -114,7 +114,7 @@ public class PokemonShop {
 				break;
 			case "Pikachu" :
 				if(player.getMoney() >= 800) {
-					Pokemon Choi = new Pikachu();
+					test1 Choi = new Pikachu();
 					this.player.setPokeball(Choi);
 					this.player.addpoken(Choi);
 					blackmarket.getBuyLog().addData("Choi is added!");
@@ -129,7 +129,7 @@ public class PokemonShop {
 				break;
 			case "Squirtle" :
 				if(player.getMoney() >= 100) {
-				Pokemon Perth = new Squirtle();
+				test1 Perth = new Squirtle();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
@@ -143,7 +143,7 @@ public class PokemonShop {
 				break;
 			case "Charmander" :
 				if(player.getMoney() >= 100) {
-				Pokemon Perth = new Charmander();
+				test1 Perth = new Charmander();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");
@@ -157,7 +157,7 @@ public class PokemonShop {
 				break;
 			case "Bulbasaur" :
 				if(player.getMoney() >= 100) {
-				Pokemon Perth = new Bulbasaur();
+				test1 Perth = new Bulbasaur();
 				this.player.setPokeball(Perth);
 				this.player.addpoken(Perth);
 				blackmarket.getBuyLog().addData("Perth is added!");

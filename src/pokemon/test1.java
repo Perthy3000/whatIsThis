@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public abstract class Pokemon {
+public abstract class test1 {
 	
 	private String name;
 	private Element element;
@@ -21,7 +21,7 @@ public abstract class Pokemon {
 	protected List<skill> skillList;
 	private PieChart pieChart;
 	
-	public Pokemon(String name, Element element, int maxHp, int attack, int defense, int speed) {
+	public test1(String name, Element element, int maxHp, int attack, int defense, int speed) {
 		this.name = name;
 		this.element = element;
 		this.maxHp = maxHp;
@@ -71,7 +71,7 @@ public abstract class Pokemon {
 		this.status = status;
 	}
 
-	public int doDamage(Pokemon sandbag, skill move, BattleScene battleScene) {
+	public int doDamage(test1 sandbag, skill move, BattleScene battleScene) {
 		float multiplier = 1;
 		if(sandbag.getElement() == move.getEffectiveElement()) {
 			multiplier *= 2;

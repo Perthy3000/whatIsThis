@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Pikachu extends Pokemon {
+public class Pikachu extends test1 {
 
 	public Pikachu() {
 		super("Pikachu", Element.ElECTRIC, 40, 6, 2, 7);

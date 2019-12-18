@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import pokemon.Pokemon;
+import pokemon.test1;
 import test.Player;
 
 public class CreateChar extends VBox {
@@ -61,7 +61,7 @@ public class CreateChar extends VBox {
 				}
 				manager.createPlayer(name, gender);
 				Player player1 = manager.getPlayer();	//call player from gameManager
-				Pokemon pokemon;
+				test1 pokemon;
 				try {
 					pokemon = ChoosePokemon.getselectedPokken();
 				} catch (CreateCharException e) {

@@ -12,7 +12,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
-import pokemon.Pokemon;
+import pokemon.test1;
 import test.Player;
 
 public class guiPokeball extends TilePane {
@@ -34,7 +34,7 @@ public class guiPokeball extends TilePane {
 		this.player = player;
 	}
 	
-	public void addData(Pokemon pokemon) {
+	public void addData(test1 pokemon) {
 		PokemonButton pokemonButton = new PokemonButton(pokemon);
 		index = poke.size();
 		setPokeButton(pokemonButton, index);

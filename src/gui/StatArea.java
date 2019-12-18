@@ -9,15 +9,20 @@ import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
-import pokemon.Pokemon;
+import pokemon.test1;
+import test.Player;
 
 public class StatArea extends VBox {
 	
-	private Pokemon pokemon;
+	private test1 pokemon;
 	private Label atkLabel, defLabel, maxHpLabel, spdLabel;
+	private Player player;
+	private int index;
 
-	public StatArea(Pokemon pokemon) {
-		this.pokemon = pokemon;
+	public StatArea(int index, Player player) {
+		this.player = player;
+		this.index = index;
+		pokemon = player.getpokenList().get(index);
 		setPadding(new Insets(10));
 		setSpacing(20);
 		atkLabel = new Label(Integer.toString(pokemon.getAttack()));
@@ -48,14 +53,11 @@ public class StatArea extends VBox {
 	}
 	//update stat whenever press feed button
 	public void update() {
+		pokemon = player.getpokenList().get(index);
 		atkLabel.setText("            "+Integer.toString(pokemon.getAttack()));
 		defLabel.setText("            "+Integer.toString(pokemon.getDefense()));
 		maxHpLabel.setText("            "+Integer.toString(pokemon.getmaxHp()));
 		spdLabel.setText("            "+Integer.toString(pokemon.getSpeed()));
-		if(pokemon instanceof Magikarp) {
-			pokemon = new Gyarados();
-			pokemon.setName("Gyarados");
-		}
 		if(pokemon instanceof Bulbasaur) {atkLabel.setText("                                                                 "+Integer.toString(pokemon.getAttack()));
 		defLabel.setText("                                                                 "+Integer.toString(pokemon.getDefense()));
 		maxHpLabel.setText("                                                                 "+Integer.toString(pokemon.getmaxHp()));

@@ -25,10 +25,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pokemon.*;
-<<<<<<< HEAD
-import pokemon.Pokemon;
-=======
->>>>>>> 6955ab202efd398ff21c0eefbc4cd27b6060e295
 import test.Player;
 
 public class LevelUp extends HBox {
@@ -39,10 +35,13 @@ public class LevelUp extends HBox {
 	private Button exitButton;
 	private Label nameLabel ;
 	private Stage primaryStage;
-	public LevelUp(Stage primaryStage, Pokemon pokemon, Player player) {
+	private ImageView pokemonImage;
+	
+	public LevelUp(Stage primaryStage, int index, Player player) {
 		this.primaryStage = primaryStage;
-		statArea = new StatArea(pokemon);
-		infoArea = new InfoArea(pokemon, player, statArea,this);
+		test1 pokemon = player.getpokenList().get(index);
+		statArea = new StatArea(index, player);
+		infoArea = new InfoArea(index, player, statArea,this);
 		Image image = new Image ("uplvlbg.png");
 	    setBackground(new Background(new BackgroundImage(image,BackgroundRepeat.REPEAT,
 	                                                                  BackgroundRepeat.REPEAT,
@@ -50,22 +49,8 @@ public class LevelUp extends HBox {
 	                                                                  BackgroundSize.DEFAULT)));
 		VBox vBox = new VBox();
 		//pokemon image
-		double h;
-		double w;
-		if(pokemon instanceof Charmander) {h=350;
-		w=350;}
-		else if(pokemon instanceof Bulbasaur) {h=160;
-		w=175;}
-		else if(pokemon instanceof Squirtle) {h=195;
-		w=200;}
-		else if(pokemon instanceof Pikachu) {h=250;
-		w=250;}
-		else if(pokemon instanceof Gyarados) { h=320;
-		w=305;
-		 }
-		else {h=350;
-		w=350;}
-		ImageView imageView = new ImageView(new Image(ClassLoader.getSystemResource(findImage(pokemon)).toString(), w, h, true, false));
+		pokemonImage = new ImageView();
+		setPokemonImage(pokemon);
 		exitButton = new Button();
 		exitButton.setBorder(new Border(new BorderStroke(Color.TRANSPARENT,BorderStrokeStyle.NONE, 
 				CornerRadii.EMPTY, BorderWidths.EMPTY)));
@@ -76,7 +61,7 @@ public class LevelUp extends HBox {
 		nameLabel.setStyle("-fx-text-fill: white;-fx-font-size: 30;");
 		vBox.setAlignment(Pos.BOTTOM_CENTER);
 		vBox.setSpacing(50);
-		vBox.getChildren().addAll(imageView,nameLabel);
+		vBox.getChildren().addAll(pokemonImage,nameLabel);
 		//set exit button
 		exitButton.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
@@ -105,8 +90,27 @@ public class LevelUp extends HBox {
 		setSpacing(0);
 	}
 	
+	public void setPokemonImage(test1 pokemon) {
+		double h;
+		double w;
+		if(pokemon instanceof Charmander) {h=350;
+		w=350;}
+		else if(pokemon instanceof Bulbasaur) {h=160;
+		w=175;}
+		else if(pokemon instanceof Squirtle) {h=195;
+		w=200;}
+		else if(pokemon instanceof Pikachu) {h=250;
+		w=250;}
+		else if(pokemon instanceof Gyarados) { h=320;
+		w=305;
+		 }
+		else {h=350;
+		w=350;}
+		pokemonImage.setImage(new Image(ClassLoader.getSystemResource(findImage(pokemon)).toString(), w, h, true, false));
+	}
+	
 	//find pokemon image
-	private String findImage(Pokemon pokemon) {
+	private String findImage(test1 pokemon) {
 		String url;
 		if(pokemon instanceof Charmander) url = "tenor.gif";
 		else if(pokemon instanceof Bulbasaur) url = "Bulbasaurg.gif";
@@ -117,7 +121,7 @@ public class LevelUp extends HBox {
 		return url;
 	}
 	public void setNameLabel(String name) {
-		this.nameLabel.setText(name);
+		if(!name.trim().isBlank()) nameLabel.setText(name);
 	}
 	public Stage getPrimaryStage() {
 		return this.primaryStage;
