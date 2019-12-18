@@ -1,14 +1,10 @@
 package pokemon;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.PieChart;
 import test.skill;
 
-public class Magikarp extends Pokemon {
-
-	public Magikarp() {
-		super("Magikarp", Element.WATER, 200, 1, 1, 50);
+public class Gyarados extends test1 {
+	public Gyarados() {
+		super("Gyarados",Element.WATER, 999, 999, 999, 999);
 		skillList.add(new skill("Struggle", Element.NORMAL, 100));
 		skillList.add(new skill("Struggle", Element.NORMAL, 0));
 		skillList.add(new skill("Struggle", Element.NORMAL, 0));

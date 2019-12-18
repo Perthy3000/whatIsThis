@@ -25,7 +25,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pokemon.*;
+<<<<<<< HEAD
 import pokemon.Pokemon;
+=======
+>>>>>>> 6955ab202efd398ff21c0eefbc4cd27b6060e295
 import test.Player;
 
 public class LevelUp extends HBox {
@@ -57,6 +60,9 @@ public class LevelUp extends HBox {
 		w=200;}
 		else if(pokemon instanceof Pikachu) {h=250;
 		w=250;}
+		else if(pokemon instanceof Gyarados) { h=320;
+		w=305;
+		 }
 		else {h=350;
 		w=350;}
 		ImageView imageView = new ImageView(new Image(ClassLoader.getSystemResource(findImage(pokemon)).toString(), w, h, true, false));
@@ -106,6 +112,7 @@ public class LevelUp extends HBox {
 		else if(pokemon instanceof Bulbasaur) url = "Bulbasaurg.gif";
 		else if(pokemon instanceof Squirtle) url = "squirtleg.gif";
 		else if(pokemon instanceof Pikachu) url = "pikag.gif";
+		else if(pokemon instanceof Gyarados) url = "Gyarados.gif";
 		else url = "Magikrap.gif";
 		return url;
 	}

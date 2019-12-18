@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
+import pokemon.Gyarados;
+import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
 import pokemon.Pokemon;
@@ -50,17 +52,21 @@ public class StatArea extends VBox {
 		defLabel.setText("            "+Integer.toString(pokemon.getDefense()));
 		maxHpLabel.setText("            "+Integer.toString(pokemon.getmaxHp()));
 		spdLabel.setText("            "+Integer.toString(pokemon.getSpeed()));
-		if(pokemon instanceof Bulbasaur) {atkLabel.setText("                                                                            "+Integer.toString(pokemon.getAttack()));
-		defLabel.setText("                                                                            "+Integer.toString(pokemon.getDefense()));
-		maxHpLabel.setText("                                                                            "+Integer.toString(pokemon.getmaxHp()));
-		spdLabel.setText("                                                                            "+Integer.toString(pokemon.getSpeed()));}
-		else if(pokemon instanceof Squirtle) {atkLabel.setText("                                                                            "+Integer.toString(pokemon.getAttack()));
-		defLabel.setText("                                                                            "+Integer.toString(pokemon.getDefense()));
-		maxHpLabel.setText("                                                                            "+Integer.toString(pokemon.getmaxHp()));
-		spdLabel.setText("                                                                            "+Integer.toString(pokemon.getSpeed()));}
-		else if(pokemon instanceof Pikachu) {atkLabel.setText("                                                                            "+Integer.toString(pokemon.getAttack()));
-		defLabel.setText("                                                                            "+Integer.toString(pokemon.getDefense()));
-		maxHpLabel.setText("                                                                            "+Integer.toString(pokemon.getmaxHp()));
-		spdLabel.setText("                                                                            "+Integer.toString(pokemon.getSpeed()));}
+		if(pokemon instanceof Magikarp) {
+			pokemon = new Gyarados();
+			pokemon.setName("Gyarados");
+		}
+		if(pokemon instanceof Bulbasaur) {atkLabel.setText("                                                                 "+Integer.toString(pokemon.getAttack()));
+		defLabel.setText("                                                                 "+Integer.toString(pokemon.getDefense()));
+		maxHpLabel.setText("                                                                 "+Integer.toString(pokemon.getmaxHp()));
+		spdLabel.setText("                                                                 "+Integer.toString(pokemon.getSpeed()));}
+		else if(pokemon instanceof Squirtle) {atkLabel.setText("                                                       "+Integer.toString(pokemon.getAttack()));
+		defLabel.setText("                                                       "+Integer.toString(pokemon.getDefense()));
+		maxHpLabel.setText("                                                       "+Integer.toString(pokemon.getmaxHp()));
+		spdLabel.setText("                                                       "+Integer.toString(pokemon.getSpeed()));}
+		else if(pokemon instanceof Pikachu) {atkLabel.setText("                                           "+Integer.toString(pokemon.getAttack()));
+		defLabel.setText("                                           "+Integer.toString(pokemon.getDefense()));
+		maxHpLabel.setText("                                           "+Integer.toString(pokemon.getmaxHp()));
+		spdLabel.setText("                                           "+Integer.toString(pokemon.getSpeed()));}
 	}
 }
