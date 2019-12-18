@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import pokemon.Bulbasaur;
 import pokemon.Charmander;
+import pokemon.Gyarados;
 import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
@@ -37,7 +38,7 @@ public class BattleGraphics extends StackPane {
 			gc.drawImage(backgroundImage, 0, 0);
 			setStyle("-fx-padding: 15;" + 
                     "-fx-background-insets: 5;" + 
-                    "-fx-background-image: url(file:pokemon/border4.png);" +
+                    "-fx-background-image: url(" + ClassLoader.getSystemResource("border4.png").toString() +");" +
                     "-fx-background-size: 460 230;" +
                     "-fx-background-position: top center;" +
                     "-fx-background-repeat: no-repeat;");
@@ -73,6 +74,7 @@ public class BattleGraphics extends StackPane {
 		else if(pokemon instanceof Squirtle) url = "squirtle.png";
 		else if(pokemon instanceof Pikachu) url = "Pikachu.png";
 		else if(pokemon instanceof Magikarp) url = "yo.png";
+		else if(pokemon instanceof Gyarados) url = "Gyarados.png";
 		return url;
 	}
 	
