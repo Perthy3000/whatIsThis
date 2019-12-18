@@ -3,13 +3,13 @@ package exception;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class NameException extends Exception implements Alertable {
+public class CreateCharException extends Exception implements Alertable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String string;
 	
-	public NameException(String string) {
+	public CreateCharException(String string) {
 		this.string = string;
 	}
 

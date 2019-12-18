@@ -3,6 +3,8 @@ package gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.CreateCharException;
+import exception.NoPokemonException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -43,7 +45,6 @@ public class ChoosePokemon extends GridPane {
 		pokeButtons.add(yo3);
 		pokeButtons.add(yo4);
 		pokeButtons.add(yo5);
-		selectedPokken = new Charmander();
 		addRow(1,label);
 		addRow(1, yo3, yo4,yo5);
 		//addRow(2,nextButton);
@@ -91,15 +92,13 @@ public class ChoosePokemon extends GridPane {
 		
 	}
 	
-	public test1 getselectedPokken() {
-		return this.selectedPokken;
+	public test1 getselectedPokken() throws CreateCharException {
+		if(selectedPokken == null) throw new CreateCharException("Choose your pokemon!");
+		return selectedPokken;
 	}
 	
 	public Button getNextButton() {
 		return nextButton;
 	}
 	
-	public test1 getPokemon() {
-		return selectedPokken;
-	}
 }

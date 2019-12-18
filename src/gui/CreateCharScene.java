@@ -23,6 +23,8 @@ import pokemon.Magikarp;
 import pokemon.Pikachu;
 import pokemon.Squirtle;
 import pokemon.test1;
+import exception.CreateCharException;
+import exception.NoPokemonException;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -68,23 +70,30 @@ public class CreateCharScene extends StackPane {
 	}
 	
 	public void updatePoke(test1 pokemon) {
-		switch(createChar.getChoosePokemon().getselectedPokken().getName()) {
+		test1 chosenPokemon;
+		try {
+			chosenPokemon = createChar.getChoosePokemon().getselectedPokken();
+		} catch (CreateCharException e) {
+			e.showAlertBox();
+			return;
+		}
+		switch(chosenPokemon.getName()) {
 	 	case "Charmander":PokeImage.setImage(new Image(ClassLoader.getSystemResource("tenor.gif").toString(), 280, 185.6, false, false)); 
 	 	getChildren().remove(piechart);
-	 	piechart = createChar.getChoosePokemon().getselectedPokken().getPieChart(); 
+	 	piechart = chosenPokemon.getPieChart(); 
 	 	piechart.setMaxSize(320, 320);
 	 	getChildren().add(piechart);break;
 	 	case "Squirtle": 
 	 		//createChar.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false));
 	 	 	getChildren().remove(piechart);
-		 	piechart = createChar.getChoosePokemon().getselectedPokken().getPieChart(); 
+		 	piechart = chosenPokemon.getPieChart(); 
 		 	piechart.setMaxSize(320, 320);
 		 	getChildren().add(piechart);
 	 		PokeImage.setImage(new Image(ClassLoader.getSystemResource("squirtleg.gif").toString(), 160,152, false, false)); break;
 	 	case "Bulbasaur":
 	 		//createChar.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false));
 	 	 	getChildren().remove(piechart);
-		 	piechart = createChar.getChoosePokemon().getselectedPokken().getPieChart();
+		 	piechart = chosenPokemon.getPieChart();
 		 	piechart.setMaxSize(320, 320);
 		 	getChildren().add(piechart);
 	 		PokeImage.setImage(new Image(ClassLoader.getSystemResource("Bulbasaurg.gif").toString(), 160, 175, false, false)); break;
@@ -92,7 +101,8 @@ public class CreateCharScene extends StackPane {
 		}
 	}
 	public void updateChar(String gender) {
-		switch(createChar.getNameInput().getSelectedGender()) {
+		
+		switch(gender) {
 		case "Female" : createChar.setImage(new Image(ClassLoader.getSystemResource("female.png").toString(), 100, 100, false, false)); break;
 		case "Male" : createChar.setImage(new Image(ClassLoader.getSystemResource("male.png").toString(), 100, 100, false, false)); break;
 		default:

@@ -50,7 +50,6 @@ public class Battle {
 			setSkillButton(button);
 			skillButtonList.add(button);
 		}
-		//enemyPokemon = new Magikarp();
 		randomEnemy();
 		this.primaryStage = primaryStage;
 		setSkillBar();

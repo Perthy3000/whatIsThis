@@ -3,7 +3,7 @@ package gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import exception.NameException;
+import exception.CreateCharException;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -59,7 +59,6 @@ public class nameInput extends GridPane {
 		femaleButton = new GenderButton("Female");
 		Buttons.add(maleButton);
 		Buttons.add(femaleButton);
-		selectedGender = "Female";
 		addRow(2,label, nameinput);
 		addRow(2,label2, maleButton,femaleButton);
 		for(GenderButton all : Buttons) {
@@ -95,13 +94,14 @@ public class nameInput extends GridPane {
 		chooseGender(ccs);
 	}
 	
-	public String getSelectedGender() {
-		return this.selectedGender;
+	public String getSelectedGender() throws CreateCharException {
+		if(selectedGender == null) throw new CreateCharException("Choose your gender");
+		return selectedGender;
 	}
 	
-	public String getText() throws NameException {
-		if(nameinput.getText().trim().isBlank() || nameinput.getText().trim().length() > 9) 
-			throw new NameException("Invalid name!");
+	public String getText() throws CreateCharException {
+		if(nameinput.getText().trim().isBlank()) throw new CreateCharException("Enter your name!");
+		if(nameinput.getText().trim().length() > 9) throw new CreateCharException("Name must be between 1-9 charaters");
 		return nameinput.getText().trim();
 	}
 	 
